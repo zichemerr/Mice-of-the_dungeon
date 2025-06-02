@@ -19,7 +19,9 @@ public class Main : MonoBehaviour
         _player.Init();
         _mouseSpawnerController.Init();
         
-        //await _introController.StartIntro();
+#if (!UNITY_EDITOR)
+            await _introController.StartIntro();
+#endif
     }
 
     private void Update()

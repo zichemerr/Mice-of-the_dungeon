@@ -1,4 +1,6 @@
+using NavMeshPlus.Components;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 // This file is auto-generated. Do not modify manually.
@@ -72,9 +74,15 @@ public static class D
     }
     public static class Prefabs
     {
+        public static class IntroCanvas
+        {
+            public static CanvasScaler Canvas => Resources.Load<CanvasScaler>("Prefabs/IntroCanvas/Canvas");
+        }
         public static class Level
         {
             public static GameObject Down_wall => Resources.Load<GameObject>("Prefabs/Level/Down wall");
+            public static NavMeshModifier Ground => Resources.Load<NavMeshModifier>("Prefabs/Level/Ground");
+            public static NavMeshSurface Surface => Resources.Load<NavMeshSurface>("Prefabs/Level/Surface");
             public static GameObject Up_wall => Resources.Load<GameObject>("Prefabs/Level/Up wall");
         }
         public static class Player
