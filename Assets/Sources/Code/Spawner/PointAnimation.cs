@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using UnityEngine;
 
@@ -16,15 +17,10 @@ using UnityEngine;
                 _tween[i] = Play(_containers[i].Transfrom, _containers[i].Data);
             }
         }
-
+        
         private Tween Play(Transform transform, PointAnimationData data)
         {
-            return transform
-                .DOShakePosition(data.Duration,
-                data.Stren,
-                data.Vibrato,
-                data.Random)
-                .SetLoops(-1);
+            return transform.DOShakePosition(data.Duration, data.Stren, data.Vibrato,data.Random).SetLoops(-1);
         }
 
         public void Kill()

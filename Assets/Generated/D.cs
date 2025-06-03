@@ -9,9 +9,14 @@ public static class D
 {
     public static class Art
     {
-        public static Sprite Circle => Resources.Load<Sprite>("Art/Circle");
-        public static Sprite Circle2 => Resources.Load<Sprite>("Art/Circle2");
+        public static class SpawnerPoint
+        {
+            public static Sprite Circle => Resources.Load<Sprite>("Art/SpawnerPoint/Circle");
+            public static Sprite Circle2 => Resources.Load<Sprite>("Art/SpawnerPoint/Circle2");
+        }
+        public static Sprite Circle3 => Resources.Load<Sprite>("Art/Circle3");
         public static Sprite Door => Resources.Load<Sprite>("Art/Door");
+        public static Sprite Door2 => Resources.Load<Sprite>("Art/Door2");
         public static Sprite Mouse => Resources.Load<Sprite>("Art/Mouse");
         public static Sprite ShadowMouse => Resources.Load<Sprite>("Art/ShadowMouse");
         public static Sprite Wall => Resources.Load<Sprite>("Art/Wall");
@@ -22,12 +27,6 @@ public static class D
         public static AudioClip Click => Resources.Load<AudioClip>("Audio/Click");
         public static AudioClip kill => Resources.Load<AudioClip>("Audio/kill");
         public static AudioClip Write => Resources.Load<AudioClip>("Audio/Write");
-    }
-    public static class Data
-    {
-        public static class Audio
-        {
-        }
     }
     public static class Fonts
     {
@@ -74,20 +73,29 @@ public static class D
     }
     public static class Prefabs
     {
+        public static class Door
+        {
+            public static GameObject Exit => Resources.Load<GameObject>("Prefabs/Door/Exit");
+            public static ImporterController Importer => Resources.Load<ImporterController>("Prefabs/Door/Importer");
+        }
         public static class IntroCanvas
         {
             public static CanvasScaler Canvas => Resources.Load<CanvasScaler>("Prefabs/IntroCanvas/Canvas");
         }
         public static class Level
         {
-            public static GameObject Down_wall => Resources.Load<GameObject>("Prefabs/Level/Down wall");
             public static NavMeshModifier Ground => Resources.Load<NavMeshModifier>("Prefabs/Level/Ground");
             public static NavMeshSurface Surface => Resources.Load<NavMeshSurface>("Prefabs/Level/Surface");
-            public static GameObject Up_wall => Resources.Load<GameObject>("Prefabs/Level/Up wall");
+            public static GameObject Wall => Resources.Load<GameObject>("Prefabs/Level/Wall");
         }
         public static class Player
         {
             public static Mouse Mouse => Resources.Load<Mouse>("Prefabs/Player/Mouse");
+        }
+        public static class SpanwerPoint
+        {
+            public static GameObject Point => Resources.Load<GameObject>("Prefabs/SpanwerPoint/Point");
+            public static PointSpawner PointSpawner => Resources.Load<PointSpawner>("Prefabs/SpanwerPoint/PointSpawner");
         }
         public static AudioSorceContainer AudioContainer => Resources.Load<AudioSorceContainer>("Prefabs/AudioContainer");
     }

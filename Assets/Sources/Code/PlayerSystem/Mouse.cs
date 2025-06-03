@@ -5,7 +5,7 @@ using TMPro;
 
     [RequireComponent(typeof(Rigidbody2D))]
     [RequireComponent(typeof(NavMeshAgent))]
-    public class Mouse : MonoBehaviour
+    public class Mouse : MonoBehaviour, IImportable
     {
         [SerializeField] private SpriteRenderer _spriteRenderer;
         [SerializeField] private WalkAnimation _walkAnimation;

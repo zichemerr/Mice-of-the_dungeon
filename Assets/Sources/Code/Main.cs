@@ -1,27 +1,29 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 
 public class Main : MonoBehaviour
 {
     [SerializeField] private Player _player;
     [SerializeField] private IntroController _introController;
     [SerializeField] private MouseSpawnerController _mouseSpawnerController;
+    [SerializeField] private ImporterController _importerController;
     
     private AudioSystem _audioSystem;
     
-    private async void Start()
+    private void Start()
     {
         CMS.Init();
         _audioSystem = new AudioSystem();
         G.audio = _audioSystem;
         _player.Init();
         _mouseSpawnerController.Init();
+        _importerController.Init();
         
-#if (!UNITY_EDITOR)
-            await _introController.StartIntro();
-#endif
+// #if (UNITY_EDITOR)
+//         await UniTask.WaitForSeconds(0);
+// #else
+//         await _introController.StartIntro();
+// #endif
     }
 
     private void Update()

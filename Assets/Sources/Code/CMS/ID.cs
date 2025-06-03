@@ -9,8 +9,8 @@ static class ID<T>
         return cache;
     }
     
-    public static string Get<T>()
-    {
-        return ID<T>.Get();
-    }
+    // public static string Get<T>()
+    // {
+    //     return ID<T>.Get();
+    // }
 }
