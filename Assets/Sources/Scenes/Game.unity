@@ -643,8 +643,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3be62782c7304acab4d6d1c70127c17d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spriteRenderer: {fileID: 0}
-  _image: {fileID: 0}
+  _spriteRenderer: {fileID: 1544668059}
+  _image: {fileID: 1250269135}
 --- !u!4 &1786205906 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 568246075815594256, guid: b58e09d80356cd94ab0bda5c109182cb, type: 3}
@@ -709,6 +709,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 1833593242092516080, guid: 48df5b29001b9364b9ec7768515c7cde, type: 3}
+      propertyPath: _ghostView
+      value: 
+      objectReference: {fileID: 1744074845}
     - target: {fileID: 1833593242092516080, guid: 48df5b29001b9364b9ec7768515c7cde, type: 3}
       propertyPath: _playerInput
       value: 
