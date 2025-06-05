@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 public class Main : MonoBehaviour
 {
@@ -7,23 +8,23 @@ public class Main : MonoBehaviour
     [SerializeField] private IntroController _introController;
     [SerializeField] private MouseSpawnerController _mouseSpawnerController;
     [SerializeField] private ImporterController _importerController;
+    [FormerlySerializedAs("_door")] [SerializeField] private DoorController doorController;
     
     private AudioSystem _audioSystem;
     
-    private void Start()
+    private async void Start()
     {
         CMS.Init();
         _audioSystem = new AudioSystem();
         G.audio = _audioSystem;
         _player.Init();
         _mouseSpawnerController.Init();
+        doorController.Init(_importerController);
         _importerController.Init();
-        
-// #if (UNITY_EDITOR)
-//         await UniTask.WaitForSeconds(0);
-// #else
-//         await _introController.StartIntro();
-// #endif
+
+#if (!UNITY_EDITOR)
+            await _introController.StartIntro();
+#endif
     }
 
     private void Update()

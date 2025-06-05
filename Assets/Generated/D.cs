@@ -75,7 +75,7 @@ public static class D
     {
         public static class Door
         {
-            public static GameObject Exit => Resources.Load<GameObject>("Prefabs/Door/Exit");
+            public static DoorController Exit => Resources.Load<DoorController>("Prefabs/Door/Exit");
             public static ImporterController Importer => Resources.Load<ImporterController>("Prefabs/Door/Importer");
         }
         public static class IntroCanvas
