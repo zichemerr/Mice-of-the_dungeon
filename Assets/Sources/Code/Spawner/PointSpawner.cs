@@ -4,13 +4,15 @@ using UnityEngine;
 public class PointSpawner : MonoBehaviour
 {
     [SerializeField] private PointAnimation _pointAnimation;
-    [SerializeField] private Transform _point;
+    [SerializeField] private Transform _point; 
     [SerializeField] private int _spawnCount;
 
     public event Action<Vector2, int, PointSpawner> Entered;
 
-    public void Init()
+    public void Init(int spawnCount)
     {
+        Debug.Log("Init");
+        _spawnCount = spawnCount;
         _pointAnimation.Init();
     }
 

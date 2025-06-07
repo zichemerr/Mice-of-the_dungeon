@@ -1,6 +1,7 @@
+using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 
 public class Main : MonoBehaviour
 {
@@ -8,25 +9,35 @@ public class Main : MonoBehaviour
     [SerializeField] private IntroController _introController;
     [SerializeField] private MouseSpawnerController _mouseSpawnerController;
     [SerializeField] private ImporterController _importerController;
-    [FormerlySerializedAs("_door")] [SerializeField] private DoorController doorController;
+    [SerializeField] private DoorController _doorController;
+    [SerializeField] private BoxController _boxController;
     
     private AudioSystem _audioSystem;
     
-    private async void Start()
+    private void Start()
     {
         CMS.Init();
         _audioSystem = new AudioSystem();
         G.audio = _audioSystem;
         _player.Init();
+        _boxController.Init(_mouseSpawnerController);
         _mouseSpawnerController.Init();
-        doorController.Init(_importerController);
+        _doorController.Init(_importerController);
         _importerController.Init();
 
-#if (!UNITY_EDITOR)
-            await _introController.StartIntro();
-#endif
+        var entity = CMS.Get<LevelsEntity>();
+        if (entity.Is<TagLevels>(out var tag))
+        {
+            List<BoxObject> boxes = new List<BoxObject>();
+            var level = tag.Levels[0];
+            
+            for (int i = 0; i < level.BoxObjectCount; i++)
+                boxes.Add(level.GetBoxObject(i));
+            
+            foreach (var box in boxes)
+                _boxController.SpawnBox(box);
+        }
     }
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))

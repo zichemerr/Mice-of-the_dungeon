@@ -14,6 +14,7 @@ public static class D
             public static Sprite Circle => Resources.Load<Sprite>("Art/SpawnerPoint/Circle");
             public static Sprite Circle2 => Resources.Load<Sprite>("Art/SpawnerPoint/Circle2");
         }
+        public static Sprite Box => Resources.Load<Sprite>("Art/Box");
         public static Sprite Circle3 => Resources.Load<Sprite>("Art/Circle3");
         public static Sprite Door => Resources.Load<Sprite>("Art/Door");
         public static Sprite Door2 => Resources.Load<Sprite>("Art/Door2");
@@ -82,11 +83,16 @@ public static class D
         {
             public static CanvasScaler Canvas => Resources.Load<CanvasScaler>("Prefabs/IntroCanvas/Canvas");
         }
-        public static class Level
+        public static class LevelObjects
         {
-            public static NavMeshModifier Ground => Resources.Load<NavMeshModifier>("Prefabs/Level/Ground");
-            public static NavMeshSurface Surface => Resources.Load<NavMeshSurface>("Prefabs/Level/Surface");
-            public static GameObject Wall => Resources.Load<GameObject>("Prefabs/Level/Wall");
+            public static NavMeshModifier Ground => Resources.Load<NavMeshModifier>("Prefabs/LevelObjects/Ground");
+            public static NavMeshSurface Surface => Resources.Load<NavMeshSurface>("Prefabs/LevelObjects/Surface");
+            public static GameObject Wall => Resources.Load<GameObject>("Prefabs/LevelObjects/Wall");
+        }
+        public static class Levels
+        {
+            public static Level Level_Variant => Resources.Load<Level>("Prefabs/Levels/Level Variant");
+            public static Level Level => Resources.Load<Level>("Prefabs/Levels/Level");
         }
         public static class Player
         {
@@ -98,5 +104,6 @@ public static class D
             public static PointSpawner PointSpawner => Resources.Load<PointSpawner>("Prefabs/SpanwerPoint/PointSpawner");
         }
         public static AudioSorceContainer AudioContainer => Resources.Load<AudioSorceContainer>("Prefabs/AudioContainer");
+        public static Box Box => Resources.Load<Box>("Prefabs/Box");
     }
 }

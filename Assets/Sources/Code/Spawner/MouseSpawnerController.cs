@@ -1,13 +1,16 @@
 ﻿using UnityEngine;
 using System;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine.Serialization;
 
 public class MouseSpawnerController : MonoBehaviour
 {
-    [SerializeField] private PointSpawner[] _pointSpawner;
     [SerializeField] private Transform _spawnPoint;
     [SerializeField] private Mouse _mousePrefab;
     [SerializeField] private int _spawnCount = 1;
 
+    private List<PointSpawner> _pointsSpawner = new List<PointSpawner>();
     private MouseSpawner _spawner;
 
     public Vector2 SpawnPoint => _spawnPoint.position;
@@ -21,17 +24,14 @@ public class MouseSpawnerController : MonoBehaviour
         {
             Spawn(_spawner.Spawn(), _spawnPoint.position);
         }
-
-        foreach (var pointSpawner in _pointSpawner)
-        {
-            pointSpawner.Init();
-            pointSpawner.Entered += OnEntered;
-        }
     }
 
     private void OnDisable()
     {
-        foreach (var pointSpawner in _pointSpawner)
+        if (_pointsSpawner == null)
+            return;
+        
+        foreach (var pointSpawner in _pointsSpawner)
             pointSpawner.Entered -= OnEntered;
     }
 
@@ -62,5 +62,17 @@ public class MouseSpawnerController : MonoBehaviour
     public Mouse Spawn(Vector2 position)
     {
         return Spawn(_spawner.Spawn(), position);
+    }
+
+    public PointSpawner SpawnPointSpawner(Vector2 position, Quaternion rotation)
+    {
+        PointSpawner pointSpawner = Instantiate(D.Prefabs.SpanwerPoint.PointSpawner);
+        
+        _pointsSpawner.Add(pointSpawner);
+        pointSpawner.Entered += OnEntered;
+        pointSpawner.transform.position = position;
+        pointSpawner.transform.rotation = rotation;
+
+        return pointSpawner;
     }
 }
