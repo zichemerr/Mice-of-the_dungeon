@@ -11,7 +11,6 @@ public class PointSpawner : MonoBehaviour
 
     public void Init(int spawnCount)
     {
-        Debug.Log("Init");
         _spawnCount = spawnCount;
         _pointAnimation.Init();
     }

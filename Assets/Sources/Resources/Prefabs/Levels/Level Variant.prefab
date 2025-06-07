@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &269089904748339488
+--- !u!1001 &7408296603041418595
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -57,20 +57,84 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3506950856970726071, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
+      propertyPath: _walls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3506950856970726071, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
+      propertyPath: _pointsSpawner.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3506950856970726071, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
+      propertyPath: _walls.Array.data[0].<Width>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3506950856970726071, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
+      propertyPath: _walls.Array.data[1].<Width>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3506950856970726071, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
+      propertyPath: _walls.Array.data[0].<Height>k__BackingField
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3506950856970726071, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
+      propertyPath: _walls.Array.data[1].<Height>k__BackingField
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3506950856970726071, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
       propertyPath: _boxes.Array.data[0].<Position>k__BackingField.x
-      value: 3.07
+      value: -5.3
       objectReference: {fileID: 0}
     - target: {fileID: 3506950856970726071, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
       propertyPath: _boxes.Array.data[0].<Position>k__BackingField.y
-      value: 0.11
+      value: -0.13
       objectReference: {fileID: 0}
     - target: {fileID: 3506950856970726071, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
       propertyPath: _boxes.Array.data[0].<Rotation>k__BackingField.w
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3506950856970726071, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
+      propertyPath: _walls.Array.data[0].<Position>k__BackingField.x
+      value: -5.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3506950856970726071, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
+      propertyPath: _walls.Array.data[0].<Position>k__BackingField.y
+      value: 3.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 3506950856970726071, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
+      propertyPath: _walls.Array.data[0].<Rotation>k__BackingField.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3506950856970726071, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
+      propertyPath: _walls.Array.data[1].<Position>k__BackingField.x
+      value: -5.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3506950856970726071, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
+      propertyPath: _walls.Array.data[1].<Position>k__BackingField.y
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3506950856970726071, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
+      propertyPath: _walls.Array.data[1].<Rotation>k__BackingField.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3506950856970726071, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
+      propertyPath: _pointsSpawner.Array.data[0].<Position>k__BackingField.x
+      value: -7.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 3506950856970726071, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
+      propertyPath: _pointsSpawner.Array.data[0].<Rotation>k__BackingField.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3506950856970726071, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
+      propertyPath: _pointsSpawner.Array.data[0].<SpawnCount>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3506950856970726071, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
+      propertyPath: _boxes.Array.data[0].<SpawnerPoint>k__BackingField.<Position>k__BackingField.x
+      value: 3.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 3506950856970726071, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
       propertyPath: _boxes.Array.data[0].<SpawnerPoint>k__BackingField.<Position>k__BackingField.y
-      value: 2
+      value: -2.99
       objectReference: {fileID: 0}
     - target: {fileID: 3506950856970726071, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
       propertyPath: _boxes.Array.data[0].<SpawnerPoint>k__BackingField.<Rotation>k__BackingField.w
@@ -78,7 +142,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3506950856970726071, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
       propertyPath: _boxes.Array.data[0].<SpawnerPoint>k__BackingField.<SpawnCount>k__BackingField
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
