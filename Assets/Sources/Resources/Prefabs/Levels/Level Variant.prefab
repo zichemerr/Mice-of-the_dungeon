@@ -1,151 +1,83 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &7408296603041418595
-PrefabInstance:
+--- !u!1 &5359792231369108617
+GameObject:
   m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9095668056681518840}
+  - component: {fileID: 6225311395844040660}
+  m_Layer: 0
+  m_Name: Level Variant
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9095668056681518840
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5359792231369108617}
   serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1798558488089779099, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1798558488089779099, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1798558488089779099, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1798558488089779099, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1798558488089779099, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1798558488089779099, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1798558488089779099, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1798558488089779099, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1798558488089779099, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1798558488089779099, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3219581295766217194, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
-      propertyPath: m_Name
-      value: Level Variant
-      objectReference: {fileID: 0}
-    - target: {fileID: 3506950856970726071, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
-      propertyPath: _boxes.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3506950856970726071, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
-      propertyPath: _walls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3506950856970726071, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
-      propertyPath: _pointsSpawner.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3506950856970726071, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
-      propertyPath: _walls.Array.data[0].<Width>k__BackingField
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3506950856970726071, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
-      propertyPath: _walls.Array.data[1].<Width>k__BackingField
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3506950856970726071, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
-      propertyPath: _walls.Array.data[0].<Height>k__BackingField
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3506950856970726071, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
-      propertyPath: _walls.Array.data[1].<Height>k__BackingField
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3506950856970726071, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
-      propertyPath: _boxes.Array.data[0].<Position>k__BackingField.x
-      value: -5.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3506950856970726071, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
-      propertyPath: _boxes.Array.data[0].<Position>k__BackingField.y
-      value: -0.13
-      objectReference: {fileID: 0}
-    - target: {fileID: 3506950856970726071, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
-      propertyPath: _boxes.Array.data[0].<Rotation>k__BackingField.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3506950856970726071, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
-      propertyPath: _walls.Array.data[0].<Position>k__BackingField.x
-      value: -5.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3506950856970726071, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
-      propertyPath: _walls.Array.data[0].<Position>k__BackingField.y
-      value: 3.19
-      objectReference: {fileID: 0}
-    - target: {fileID: 3506950856970726071, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
-      propertyPath: _walls.Array.data[0].<Rotation>k__BackingField.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3506950856970726071, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
-      propertyPath: _walls.Array.data[1].<Position>k__BackingField.x
-      value: -5.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3506950856970726071, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
-      propertyPath: _walls.Array.data[1].<Position>k__BackingField.y
-      value: -4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3506950856970726071, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
-      propertyPath: _walls.Array.data[1].<Rotation>k__BackingField.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3506950856970726071, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
-      propertyPath: _pointsSpawner.Array.data[0].<Position>k__BackingField.x
-      value: -7.36
-      objectReference: {fileID: 0}
-    - target: {fileID: 3506950856970726071, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
-      propertyPath: _pointsSpawner.Array.data[0].<Rotation>k__BackingField.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3506950856970726071, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
-      propertyPath: _pointsSpawner.Array.data[0].<SpawnCount>k__BackingField
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3506950856970726071, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
-      propertyPath: _boxes.Array.data[0].<SpawnerPoint>k__BackingField.<Position>k__BackingField.x
-      value: 3.56
-      objectReference: {fileID: 0}
-    - target: {fileID: 3506950856970726071, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
-      propertyPath: _boxes.Array.data[0].<SpawnerPoint>k__BackingField.<Position>k__BackingField.y
-      value: -2.99
-      objectReference: {fileID: 0}
-    - target: {fileID: 3506950856970726071, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
-      propertyPath: _boxes.Array.data[0].<SpawnerPoint>k__BackingField.<Rotation>k__BackingField.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3506950856970726071, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
-      propertyPath: _boxes.Array.data[0].<SpawnerPoint>k__BackingField.<SpawnCount>k__BackingField
-      value: 3
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 4159a61037663fa4eb96e2ae250751f8, type: 3}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6225311395844040660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5359792231369108617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c76ed098cde729488521a4f797c5ef2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _boxes:
+  - <Transform>k__BackingField: {fileID: 0}
+    <Position>k__BackingField: {x: -5.3, y: -0.13}
+    <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 1}
+    <SpawnerPoint>k__BackingField:
+      <Transform>k__BackingField: {fileID: 0}
+      <Position>k__BackingField: {x: 3.56, y: -2.99}
+      <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 1}
+      <SpawnCount>k__BackingField: 3
+    <SpawnerPointIsNull>k__BackingField: 0
+  _pointsSpawner:
+  - <Transform>k__BackingField: {fileID: 0}
+    <Position>k__BackingField: {x: -7.36, y: 0}
+    <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 1}
+    <SpawnCount>k__BackingField: 1
+  _walls:
+  - <Transform>k__BackingField: {fileID: 0}
+    <Position>k__BackingField: {x: -5.3, y: 3.19}
+    <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 1}
+    _spriteRenderer: {fileID: 0}
+    <Width>k__BackingField: 1
+    <Height>k__BackingField: 4
+  - <Transform>k__BackingField: {fileID: 0}
+    <Position>k__BackingField: {x: -5.3, y: -4}
+    <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 1}
+    _spriteRenderer: {fileID: 0}
+    <Width>k__BackingField: 1
+    <Height>k__BackingField: 5
+  _door:
+    <Transform>k__BackingField: {fileID: 0}
+    <Position>k__BackingField: {x: -5.64, y: 4}
+    <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 1}
+  _importer:
+    <Transform>k__BackingField: {fileID: 0}
+    <Position>k__BackingField: {x: 4, y: 1.37}
+    <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 1}
+  _importerCount: 4

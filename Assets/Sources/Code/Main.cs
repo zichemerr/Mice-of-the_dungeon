@@ -9,9 +9,9 @@ public class Main : MonoBehaviour
     [SerializeField] private Player _player;
     [SerializeField] private IntroController _introController;
     [SerializeField] private MouseSpawnerController _mouseSpawnerController;
-    [SerializeField] private ImporterController _importerController;
-    [SerializeField] private DoorController _doorController;
     [SerializeField] private BoxController _boxController;
+    [SerializeField] private GhostView _ghostView;
+    [SerializeField] private PlayerInput _playerInput;
     
     private AudioSystem _audioSystem;
     
@@ -23,8 +23,6 @@ public class Main : MonoBehaviour
         _player.Init();
         _boxController.Init(_mouseSpawnerController);
         _mouseSpawnerController.Init();
-        _doorController.Init(_importerController);
-        _importerController.Init();
 
         var entity = CMS.Get<LevelsEntity>();
         if (entity.Is<TagLevels>(out var tag))
@@ -61,6 +59,16 @@ public class Main : MonoBehaviour
             
             foreach (var box in boxes)
                 _boxController.SpawnBox(box);
+            
+            ImporterController importerController =Instantiate(D.Prefabs.Door.Importer);
+            importerController.Init(level.ImporterCount, _ghostView, _playerInput);
+            importerController.transform.position = level.Importer.Position;
+            importerController.transform.rotation = level.Importer.Rotation;
+            
+            DoorController door = Instantiate(D.Prefabs.Door.Exit);
+            door.Init(importerController);
+            door.transform.position = level.Door.Position;
+            door.transform.rotation = level.Door.Rotation;
         }
     }
     private void Update()

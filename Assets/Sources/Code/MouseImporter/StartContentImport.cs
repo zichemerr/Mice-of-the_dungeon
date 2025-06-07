@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class StartContentImport : MouseDeathBehaviour
 {
-    [SerializeField] private PlayerInput _playerInput;
-    [SerializeField] private GhostView _ghostView;
+    private PlayerInput _playerInput;
+    private GhostView _ghostView;
 
-    public override void Init()
+    public override void Init(GhostView ghostView, PlayerInput playerInput)
     {
-
+        _playerInput = playerInput;
+        _ghostView = ghostView;
     }
 
     public override IEnumerator DeathRoutine(List<IImportable> importable)

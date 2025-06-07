@@ -20,10 +20,11 @@ using DG.Tweening;
         public event Action Impotred;
         public int ImportCount => _importCount;
 
-        public void Init()
+        public void Init(int imptCount, GhostView ghostView, PlayerInput playerInput)
         {
+            _importCount = imptCount;
             _importables = new List<IImportable>();
-            _mouseDeath.Init();
+            _mouseDeath.Init(ghostView, playerInput);
 
             _view.Init(_importCount);
 
