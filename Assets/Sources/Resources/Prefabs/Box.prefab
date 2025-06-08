@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6862914085711331763
 Transform:
   m_ObjectHideFlags: 0
@@ -75,7 +75,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 6360422635726239085}
-  _pointSpawner: {fileID: 0}
   _spriteRenderer: {fileID: 4216982853724308660}
 --- !u!61 &4699901903980108086
 BoxCollider2D:

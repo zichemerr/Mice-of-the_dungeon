@@ -64,15 +64,9 @@ public class MouseSpawnerController : MonoBehaviour
         return Spawn(_spawner.Spawn(), position);
     }
 
-    public PointSpawner SpawnPointSpawner(Vector2 position, Quaternion rotation)
+    public void AddPointSpawner(PointSpawner pointSpawner)
     {
-        PointSpawner pointSpawner = Instantiate(D.Prefabs.SpanwerPoint.PointSpawner);
-        
         _pointsSpawner.Add(pointSpawner);
         pointSpawner.Entered += OnEntered;
-        pointSpawner.transform.position = position;
-        pointSpawner.transform.rotation = rotation;
-
-        return pointSpawner;
     }
 }

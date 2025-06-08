@@ -21,7 +21,7 @@ public class PointSpawner : MonoBehaviour
         {
             Entered?.Invoke(_point.position, _spawnCount, this);
             _pointAnimation.Kill();
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

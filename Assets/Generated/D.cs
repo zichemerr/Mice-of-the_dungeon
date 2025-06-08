@@ -87,7 +87,7 @@ public static class D
         {
             public static NavMeshModifier Ground => Resources.Load<NavMeshModifier>("Prefabs/LevelObjects/Ground");
             public static NavMeshSurface Surface => Resources.Load<NavMeshSurface>("Prefabs/LevelObjects/Surface");
-            public static GameObject Wall => Resources.Load<GameObject>("Prefabs/LevelObjects/Wall");
+            public static Wall Wall => Resources.Load<Wall>("Prefabs/LevelObjects/Wall");
         }
         public static class Levels
         {

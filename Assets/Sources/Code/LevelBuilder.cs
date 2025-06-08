@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class LevelBuilder : MonoBehaviour
 {
+    [SerializeField] private BuildMaterials _materials;
+    
     private GhostView _ghostView;
     private MouseSpawnerController _mouseSpawnerController;
     private BoxController _boxController;
@@ -10,6 +12,7 @@ public class LevelBuilder : MonoBehaviour
     
     public void Init(GhostView ghostView, MouseSpawnerController mouseSpawnerController, BoxController boxController, PlayerInput playerInput)
     {
+        _materials.Init();
         _ghostView = ghostView;
         _mouseSpawnerController = mouseSpawnerController;
         _boxController = boxController;
@@ -22,48 +25,46 @@ public class LevelBuilder : MonoBehaviour
         
         if (entity.Is<TagLevels>(out var tag))
         {
-            List<BoxObject> boxes = new List<BoxObject>();
-            List<WallObject> walls = new List<WallObject>();
-            List<PointSpawnerObject> pointSpawner = new List<PointSpawnerObject>();
-            
             var level = tag.Levels[levelIndex - 1];
-
-            for (int i = 0; i < level.PointSpawnerObjectCount; i++)
-                pointSpawner.Add(level.GetPointSpawnerObject(i));
+            
+            ImporterController importer = _materials.GetImporter(level.Importer.Position, level.Importer.Rotation);
+            DoorController door = _materials.GetDoor(level.Door.Position, level.Door.Rotation);
+            
+            door.Init(importer);
+            importer.Init(level.ImporterCount, _ghostView, _playerInput);
             
             for (int i = 0; i < level.WallObjectCount; i++)
-                walls.Add(level.GetWallObject(i));
-            
-            for (int i = 0; i < level.BoxObjectCount; i++)
-                boxes.Add(level.GetBoxObject(i));
+            {
+                WallObject wallObject = level.GetWallObject(i);
+                _materials.GetWall(wallObject.Position, wallObject.Rotation, wallObject.Width, wallObject.Height);
+            }
 
-            foreach (var point in pointSpawner)
+            for (int i = 0; i < level.BoxObjectCount; i++)
             {
-                PointSpawner prefab = _mouseSpawnerController.SpawnPointSpawner(point.Position, point.Rotation);
-                prefab.Init(point.SpawnCount);
+                BoxObject boxObject = level.GetBoxObject(i);
+                Box box = _materials.GetBox(boxObject.Position, boxObject.Rotation);
+
+                if (boxObject.SpawnerPointIsNull == false)
+                {
+                    PointSpawnerObject buildObject = boxObject.SpawnerPoint;
+                    PointSpawner pointSpawner = _materials.GetPointSpawner(buildObject.Position, buildObject.Rotation);
+                    _mouseSpawnerController.AddPointSpawner(pointSpawner);
+                    pointSpawner.Init(buildObject.SpawnCount);
+                    box.Init(pointSpawner);
+                }
             }
-            
-            foreach (var wall in walls)
-            {
-                GameObject prefab = Instantiate(D.Prefabs.LevelObjects.Wall);
-                prefab.transform.position = wall.Position;
-                prefab.transform.rotation = wall.Rotation;
-                SpriteRenderer spriteRenderer = prefab.GetComponent<SpriteRenderer>();
-                spriteRenderer.size = new Vector2(wall.Width, wall.Height);
-            }
-            
-            foreach (var box in boxes)
-                _boxController.SpawnBox(box);
-            
-            ImporterController importerController =Instantiate(D.Prefabs.Door.Importer);
-            importerController.Init(level.ImporterCount, _ghostView, _playerInput);
-            importerController.transform.position = level.Importer.Position;
-            importerController.transform.rotation = level.Importer.Rotation;
-            
-            DoorController door = Instantiate(D.Prefabs.Door.Exit);
-            door.Init(importerController);
-            door.transform.position = level.Door.Position;
-            door.transform.rotation = level.Door.Rotation;
         }
+    }
+
+    [ContextMenu("Clear")]
+    public void Build()
+    {
+        _materials.ClearLevel();
+        BuildLevel(1);
+    }
+    
+    public void ClearLevel()
+    {
+        _materials.ClearLevel();
     }
 }
