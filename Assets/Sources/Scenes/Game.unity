@@ -751,6 +751,7 @@ GameObject:
   - component: {fileID: 1744074844}
   - component: {fileID: 1744074845}
   - component: {fileID: 1744074846}
+  - component: {fileID: 1744074847}
   m_Layer: 0
   m_Name: Main
   m_TagString: Untagged
@@ -789,6 +790,10 @@ MonoBehaviour:
   _introController: {fileID: 1744074840}
   _mouseSpawnerController: {fileID: 1744074841}
   _boxController: {fileID: 1744074846}
+  _ghostView: {fileID: 1744074845}
+  _playerInput: {fileID: 1744074844}
+  _levelBuilder: {fileID: 1744074847}
+  LEVEL: 1
 --- !u!114 &1744074839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -899,6 +904,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e1f611bb703b4b69ba0844edf31f428d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1744074847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744074836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d82c3b239f73dc4cbbebea7a1428d2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1883008269

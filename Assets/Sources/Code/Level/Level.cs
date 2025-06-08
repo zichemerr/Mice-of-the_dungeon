@@ -20,7 +20,6 @@ public class Level : MonoBehaviour
     public BoxObject GetBoxObject(int index) => _boxes[index];
     public PointSpawnerObject GetPointSpawnerObject(int index) => _pointsSpawner[index];
     public WallObject GetWallObject(int index) => _walls[index];
-    
 
     [ContextMenu("LoadData")]
     private void LoadData()
@@ -60,7 +59,7 @@ public class WallObject : BuildObject
 public class BoxObject : BuildObject
 {
     [field: SerializeField] public PointSpawnerObject SpawnerPoint { get; private set; }
-    [field: SerializeField] public bool SpawnerPointIsNull { get; private set; }
+    [field: SerializeField] public bool SpawnerPointIsNull { get; private set; } = true;
 
     public override void Init()
     {
@@ -84,12 +83,12 @@ public class BuildObject
     [field: SerializeField] public Transform Transform { get; private set; }
     [field: SerializeField] public Vector2 Position { get; private set; }
     [field: SerializeField] public Quaternion Rotation { get; private set; }
-    
+
     public virtual void Init()
     {
         if (Transform == null)
             return;
-        
+
         Position = Transform.position;
         Rotation = Transform.rotation;
     }

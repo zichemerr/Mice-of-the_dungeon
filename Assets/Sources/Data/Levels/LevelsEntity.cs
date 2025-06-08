@@ -6,7 +6,8 @@ public class LevelsEntity : CMSEntity
     {
         Define<TagLevels>().Levels = new List<Level>
         {
-            D.Prefabs.Levels.Level_Variant
+            D.Prefabs.Levels.Level_Variant,
+            D.Prefabs.Levels.Level_Variant_1
         };
     }
 }

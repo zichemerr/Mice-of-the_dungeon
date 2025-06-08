@@ -1,6 +1,3 @@
-using System.Collections.Generic;
-using Cysharp.Threading.Tasks;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,6 +9,9 @@ public class Main : MonoBehaviour
     [SerializeField] private BoxController _boxController;
     [SerializeField] private GhostView _ghostView;
     [SerializeField] private PlayerInput _playerInput;
+    [SerializeField] private LevelBuilder _levelBuilder;
+    
+    public int LEVEL;
     
     private AudioSystem _audioSystem;
     
@@ -23,53 +23,9 @@ public class Main : MonoBehaviour
         _player.Init();
         _boxController.Init(_mouseSpawnerController);
         _mouseSpawnerController.Init();
-
-        var entity = CMS.Get<LevelsEntity>();
-        if (entity.Is<TagLevels>(out var tag))
-        {
-            List<BoxObject> boxes = new List<BoxObject>();
-            List<WallObject> walls = new List<WallObject>();
-            List<PointSpawnerObject> pointSpawner = new List<PointSpawnerObject>();
-            
-            var level = tag.Levels[0];
-
-            for (int i = 0; i < level.PointSpawnerObjectCount; i++)
-                pointSpawner.Add(level.GetPointSpawnerObject(i));
-            
-            for (int i = 0; i < level.WallObjectCount; i++)
-                walls.Add(level.GetWallObject(i));
-            
-            for (int i = 0; i < level.BoxObjectCount; i++)
-                boxes.Add(level.GetBoxObject(i));
-
-            foreach (var point in pointSpawner)
-            {
-                PointSpawner prefab = _mouseSpawnerController.SpawnPointSpawner(point.Position, point.Rotation);
-                prefab.Init(point.SpawnCount);
-            }
-            
-            foreach (var wall in walls)
-            {
-                GameObject prefab = Instantiate(D.Prefabs.LevelObjects.Wall);
-                prefab.transform.position = wall.Position;
-                prefab.transform.rotation = wall.Rotation;
-                SpriteRenderer spriteRenderer = prefab.GetComponent<SpriteRenderer>();
-                spriteRenderer.size = new Vector2(wall.Width, wall.Height);
-            }
-            
-            foreach (var box in boxes)
-                _boxController.SpawnBox(box);
-            
-            ImporterController importerController =Instantiate(D.Prefabs.Door.Importer);
-            importerController.Init(level.ImporterCount, _ghostView, _playerInput);
-            importerController.transform.position = level.Importer.Position;
-            importerController.transform.rotation = level.Importer.Rotation;
-            
-            DoorController door = Instantiate(D.Prefabs.Door.Exit);
-            door.Init(importerController);
-            door.transform.position = level.Door.Position;
-            door.transform.rotation = level.Door.Rotation;
-        }
+        _levelBuilder.Init(_ghostView, _mouseSpawnerController, _boxController, _playerInput);
+        
+        _levelBuilder.BuildLevel(LEVEL);
     }
     private void Update()
     {

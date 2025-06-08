@@ -91,6 +91,7 @@ public static class D
         }
         public static class Levels
         {
+            public static Level Level_Variant_1 => Resources.Load<Level>("Prefabs/Levels/Level Variant 1");
             public static Level Level_Variant => Resources.Load<Level>("Prefabs/Levels/Level Variant");
             public static Level Level => Resources.Load<Level>("Prefabs/Levels/Level");
         }
