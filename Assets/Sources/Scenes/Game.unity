@@ -794,7 +794,7 @@ MonoBehaviour:
   _ghostView: {fileID: 1744074845}
   _playerInput: {fileID: 1744074844}
   _levelBuilder: {fileID: 1744074847}
-  LEVEL: 2
+  LEVEL: 1
 --- !u!114 &1744074839
 MonoBehaviour:
   m_ObjectHideFlags: 0
