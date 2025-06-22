@@ -11,9 +11,8 @@ public class Main : MonoBehaviour
     [SerializeField] private PlayerInput _playerInput;
     [SerializeField] private LevelBuilder _levelBuilder;
     
-    public int LEVEL;
-    
     private AudioSystem _audioSystem;
+    private Level _level;
     
     private void Start()
     {
@@ -24,9 +23,11 @@ public class Main : MonoBehaviour
         _boxController.Init(_mouseSpawnerController);
         _mouseSpawnerController.Init();
         _levelBuilder.Init(_ghostView, _mouseSpawnerController, _boxController, _playerInput);
-        
-        _levelBuilder.BuildLevel(LEVEL);
+        _level = new Level(_levelBuilder);
+        G.level = _level;
+        _level.Init();
     }
+    
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
@@ -39,4 +40,5 @@ public class Main : MonoBehaviour
 public static class G
 {
     public static AudioSystem audio;
+    public static Level level;
 }

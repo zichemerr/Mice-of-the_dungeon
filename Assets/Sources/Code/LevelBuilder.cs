@@ -4,13 +4,14 @@ using UnityEngine;
 public class LevelBuilder : MonoBehaviour
 {
     [SerializeField] private BuildMaterials _materials;
-    
+
     private GhostView _ghostView;
     private MouseSpawnerController _mouseSpawnerController;
     private BoxController _boxController;
     private PlayerInput _playerInput;
-    
-    public void Init(GhostView ghostView, MouseSpawnerController mouseSpawnerController, BoxController boxController, PlayerInput playerInput)
+
+    public void Init(GhostView ghostView, MouseSpawnerController mouseSpawnerController, BoxController boxController,
+        PlayerInput playerInput)
     {
         _materials.Init();
         _ghostView = ghostView;
@@ -22,17 +23,17 @@ public class LevelBuilder : MonoBehaviour
     public void BuildLevel(int levelIndex)
     {
         var entity = CMS.Get<LevelsEntity>();
-        
+
         if (entity.Is<TagLevels>(out var tag))
         {
-            var level = tag.Levels[levelIndex - 1];
-            
+            var level = tag.Levels[levelIndex];
+
             ImporterController importer = _materials.GetImporter(level.Importer.Position, level.Importer.Rotation);
             DoorController door = _materials.GetDoor(level.Door.Position, level.Door.Rotation);
-            
+
             door.Init(importer);
             importer.Init(level.ImporterCount, _ghostView, _playerInput);
-            
+
             for (int i = 0; i < level.WallObjectCount; i++)
             {
                 WallObject wallObject = level.GetWallObject(i);
@@ -56,13 +57,6 @@ public class LevelBuilder : MonoBehaviour
         }
     }
 
-    [ContextMenu("Clear")]
-    public void Build()
-    {
-        _materials.ClearLevel();
-        BuildLevel(1);
-    }
-    
     public void ClearLevel()
     {
         _materials.ClearLevel();

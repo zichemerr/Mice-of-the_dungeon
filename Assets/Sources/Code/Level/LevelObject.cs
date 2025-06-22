@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class Level : MonoBehaviour
+public class LevelObject : MonoBehaviour
 {
     [SerializeField] private BoxObject[] _boxes;
     [SerializeField] private PointSpawnerObject[] _pointsSpawner;

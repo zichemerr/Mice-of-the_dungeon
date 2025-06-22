@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
             return;
 
         _movements.Remove(mouse);
-        Destroy(mouse.gameObject);
+        _mouseSpawner.AddMouse(mouse);
     }
 
     public void Move(Vector2 cursorPosition)

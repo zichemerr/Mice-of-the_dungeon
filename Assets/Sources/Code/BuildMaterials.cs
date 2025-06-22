@@ -60,6 +60,7 @@ public class BuildMaterials : MonoBehaviour
         wall.SpriteRenderer.size = new Vector2(width, height);
         wall.transform.position = position;
         wall.transform.rotation = rotation;
+        wall.SetCollider();
         wall.gameObject.SetActive(true);
         
         return wall;

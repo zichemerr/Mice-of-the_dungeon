@@ -91,9 +91,10 @@ public static class D
         }
         public static class Levels
         {
-            public static Level Level_Variant_1 => Resources.Load<Level>("Prefabs/Levels/Level Variant 1");
-            public static Level Level_Variant => Resources.Load<Level>("Prefabs/Levels/Level Variant");
-            public static Level Level => Resources.Load<Level>("Prefabs/Levels/Level");
+            public static LevelObject Level_Variant_1 => Resources.Load<LevelObject>("Prefabs/Levels/Level Variant 1");
+            public static LevelObject Level_Variant_2 => Resources.Load<LevelObject>("Prefabs/Levels/Level Variant 2");
+            public static LevelObject Level_Variant => Resources.Load<LevelObject>("Prefabs/Levels/Level Variant");
+            public static LevelObject Level => Resources.Load<LevelObject>("Prefabs/Levels/Level");
         }
         public static class Player
         {

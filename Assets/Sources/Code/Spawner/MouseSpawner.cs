@@ -1,30 +1,50 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class MouseSpawner
 {
-    private Mouse _mousePrefab;
+    private Queue<Mouse> _mouses;
+    private Mouse _prefab;
 
     public MouseSpawner(Mouse mousePrefab)
     {
-        _mousePrefab = mousePrefab;
+        _mouses = new Queue<Mouse>();
+        _prefab = mousePrefab;
     }
 
-    public Mouse Spawn()
+    public void Init(CMSEntity cmsEntity)
     {
-        Mouse mouse = GameObject.Instantiate(_mousePrefab);
-
+        if (cmsEntity.Is<TagSpawnerCount>(out var tag))
+        {
+            for (int i = 0; i < tag.Count; i++)
+            {
+                Mouse mouse = GameObject.Instantiate(_prefab);
+                _mouses.Enqueue(mouse);
+            }
+        }
+    }
+    
+    public Mouse GetMouse()
+    {
+        Mouse mouse = _mouses.Dequeue();
+        mouse.gameObject.SetActive(true);
+        
         return mouse;
     }
 
-    public Mouse[] Spawn(int count)
+    public Mouse[] GetMouses(int count)
     {
-        Mouse[] mouse = new Mouse[count];
+        Mouse[] mouses = new Mouse[count];
 
         for (int i = 0; i < count; i++)
-        {
-            mouse[i] = GameObject.Instantiate(_mousePrefab);
-        }
+            mouses[i] = GetMouse();
+        
+        return mouses;
+    }
 
-        return mouse;
+    public void AddMouse(Mouse mouse)
+    {
+        mouse.gameObject.SetActive(false);
+        _mouses.Enqueue(mouse);
     }
 }

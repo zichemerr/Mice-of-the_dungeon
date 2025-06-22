@@ -26,12 +26,18 @@ using DG.Tweening;
             _importables = new List<IImportable>();
             _mouseDeath.Init(ghostView, playerInput);
 
+            _isDestroy = false;
             _view.Init(_importCount);
 
+            Debug.Log("Init");
+        }
+
+        private void OnEnable()
+        {
             _zone.Entered += OnEntered;
             _zone.Exited += OnExited;
         }
-
+        
         private void OnDisable()
         {
             _zone.Entered -= OnEntered;
@@ -43,6 +49,7 @@ using DG.Tweening;
             if (_isDestroy)
                 return;
 
+            Debug.Log($"OnEntered {_importables.Count}");
             _importables.Add(importable); 
             _view.ShowValue(_importables.Count);
 

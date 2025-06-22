@@ -19,10 +19,11 @@ public class MouseSpawnerController : MonoBehaviour
     public void Init()
     {
         _spawner = new MouseSpawner(_mousePrefab);
+        _spawner.Init(CMS.Get<MouseSpawnerEntity>());
 
         for (int i = 0; i < _spawnCount; i++)
         {
-            Spawn(_spawner.Spawn(), _spawnPoint.position);
+            Spawn(_spawner.GetMouse(), _spawnPoint.position);
         }
     }
 
@@ -37,7 +38,7 @@ public class MouseSpawnerController : MonoBehaviour
 
     private void OnEntered(Vector2 position, int spawnCount, PointSpawner pointSpawner)
     {
-        Mouse[] mouses = _spawner.Spawn(spawnCount);
+        Mouse[] mouses = _spawner.GetMouses(spawnCount);
 
         foreach (var mouse in mouses)
         {
@@ -61,12 +62,17 @@ public class MouseSpawnerController : MonoBehaviour
 
     public Mouse Spawn(Vector2 position)
     {
-        return Spawn(_spawner.Spawn(), position);
+        return Spawn(_spawner.GetMouse(), position);
     }
 
     public void AddPointSpawner(PointSpawner pointSpawner)
     {
         _pointsSpawner.Add(pointSpawner);
         pointSpawner.Entered += OnEntered;
+    }
+
+    public void AddMouse(Mouse mouse)
+    {
+        _spawner.AddMouse(mouse);
     }
 }

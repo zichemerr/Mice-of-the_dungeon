@@ -52,7 +52,7 @@ MonoBehaviour:
       <Transform>k__BackingField: {fileID: 0}
       <Position>k__BackingField: {x: 3.56, y: -2.99}
       <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 1}
-      <SpawnCount>k__BackingField: 3
+      <SpawnCount>k__BackingField: 4
     <SpawnerPointIsNull>k__BackingField: 0
   _pointsSpawner:
   - <Transform>k__BackingField: {fileID: 0}

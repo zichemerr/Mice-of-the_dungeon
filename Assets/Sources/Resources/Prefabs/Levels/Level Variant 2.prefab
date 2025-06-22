@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2575681184423163567
+--- !u!1 &4248938549889886237
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3582466435422940796}
-  - component: {fileID: 5877086964692572580}
+  - component: {fileID: 3466443222117458325}
+  - component: {fileID: 1779016465589937031}
   m_Layer: 0
-  m_Name: Level Variant 1
+  m_Name: Level Variant 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3582466435422940796
+--- !u!4 &3466443222117458325
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2575681184423163567}
+  m_GameObject: {fileID: 4248938549889886237}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -32,13 +32,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5877086964692572580
+--- !u!114 &1779016465589937031
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2575681184423163567}
+  m_GameObject: {fileID: 4248938549889886237}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c76ed098cde729488521a4f797c5ef2, type: 3}
@@ -46,32 +46,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _boxes:
   - <Transform>k__BackingField: {fileID: 0}
-    <Position>k__BackingField: {x: 7.47, y: 1.59}
+    <Position>k__BackingField: {x: 2.02, y: 0.71}
     <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 1}
     <SpawnerPoint>k__BackingField:
       <Transform>k__BackingField: {fileID: 0}
-      <Position>k__BackingField: {x: 0, y: 2}
+      <Position>k__BackingField: {x: -2.9, y: -2.6}
       <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 1}
-      <SpawnCount>k__BackingField: 3
+      <SpawnCount>k__BackingField: 2
     <SpawnerPointIsNull>k__BackingField: 0
-  _pointsSpawner:
-  - <Transform>k__BackingField: {fileID: 0}
-    <Position>k__BackingField: {x: 0, y: 0}
-    <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 1}
-    <SpawnCount>k__BackingField: 0
+  _pointsSpawner: []
   _walls:
   - <Transform>k__BackingField: {fileID: 0}
-    <Position>k__BackingField: {x: 0, y: -1.57}
+    <Position>k__BackingField: {x: 8.69, y: 0.22}
     <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 1}
     _spriteRenderer: {fileID: 0}
-    <Width>k__BackingField: 30
-    <Height>k__BackingField: 2
+    <Width>k__BackingField: 5
+    <Height>k__BackingField: 30
+  - <Transform>k__BackingField: {fileID: 0}
+    <Position>k__BackingField: {x: -7.09, y: 0.68}
+    <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 1}
+    _spriteRenderer: {fileID: 0}
+    <Width>k__BackingField: 5
+    <Height>k__BackingField: 30
   _door:
     <Transform>k__BackingField: {fileID: 0}
-    <Position>k__BackingField: {x: 3, y: 4}
+    <Position>k__BackingField: {x: -2.0693393, y: 3.9620433}
     <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 1}
   _importer:
     <Transform>k__BackingField: {fileID: 0}
-    <Position>k__BackingField: {x: 5.77, y: 1.37}
+    <Position>k__BackingField: {x: 4.0430565, y: 0.7776221}
     <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 1}
   _importerCount: 2
