@@ -6,12 +6,19 @@ public class DoorController : MonoBehaviour
     [SerializeField] private DoorView _doorView;
     
     private ImporterController _importer;
-    private bool _isOpen = false;
+    private bool _isOpen;
     
     public void Init(ImporterController importer)
     {
-        _importer = importer; 
+        _doorView.Init();
+        _importer = importer;
         _importer.Impotred += OnImpotred;
+        _isOpen = false;
+    }
+
+    private void OnDisable()
+    {
+        _importer.Impotred -= OnImpotred;
     }
 
     private void OnImpotred()

@@ -45,6 +45,7 @@ using UnityEngine;
 
         private void OnDestroyed(Mouse mouse)
         {
+            _mouses.Remove(mouse);
             if (_playerMovement.MouseCount > 0)
             {
                 MouseAlived?.Invoke();
@@ -52,5 +53,11 @@ using UnityEngine;
             }
 
             //_losingGame.Lose();
+        }
+
+        public Mouse GetMouse()
+        {
+            Debug.Log(_mouses.Count);
+            return _mouses[0];
         }
     }

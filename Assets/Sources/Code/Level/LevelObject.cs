@@ -8,6 +8,7 @@ public class LevelObject : MonoBehaviour
     [SerializeField] private WallObject[] _walls;
     [SerializeField] private BuildObject _door;
     [SerializeField] private BuildObject _importer;
+    [SerializeField] private BuildObject _playerSpawnPoint;
     [SerializeField] private int _importerCount;
     
     public int BoxObjectCount => _boxes.Length;
@@ -16,6 +17,7 @@ public class LevelObject : MonoBehaviour
     public BuildObject Door => _door;
     public BuildObject Importer => _importer;
     public int ImporterCount => _importerCount;
+    public BuildObject PlayerSpawnPoint => _playerSpawnPoint;
 
     public BoxObject GetBoxObject(int index) => _boxes[index];
     public PointSpawnerObject GetPointSpawnerObject(int index) => _pointsSpawner[index];
@@ -35,6 +37,7 @@ public class LevelObject : MonoBehaviour
 
         _door.Init();
         _importer.Init();
+        _playerSpawnPoint.Init();
     }
 }
 

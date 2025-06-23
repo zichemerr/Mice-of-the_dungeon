@@ -22,7 +22,7 @@ public class Main : MonoBehaviour
         _player.Init();
         _boxController.Init(_mouseSpawnerController);
         _mouseSpawnerController.Init();
-        _levelBuilder.Init(_ghostView, _mouseSpawnerController, _boxController, _playerInput);
+        _levelBuilder.Init(_ghostView, _mouseSpawnerController, _boxController, _playerInput, _player);
         _level = new Level(_levelBuilder);
         G.level = _level;
         _level.Init();

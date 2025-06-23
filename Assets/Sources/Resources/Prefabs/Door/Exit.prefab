@@ -93,8 +93,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e122c7c31504934b20c2d934f4de5fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _openedDoor: {fileID: 4837651469553357140}
-  _closedDoor: {fileID: 21300000, guid: 13b7dfb2509ade74dbb2054451c49812, type: 3}
+  _spriteRenderer: {fileID: 4837651469553357140}
+  _closedDoor: {fileID: 21300000, guid: ce0ecfa5d6a56544f82db2fbee802bfd, type: 3}
+  _openedDoor: {fileID: 21300000, guid: 13b7dfb2509ade74dbb2054451c49812, type: 3}
 --- !u!61 &3439142275978964532
 BoxCollider2D:
   m_ObjectHideFlags: 0

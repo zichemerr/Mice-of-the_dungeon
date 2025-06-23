@@ -76,4 +76,8 @@ MonoBehaviour:
     <Transform>k__BackingField: {fileID: 0}
     <Position>k__BackingField: {x: 4.0430565, y: 0.7776221}
     <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 1}
+  _playerSpawnPoint:
+    <Transform>k__BackingField: {fileID: 3466443222117458325}
+    <Position>k__BackingField: {x: 0, y: 0}
+    <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 1}
   _importerCount: 2

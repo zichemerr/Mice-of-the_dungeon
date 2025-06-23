@@ -9,15 +9,17 @@ public class LevelBuilder : MonoBehaviour
     private MouseSpawnerController _mouseSpawnerController;
     private BoxController _boxController;
     private PlayerInput _playerInput;
+    private Player _player;
 
     public void Init(GhostView ghostView, MouseSpawnerController mouseSpawnerController, BoxController boxController,
-        PlayerInput playerInput)
+        PlayerInput playerInput, Player player)
     {
         _materials.Init();
         _ghostView = ghostView;
         _mouseSpawnerController = mouseSpawnerController;
         _boxController = boxController;
         _playerInput = playerInput;
+        _player = player;
     }
 
     public void BuildLevel(int levelIndex)
@@ -54,6 +56,9 @@ public class LevelBuilder : MonoBehaviour
                     box.Init(pointSpawner);
                 }
             }
+
+            _player.GetMouse().transform.position = level.PlayerSpawnPoint.Position;
+            Debug.Log(level.PlayerSpawnPoint.Position);
         }
     }
 
