@@ -91,14 +91,18 @@ public static class D
         }
         public static class Levels
         {
-            public static LevelObject Level_Variant_1 => Resources.Load<LevelObject>("Prefabs/Levels/Level Variant 1");
-            public static LevelObject Level_Variant_2 => Resources.Load<LevelObject>("Prefabs/Levels/Level Variant 2");
-            public static LevelObject Level_Variant => Resources.Load<LevelObject>("Prefabs/Levels/Level Variant");
-            public static LevelObject Level => Resources.Load<LevelObject>("Prefabs/Levels/Level");
+            public static LevelObject Level_1 => Resources.Load<LevelObject>("Prefabs/Levels/Level 1");
+            public static LevelObject Level_2 => Resources.Load<LevelObject>("Prefabs/Levels/Level 2");
+            public static LevelObject Level_3 => Resources.Load<LevelObject>("Prefabs/Levels/Level 3");
+            public static LevelObject Level_4 => Resources.Load<LevelObject>("Prefabs/Levels/Level 4");
         }
         public static class Player
         {
             public static Mouse Mouse => Resources.Load<Mouse>("Prefabs/Player/Mouse");
+        }
+        public static class Sceens
+        {
+            public static MainMenu MainMenu => Resources.Load<MainMenu>("Prefabs/Sceens/MainMenu");
         }
         public static class SpanwerPoint
         {

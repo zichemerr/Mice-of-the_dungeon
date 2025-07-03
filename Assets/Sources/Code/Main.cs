@@ -1,31 +1,22 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 public class Main : MonoBehaviour
 {
-    [SerializeField] private Player _player;
-    [SerializeField] private IntroController _introController;
-    [SerializeField] private MouseSpawnerController _mouseSpawnerController;
-    [SerializeField] private BoxController _boxController;
-    [SerializeField] private GhostView _ghostView;
-    [SerializeField] private PlayerInput _playerInput;
-    [SerializeField] private LevelBuilder _levelBuilder;
-    
-    private AudioSystem _audioSystem;
-    private Level _level;
+    [SerializeField] private MainMenu _mainMenuPrefab;
+    [SerializeField] private Transform _screenParent;
+    [SerializeField] private Level _level;
+
+    private MainMenu _mainMenu;
+    private LevelBuilder _levelBuilder;
     
     private void Start()
     {
-        CMS.Init();
-        _audioSystem = new AudioSystem();
-        G.audio = _audioSystem;
-        _player.Init();
-        _boxController.Init(_mouseSpawnerController);
-        _mouseSpawnerController.Init();
-        _levelBuilder.Init(_ghostView, _mouseSpawnerController, _boxController, _playerInput, _player);
-        _level = new Level(_levelBuilder);
-        G.level = _level;
-        _level.Init();
+        _mainMenu = Instantiate(_mainMenuPrefab, _screenParent);
+        _mainMenu.Init(this);
+        
+        _levelBuilder = new LevelBuilder(_level);
     }
     
     private void Update()
@@ -34,6 +25,19 @@ public class Main : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            _levelBuilder.Clear();
+            _level.NextLevel();
+            _levelBuilder.Build();
+        }
+    }
+
+    public void StartGame()
+    {
+        _mainMenu.Disable();
+        _levelBuilder.Build();
     }
 }
 

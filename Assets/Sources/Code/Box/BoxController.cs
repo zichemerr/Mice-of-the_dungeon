@@ -9,9 +9,4 @@ public class BoxController : MonoBehaviour
     {
         _mouseSpawner = mouseSpawnerController;
     }
-
-    public void SpawnBox(BoxObject boxData)
-    {
-
-    }
 }
