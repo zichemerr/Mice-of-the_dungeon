@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class MouseSpawnerController : MonoBehaviour
 {
     [SerializeField] private Mouse _mousePrefab;
-    [SerializeField] private int _spawnCount;
+    [SerializeField] private int _mouseCount;
 
     private List<PointSpawner> _pointsSpawner = new List<PointSpawner>();
     private MouseSpawner _spawner;
@@ -14,7 +14,7 @@ public class MouseSpawnerController : MonoBehaviour
 
     public void Init()
     {
-        _spawner = new MouseSpawner(_mousePrefab, _spawnCount);
+        _spawner = new MouseSpawner(_mousePrefab, _mouseCount);
         _spawner.Init();
     }
 
