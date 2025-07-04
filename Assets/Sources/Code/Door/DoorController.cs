@@ -35,7 +35,7 @@ public class DoorController : MonoBehaviour
         
         if (other.GetComponent<Mouse>())
         {
-            G.level.NextLevel();
+            //G.level.NextLevel();
         }
     }
 }

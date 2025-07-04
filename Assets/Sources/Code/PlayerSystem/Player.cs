@@ -16,8 +16,8 @@ using UnityEngine;
             _playerInput.Init(_playerMovement);
         }
 
-        public void ClearAllMouses()
+        public void ClearMouse()
         {
-            _playerMovement.ClearAllMouses();
+            _playerMovement.ClearMouse();
         }
     }

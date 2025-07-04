@@ -91,10 +91,10 @@ public static class D
         }
         public static class Levels
         {
-            public static LevelObject Level_1 => Resources.Load<LevelObject>("Prefabs/Levels/Level 1");
-            public static LevelObject Level_2 => Resources.Load<LevelObject>("Prefabs/Levels/Level 2");
-            public static LevelObject Level_3 => Resources.Load<LevelObject>("Prefabs/Levels/Level 3");
-            public static LevelObject Level_4 => Resources.Load<LevelObject>("Prefabs/Levels/Level 4");
+            public static Level Level_1 => Resources.Load<Level>("Prefabs/Levels/Level 1");
+            public static Level Level_2 => Resources.Load<Level>("Prefabs/Levels/Level 2");
+            public static Level Level_3 => Resources.Load<Level>("Prefabs/Levels/Level 3");
+            public static Level Level_4 => Resources.Load<Level>("Prefabs/Levels/Level 4");
         }
         public static class Player
         {

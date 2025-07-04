@@ -5,9 +5,7 @@ public class Main : MonoBehaviour
 {
     [SerializeField] private MainMenu _mainMenuPrefab;
     [SerializeField] private Transform _screenParent;
-    [SerializeField] private MouseSpawnerController _mouseSpawner;
-    [SerializeField] private Player _player;
-    [SerializeField] private Level _level;
+    [SerializeField] private MainSettingsConfig _mainSettingsConfig;
     
     private Game _game;
     
@@ -16,14 +14,13 @@ public class Main : MonoBehaviour
         var mainMenu = Instantiate(_mainMenuPrefab, _screenParent);
         mainMenu.Init(this);
         
-        _player.Init(_mouseSpawner);
-        _mouseSpawner.Init();
-        
-        _game = new Game(_level, _mouseSpawner, mainMenu, _player);
+        _game = new Game(mainMenu, _mainSettingsConfig.LevelsConfig);
     }
     
     private void Update()
     {
+        _game?.ThisUpdate();
+        
         if (Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -32,7 +29,6 @@ public class Main : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.G))
         {
             _game.Clear();
-            _level.NextLevel();
             _game.StartGame();
         }
     }
@@ -41,10 +37,4 @@ public class Main : MonoBehaviour
     {
         _game.StartGame();
     }
-}
-
-public static class G
-{
-    public static AudioSystem audio;
-    public static Level level;
 }

@@ -26,7 +26,7 @@ public class MouseSpawner
     public Mouse GetMouse()
     {
         Mouse mouse = _mouses.Dequeue();
-        mouse.gameObject.SetActive(true);
+        mouse.Enable();
         
         return mouse;
     }
