@@ -25,12 +25,6 @@ public class Main : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
-
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            _game.Clear();
-            _game.StartGame();
-        }
     }
 
     public void StartGame()

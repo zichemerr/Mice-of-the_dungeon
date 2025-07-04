@@ -8,7 +8,9 @@ public class Game
     private MainMenu _mainMenu;
     private Player _player;
     private LevelsConfig _levelsConfig;
-    private int _currentLevel;
+    
+    public int CurrentLevel { get; private set; }
+    public int MaxLevels => _levelsConfig.LevelCount;
     
     public Game(MainMenu mainMenu, LevelsConfig levelsConfig)
     {
@@ -23,7 +25,7 @@ public class Game
     
     public void StartGame()
     {
-        Level prefab = _levelsConfig.GetLevel(_currentLevel);
+        Level prefab = _levelsConfig.GetLevel(CurrentLevel);
         _level = Object.Instantiate(prefab);
 
         _player = _level.Player;
@@ -35,12 +37,7 @@ public class Game
         
         _mainMenu.Disable();
     }
-
-    public void NextLevel()
-    {
-        _currentLevel++;
-    }
-
+    
     public void Clear()
     {
         if (_level == null)
