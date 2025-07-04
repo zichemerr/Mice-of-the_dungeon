@@ -10,7 +10,7 @@ public class AudioSystem
         _audioSource = audioSorceContainer.AudioSource;
     }
     
-    public void Play<T>() where T : CMSEntity
+    /*public void Play<T>() where T : CMSEntity
     {
         Play(CMS.Get<T>(E.Id<T>()));
     }
@@ -23,5 +23,5 @@ public class AudioSystem
         {
             Debug.LogError("CMSEntity not have an TagSound");
         }
-    }
+    }*/
 }

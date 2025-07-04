@@ -42,6 +42,6 @@ public class IntroView : MonoBehaviour
 
     public void WriteSound()
     {
-        G.audio.Play<WriteSound>();
+        //G.audio.Play<WriteSound>();
     }
 }

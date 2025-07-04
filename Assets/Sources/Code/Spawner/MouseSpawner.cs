@@ -5,22 +5,21 @@ public class MouseSpawner
 {
     private Queue<Mouse> _mouses;
     private Mouse _prefab;
+    private int _spawnCount;
 
-    public MouseSpawner(Mouse mousePrefab)
+    public MouseSpawner(Mouse mousePrefab, int spawnCount)
     {
         _mouses = new Queue<Mouse>();
         _prefab = mousePrefab;
+        _spawnCount = spawnCount;
     }
 
-    public void Init(CMSEntity cmsEntity)
+    public void Init()
     {
-        if (cmsEntity.Is<TagSpawnerCount>(out var tag))
+        for (int i = 0; i < _spawnCount; i++)
         {
-            for (int i = 0; i < tag.Count; i++)
-            {
-                Mouse mouse = GameObject.Instantiate(_prefab);
-                _mouses.Enqueue(mouse);
-            }
+            Mouse mouse = GameObject.Instantiate(_prefab);
+            _mouses.Enqueue(mouse);
         }
     }
     

@@ -1,30 +1,21 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEngine.Serialization;
 
 public class MouseSpawnerController : MonoBehaviour
 {
-    [SerializeField] private Transform _spawnPoint;
     [SerializeField] private Mouse _mousePrefab;
-    [SerializeField] private int _spawnCount = 1;
+    [SerializeField] private int _spawnCount;
 
     private List<PointSpawner> _pointsSpawner = new List<PointSpawner>();
     private MouseSpawner _spawner;
-
-    public Vector2 SpawnPoint => _spawnPoint.position;
+    
     public event Action<Mouse> Spawned;
 
     public void Init()
     {
-        _spawner = new MouseSpawner(_mousePrefab);
-        _spawner.Init(CMS.Get<MouseSpawnerEntity>());
-
-        for (int i = 0; i < _spawnCount; i++)
-        {
-            Spawn(_spawner.GetMouse(), _spawnPoint.position);
-        }
+        _spawner = new MouseSpawner(_mousePrefab, _spawnCount);
+        _spawner.Init();
     }
 
     private void OnDisable()
@@ -63,12 +54,6 @@ public class MouseSpawnerController : MonoBehaviour
     public Mouse Spawn(Vector2 position)
     {
         return Spawn(_spawner.GetMouse(), position);
-    }
-
-    public void AddPointSpawner(PointSpawner pointSpawner)
-    {
-        _pointsSpawner.Add(pointSpawner);
-        pointSpawner.Entered += OnEntered;
     }
 
     public void AddMouse(Mouse mouse)

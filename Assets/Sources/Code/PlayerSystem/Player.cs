@@ -6,17 +6,18 @@ using UnityEngine;
     {
         [SerializeField] private PlayerMovement _playerMovement;
         //[SerializeField] private GameEvents _losingGame;
-        [SerializeField] private MouseSpawnerController _mouseSpawner;
         [SerializeField] private PlayerInput _playerInput;
         
+        private MouseSpawnerController _mouseSpawner;
         private List<Mouse> _mouses;
 
         public event Action MouseAlived;
 
-        public void Init()
+        public void Init(MouseSpawnerController mouseSpawner)
         {
             // _losingGame = Root.Main.Get<GameEvents>();
 
+            _mouseSpawner = mouseSpawner;
             _playerMovement.Init(_mouseSpawner);
             _mouseSpawner.Spawned += OnSpawned;
             _mouses = new List<Mouse>();
@@ -46,6 +47,7 @@ using UnityEngine;
         private void OnDestroyed(Mouse mouse)
         {
             _mouses.Remove(mouse);
+            
             if (_playerMovement.MouseCount > 0)
             {
                 MouseAlived?.Invoke();

@@ -14,13 +14,14 @@ using TMPro;
         [SerializeField] private float _speed;
         
         private Vector2 _target;
-        private bool _isActive = true;
+        private bool _isActive;
 
         public SpriteRenderer SpriteRenderer => _spriteRenderer;
         public event Action<Mouse> Destroyed;
 
         public void Init()
         {
+            _isActive = true;
             _rigidbody.gravityScale = 0f;
             _rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
             _agent.updateRotation = false;

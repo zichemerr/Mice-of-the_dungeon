@@ -5,17 +5,21 @@ public class Main : MonoBehaviour
 {
     [SerializeField] private MainMenu _mainMenuPrefab;
     [SerializeField] private Transform _screenParent;
+    [SerializeField] private MouseSpawnerController _mouseSpawner;
+    [SerializeField] private Player _player;
     [SerializeField] private Level _level;
-
-    private MainMenu _mainMenu;
-    private LevelBuilder _levelBuilder;
+    
+    private Game _game;
     
     private void Start()
     {
-        _mainMenu = Instantiate(_mainMenuPrefab, _screenParent);
-        _mainMenu.Init(this);
+        var mainMenu = Instantiate(_mainMenuPrefab, _screenParent);
+        mainMenu.Init(this);
         
-        _levelBuilder = new LevelBuilder(_level);
+        _player.Init(_mouseSpawner);
+        _mouseSpawner.Init();
+        
+        _game = new Game(_level, _mouseSpawner, mainMenu);
     }
     
     private void Update()
@@ -27,16 +31,15 @@ public class Main : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.G))
         {
-            _levelBuilder.Clear();
+            _game.Clear();
             _level.NextLevel();
-            _levelBuilder.Build();
+            _game.StartGame();
         }
     }
 
     public void StartGame()
     {
-        _mainMenu.Disable();
-        _levelBuilder.Build();
+        _game.StartGame();
     }
 }
 

@@ -12,7 +12,6 @@ public class PlayerMovement : MonoBehaviour
     public void Init(MouseSpawnerController mouseSpawnerController)
     {
         _mouseSpawner = mouseSpawnerController;
-
         _mouseSpawner.Spawned += OnSpawned;
     }
 

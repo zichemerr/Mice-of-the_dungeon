@@ -14,7 +14,7 @@ public class IntroController : MonoBehaviour
         _view.Shake();
         
         await UniTask.WaitForSeconds(3);
-        G.audio.Play<ClickSound>();
+        //G.audio.Play<ClickSound>();
         _view.Shake();
         await _view.HideText();
 

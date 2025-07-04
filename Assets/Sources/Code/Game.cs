@@ -1,20 +1,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelBuilder
+public class Game
 {
     private Level _level;
     private LevelObject _levelObject;
+    private MouseSpawnerController _mouseSpawner;
+    private MainMenu _mainMenu;
     
-    public LevelBuilder(Level level)
+    public Game(Level level, MouseSpawnerController mouseSpawner, MainMenu mainMenu)
     {
         _level = level;
+        _mouseSpawner = mouseSpawner;
+        _mainMenu = mainMenu;
     }
 
-    public void Build()
+    public void StartGame()
     {
         LevelObject prefab = _level.Data.GetLevel(_level.CurrentLevel);
-        _levelObject = GameObject.Instantiate(prefab);
+        _levelObject = Object.Instantiate(prefab);
+
+        _mouseSpawner.Spawn(_levelObject.PlayerPosition);
+        _mainMenu.Disable();
     }
 
     public void Clear()
