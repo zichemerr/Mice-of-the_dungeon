@@ -19,7 +19,7 @@ public class Main : MonoBehaviour
         _player.Init(_mouseSpawner);
         _mouseSpawner.Init();
         
-        _game = new Game(_level, _mouseSpawner, mainMenu);
+        _game = new Game(_level, _mouseSpawner, mainMenu, _player);
     }
     
     private void Update()

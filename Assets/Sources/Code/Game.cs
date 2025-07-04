@@ -7,12 +7,14 @@ public class Game
     private LevelObject _levelObject;
     private MouseSpawnerController _mouseSpawner;
     private MainMenu _mainMenu;
+    private Player _player;
     
-    public Game(Level level, MouseSpawnerController mouseSpawner, MainMenu mainMenu)
+    public Game(Level level, MouseSpawnerController mouseSpawner, MainMenu mainMenu, Player player)
     {
         _level = level;
         _mouseSpawner = mouseSpawner;
         _mainMenu = mainMenu;
+        _player = player;
     }
 
     public void StartGame()
@@ -20,7 +22,7 @@ public class Game
         LevelObject prefab = _level.Data.GetLevel(_level.CurrentLevel);
         _levelObject = Object.Instantiate(prefab);
 
-        _mouseSpawner.Spawn(_levelObject.PlayerPosition);
+        _mouseSpawner.Spawn(_levelObject.PlayerPosition).Enable();
         _mainMenu.Disable();
     }
 
@@ -32,6 +34,7 @@ public class Game
         }
         
         _levelObject.Destroy();
+        _player.ClearAllMouses();
         _levelObject = null;
     }
 }

@@ -18,6 +18,6 @@ using UnityEngine;
 
         public void ClearAllMouses()
         {
-            
+            _playerMovement.ClearAllMouses();
         }
     }

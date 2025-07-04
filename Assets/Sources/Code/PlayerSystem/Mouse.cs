@@ -91,6 +91,7 @@ using TMPro;
         public void Enable()
         {
             _isActive = true;
+            gameObject.SetActive(true);
         }
 
         public void Disable()

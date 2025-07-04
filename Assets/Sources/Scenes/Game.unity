@@ -463,7 +463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mousePrefab: {fileID: 3409794944135818818, guid: 394af147d97131749848a37d79fb4752, type: 3}
-  _spawnCount: 10
+  _mouseCount: 10
 --- !u!114 &1744074840
 MonoBehaviour:
   m_ObjectHideFlags: 0

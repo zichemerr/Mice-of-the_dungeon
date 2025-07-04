@@ -54,4 +54,15 @@ public class PlayerMovement : MonoBehaviour
     {
         return _movements[index];
     }
+
+    public void ClearAllMouses()
+    {
+        if (_movements == null)
+            return;
+        
+        foreach (var movement in _movements)
+        {
+            movement.Destroy();
+        }
+    }
 }
