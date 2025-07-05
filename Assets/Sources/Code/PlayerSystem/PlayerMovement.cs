@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -8,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private MouseSpawner _mouseSpawner;
 
     public int MouseCount => _movements.Count;
+    public event Action MouseEnded;
 
     public void Init(MouseSpawner mouseSpawner)
     {
@@ -37,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
             return;
 
         _movements.Remove(mouse);
+        MouseEnded?.Invoke();
     }
 
     public void Move(Vector2 cursorPosition)

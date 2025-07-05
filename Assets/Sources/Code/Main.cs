@@ -24,11 +24,16 @@ public class Main : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
-
+        
         if (_screenSwitcher.ScreenIsNull<GameScreen>() == false && Input.GetKeyDown(KeyCode.Escape))
         {
             _game.ClearLevel();
             _screenSwitcher.ShowScreen<MenuScreen>();
+        }
+
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            _game.NextLevel();
         }
     }
 
