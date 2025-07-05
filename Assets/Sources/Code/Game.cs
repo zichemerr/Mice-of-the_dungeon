@@ -5,17 +5,17 @@ public class Game
 {
     private Level _level;
     private MouseSpawnerController _mouseSpawner;
-    private MainMenu _mainMenu;
     private Player _player;
     private LevelsConfig _levelsConfig;
+    private ScreenSwitcher _screenSwitcher;
     
     public int CurrentLevel { get; private set; }
     public int MaxLevels => _levelsConfig.LevelCount;
     
-    public Game(MainMenu mainMenu, LevelsConfig levelsConfig)
+    public Game(LevelsConfig levelsConfig, ScreenSwitcher screenSwitcher)
     {
-        _mainMenu = mainMenu;
         _levelsConfig = levelsConfig;
+        _screenSwitcher = screenSwitcher;
     }
     
     public void ThisUpdate()
@@ -32,21 +32,18 @@ public class Game
         _mouseSpawner = _level.MouseSpawner;
         
         _player.Init(_mouseSpawner);
-        _mouseSpawner.Init();
+        _mouseSpawner.Init(_level.MouseParent);
         _mouseSpawner.Spawn(_level.PlayerPosition);
-        
-        _mainMenu.Disable();
+
+        _screenSwitcher.ShowScreen<GameScreen>();
     }
-    
-    public void Clear()
+
+    public void ClearLevel()
     {
         if (_level == null)
-        {
-            throw new System.NullReferenceException("Level object is null but you still try to clear it.");
-        }
+            return;
         
         _level.Destroy();
-        _player.ClearMouse();
         _level = null;
     }
 }

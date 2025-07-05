@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MainMenu : MonoBehaviour
+public class MenuScreen : BaseScreen
 {
     [SerializeField] private Button _playButton;
     
@@ -27,10 +27,5 @@ public class MainMenu : MonoBehaviour
     private void OnClickedPlayButton()
     {
         _main.StartGame();
-    }
-
-    public void Disable()
-    {
-        gameObject.SetActive(false);
     }
 }

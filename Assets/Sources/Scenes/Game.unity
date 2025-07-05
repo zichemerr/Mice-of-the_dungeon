@@ -131,8 +131,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 283349381}
+  - component: {fileID: 283349382}
   m_Layer: 5
-  m_Name: GameSceen
+  m_Name: ScreenSwitcher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -157,6 +158,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &283349382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283349380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1924066001190e64cacd2de1719db1e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _screensPrefabs:
+  - {fileID: -544657744236190532, guid: 5831c391f9cbda347b31f08d57a2be5a, type: 3}
+  - {fileID: 3606007701830151748, guid: 19af571d6452f574a85f54956c657734, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,8 +456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 257a4191473f7f34da313ea3304ad108, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mainMenuPrefab: {fileID: 3606007701830151748, guid: 19af571d6452f574a85f54956c657734, type: 3}
-  _screenParent: {fileID: 283349381}
+  _screenSwitcher: {fileID: 283349382}
   _mainSettingsConfig: {fileID: 11400000, guid: dda62877106e4b443afccc7ecb439784, type: 2}
 --- !u!1 &1806103566
 GameObject:

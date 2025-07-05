@@ -102,7 +102,7 @@ public static class D
         }
         public static class Sceens
         {
-            public static MainMenu MainMenu => Resources.Load<MainMenu>("Prefabs/Sceens/MainMenu");
+            public static MenuScreen MenuScreen => Resources.Load<MenuScreen>("Prefabs/Sceens/MainMenu");
         }
         public static class SpanwerPoint
         {

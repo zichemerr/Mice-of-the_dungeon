@@ -39,6 +39,7 @@ Transform:
   - {fileID: 5768769013976290363}
   - {fileID: 3202338493174761467}
   - {fileID: 5398283147908716984}
+  - {fileID: 3091016062868462321}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6588629444314026821
@@ -54,6 +55,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerPointPosition: {fileID: 5768769013976290363}
+  _mouseParent: {fileID: 3091016062868462321}
   _player: {fileID: 6441723922861951289}
   _mouseSpawner: {fileID: 1891638516337817657}
 --- !u!114 &6441723922861951289
@@ -109,6 +111,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mousePrefab: {fileID: 3409794944135818818, guid: 394af147d97131749848a37d79fb4752, type: 3}
   _mouseCount: 10
+--- !u!1 &6071144521979786292
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3091016062868462321}
+  m_Layer: 0
+  m_Name: MouseParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3091016062868462321
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6071144521979786292}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2486076604061133442}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6847140860243789139
 GameObject:
   m_ObjectHideFlags: 0

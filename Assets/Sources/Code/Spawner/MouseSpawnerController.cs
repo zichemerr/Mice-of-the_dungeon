@@ -9,13 +9,15 @@ public class MouseSpawnerController : MonoBehaviour
 
     private List<PointSpawner> _pointsSpawner = new List<PointSpawner>();
     private MouseSpawner _spawner;
+    private Transform _parent;
     
     public event Action<Mouse> Spawned;
 
-    public void Init()
+    public void Init(Transform spawnParent)
     {
+        _parent = spawnParent;
         _spawner = new MouseSpawner(_mousePrefab, _mouseCount);
-        _spawner.Init();
+        _spawner.Init(_parent);
     }
 
     private void OnDisable()

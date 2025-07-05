@@ -14,11 +14,11 @@ public class MouseSpawner
         _spawnCount = spawnCount;
     }
 
-    public void Init()
+    public void Init(Transform parent)
     {
         for (int i = 0; i < _spawnCount; i++)
         {
-            Mouse mouse = GameObject.Instantiate(_prefab);
+            Mouse mouse = Object.Instantiate(_prefab, parent);
             _mouses.Enqueue(mouse);
         }
     }

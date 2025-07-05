@@ -49,13 +49,4 @@ public class PlayerMovement : MonoBehaviour
             movement.SetDirection(position);
         }
     }
-    
-    public void ClearMouse()
-    {
-        if (_movements.Count <= 0)
-            return;
-        
-        _movements[0].Destroy();
-        _movements = new List<Mouse>();
-    }
 }
