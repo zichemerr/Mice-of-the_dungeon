@@ -1,16 +1,17 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = nameof(LevelsConfig), menuName = "Configs/" + nameof(LevelsConfig), order = 0)]
 public class LevelsConfig : ScriptableObject
 {
-    [SerializeField] private List<Level> _level;
+    [FormerlySerializedAs("_level")] [SerializeField] private List<Level> _levels;
 
-    public int LevelCount => _level.Count;
+    public int LevelCount => _levels.Count;
     
-    public Level GetLevel(int levelNumber)
+    public Level GetLevelPrefabByIndex(int levelIndex)
     {
-        return _level[levelNumber];
+        return _levels[levelIndex];
     }
 }
 

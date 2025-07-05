@@ -19,4 +19,32 @@ public class Level : MonoBehaviour
     {
         Destroy(gameObject);
     }
+    
+    public class Factory
+    {
+        private readonly LevelsConfig _levelsConfig;
+
+        public Factory(LevelsConfig levelsConfig)
+        {
+            _levelsConfig = levelsConfig;
+        }
+
+        public Level CreateLevelByIndex(int levelIndex )
+        {
+            Level levelPrefab = _levelsConfig.GetLevelPrefabByIndex(levelIndex);
+            var levelInstance  = GameObject.Instantiate(levelPrefab);
+            
+            var mouseSpawner = levelInstance.MouseSpawner;
+            mouseSpawner.Init(levelInstance.MouseParent);
+            mouseSpawner.GetMouse(levelInstance.PlayerPosition);
+            
+            var playerMovement = levelInstance.PlayerMovement;
+            playerMovement.Init(mouseSpawner);
+            
+            var playerInput = levelInstance.PlayerInput;
+            playerInput.Init(playerMovement);
+            
+            return levelInstance;
+        }
+    }
 }

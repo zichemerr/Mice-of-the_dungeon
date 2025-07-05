@@ -1,8 +1,10 @@
 using System;
 using Newtonsoft.Json;
+using UnityEngine.Serialization;
 
 [Serializable]
+//playerprogress
 public class SettingsProgress
 {
-    [JsonProperty] public int Level = 1;
+    [FormerlySerializedAs("Level")] [JsonProperty] public int LevelNumber = 1;
 }

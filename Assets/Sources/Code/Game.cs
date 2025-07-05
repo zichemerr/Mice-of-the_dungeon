@@ -3,21 +3,27 @@ using UnityEngine;
 public class Game
 {
     private readonly IMain _main;
+    private readonly LevelsConfig _levelsConfig;
+    private readonly Level.Factory _levelFactory;
+    private readonly ScreenSwitcher _screenSwitcher;
+    private readonly SettingsProgress _playerProgress;
 
-    private Level _level;
-    private MouseSpawner _mouseSpawner;
-    private LevelsConfig _levelsConfig;
-    private ScreenSwitcher _screenSwitcher;
-    private SettingsProgress _settings;
+    private Level _levelInstance;
 
-    public int CurrentLevel { get; private set; } = 1;
+    public int CurrentLevelNumber
+    {
+        get => _playerProgress.LevelNumber;
+        set => _playerProgress.LevelNumber = value;
+    }
+
     public int MaxLevels => _levelsConfig.LevelCount;
 
-    public Game(LevelsConfig levelsConfig, ScreenSwitcher screenSwitcher, IMain main)
+    public Game(Level.Factory levelFactory, LevelsConfig levelsConfig,  ScreenSwitcher screenSwitcher, IMain main)
     {
+        _levelFactory = levelFactory;
         _main = main;
-        _settings = GameSaverLoader.Instance.SettingsProgress;
-        CurrentLevel = _settings.Level;
+
+        _playerProgress = GameSaverLoader.Instance.SettingsProgress;
         _levelsConfig = levelsConfig;
         _screenSwitcher = screenSwitcher;
     }
@@ -34,19 +40,12 @@ public class Game
 
     public void StartGame()
     {
-        Level prefab = _levelsConfig.GetLevel(CurrentLevel - 1);
-        _level = Object.Instantiate(prefab);
+        var levelIndex = _playerProgress.LevelNumber - 1;
 
-        _mouseSpawner = _level.MouseSpawner;
-        var playerMovement = _level.PlayerMovement;
-        var playerInput = _level.PlayerInput;
+        _levelInstance = _levelFactory.CreateLevelByIndex(levelIndex);
 
-        playerMovement.Init(_mouseSpawner);
+        var playerMovement = _levelInstance.PlayerMovement;
         playerMovement.MouseEnded += PlayerOnDied;
-        playerInput.Init(playerMovement);
-
-        _mouseSpawner.Init(_level.MouseParent);
-        _mouseSpawner.GetMouse(_level.PlayerPosition);
 
         _screenSwitcher.ShowScreen<GameScreen>();
     }
@@ -58,29 +57,28 @@ public class Game
 
     public void NextLevel()
     {
-        if (CurrentLevel == MaxLevels)
+        if (CurrentLevelNumber == MaxLevels)
         {
             Debug.Log("Game completed");
             return;
         }
 
         ClearLevel();
-        CurrentLevel++;
-        _settings.Level = CurrentLevel;
+        CurrentLevelNumber++;
         StartGame();
     }
 
     public void ClearSaves()
     {
-        _settings.Level = 1;
+        _playerProgress.LevelNumber = 1;
     }
 
     private void ClearLevel()
     {
-        if (_level == null)
+        if (_levelInstance == null)
             return;
 
-        _level.Destroy();
-        _level = null;
+        _levelInstance.Destroy();
+        _levelInstance = null;
     }
 }

@@ -10,7 +10,8 @@ public class Main : MonoBehaviour, IMain
 
     private void Start()
     {
-        _game = new Game(_mainSettingsConfig.LevelsConfig, _screenSwitcher, this);
+        var levelFactory = new Level.Factory(_mainSettingsConfig.LevelsConfig);
+        _game = new Game(levelFactory, _mainSettingsConfig.LevelsConfig, _screenSwitcher, this);
 
         var mainMenu = _screenSwitcher.ShowScreen<MenuScreen>();
         mainMenu.Init(this);
@@ -20,7 +21,7 @@ public class Main : MonoBehaviour, IMain
     {
         _game?.ThisUpdate();
 
-#if (UNITY_EDITOR)
+#if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.R))
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
