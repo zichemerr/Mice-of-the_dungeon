@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Game
@@ -7,12 +6,15 @@ public class Game
     private MouseSpawner _mouseSpawner;
     private LevelsConfig _levelsConfig;
     private ScreenSwitcher _screenSwitcher;
+    private SettingsProgress _settings;
 
     public int CurrentLevel { get; private set; } = 1;
     public int MaxLevels => _levelsConfig.LevelCount;
 
     public Game(LevelsConfig levelsConfig, ScreenSwitcher screenSwitcher)
     {
+        _settings = GameSaverLoader.Instance.SettingsProgress;
+        CurrentLevel = _settings.Level;
         _levelsConfig = levelsConfig;
         _screenSwitcher = screenSwitcher;
     }
@@ -56,7 +58,13 @@ public class Game
 
         ClearLevel();
         CurrentLevel++;
+        _settings.Level = CurrentLevel;
         StartGame();
+    }
+
+    public void ClearSaves()
+    {
+        _settings.Level = 1;
     }
     
     public void ClearLevel()
