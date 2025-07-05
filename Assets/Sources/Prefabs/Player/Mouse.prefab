@@ -27,7 +27,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.251, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4290037088475406486}
@@ -111,7 +111,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8095028756316561917}
@@ -214,6 +214,7 @@ GameObject:
   - component: {fileID: 5841419278528371807}
   - component: {fileID: 3409794944135818818}
   - component: {fileID: 8655259322621422000}
+  - component: {fileID: 7071935693437509977}
   m_Layer: 0
   m_Name: Mouse
   m_TagString: Untagged
@@ -299,10 +300,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spriteRenderer: {fileID: 5333514056851254395}
-  _walkAnimation:
-    pulseScale: 1.1
-    pulseDuration: 0.2
-    _transform: {fileID: 5546101806263896469}
+  _walkAnimation: {fileID: 7071935693437509977}
   _rigidbody: {fileID: 9089739268389572966}
   _agent: {fileID: 5841419278528371807}
   _speed: 5
@@ -341,3 +339,18 @@ CapsuleCollider2D:
   m_Offset: {x: 0.004532753, y: -0.5151804}
   m_Size: {x: 0.50906616, y: 0.2003608}
   m_Direction: 1
+--- !u!114 &7071935693437509977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7975645689932279249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2199a8ccfb6e39645842f16001d465d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pulseScale: 1.1
+  pulseDuration: 0.3
+  _transform: {fileID: 5546101806263896469}

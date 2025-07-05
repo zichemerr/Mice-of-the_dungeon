@@ -87,11 +87,10 @@ using TMPro;
         {
             _target = target;
         }
-
+        
         public void Enable()
         {
             _isActive = true;
-            gameObject.SetActive(true);
         }
 
         public void Disable()

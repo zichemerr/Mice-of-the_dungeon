@@ -4,7 +4,7 @@ using UnityEngine;
 public class Game
 {
     private Level _level;
-    private MouseSpawnerController _mouseSpawner;
+    private MouseSpawner _mouseSpawner;
     private Player _player;
     private LevelsConfig _levelsConfig;
     private ScreenSwitcher _screenSwitcher;
@@ -33,7 +33,7 @@ public class Game
         
         _player.Init(_mouseSpawner);
         _mouseSpawner.Init(_level.MouseParent);
-        _mouseSpawner.Spawn(_level.PlayerPosition);
+        _mouseSpawner.GetMouse(_level.PlayerPosition);
 
         _screenSwitcher.ShowScreen<GameScreen>();
     }

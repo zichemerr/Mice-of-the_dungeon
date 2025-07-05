@@ -109,8 +109,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 333b5b35d49f7734ea46010c56ca84bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pointsSpawner: []
   _mousePrefab: {fileID: 3409794944135818818, guid: 394af147d97131749848a37d79fb4752, type: 3}
-  _mouseCount: 10
+  _poolSize: 10
 --- !u!1 &6071144521979786292
 GameObject:
   m_ObjectHideFlags: 0

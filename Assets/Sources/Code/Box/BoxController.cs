@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class BoxController : MonoBehaviour
 {
-    private MouseSpawnerController _mouseSpawner;
+    private MouseSpawner _mouseSpawner;
     
-    public void Init(MouseSpawnerController mouseSpawnerController)
+    public void Init(MouseSpawner mouseSpawner)
     {
-        _mouseSpawner = mouseSpawnerController;
+        _mouseSpawner = mouseSpawner;
     }
 }

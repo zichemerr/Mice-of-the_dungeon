@@ -7,9 +7,9 @@ public class Player : MonoBehaviour
     [SerializeField] private PlayerMovement _playerMovement;
     [SerializeField] private PlayerInput _playerInput;
         
-    private MouseSpawnerController _mouseSpawner;
+    private MouseSpawner _mouseSpawner;
         
-    public void Init(MouseSpawnerController mouseSpawner)
+    public void Init(MouseSpawner mouseSpawner)
     {
         _mouseSpawner = mouseSpawner;
         _playerMovement.Init(_mouseSpawner);

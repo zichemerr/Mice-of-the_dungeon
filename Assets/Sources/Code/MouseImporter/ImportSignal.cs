@@ -3,7 +3,7 @@ using UnityEngine;
     public class ImportSignal : MonoBehaviour
     {
         [SerializeField] private PulseAnimation _pulse;
-        [SerializeField] private MouseSpawnerController _spawner;
+        [SerializeField] private MouseSpawner _spawner;
         [SerializeField] private ImporterController _importer;
         
         private int _spawned;

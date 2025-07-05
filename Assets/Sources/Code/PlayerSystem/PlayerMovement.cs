@@ -5,13 +5,13 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private List<Mouse> _movements;
 
-    private MouseSpawnerController _mouseSpawner;
+    private MouseSpawner _mouseSpawner;
 
     public int MouseCount => _movements.Count;
 
-    public void Init(MouseSpawnerController mouseSpawnerController)
+    public void Init(MouseSpawner mouseSpawner)
     {
-        _mouseSpawner = mouseSpawnerController;
+        _mouseSpawner = mouseSpawner;
         _mouseSpawner.Spawned += OnSpawned;
     }
 
@@ -37,7 +37,6 @@ public class PlayerMovement : MonoBehaviour
             return;
 
         _movements.Remove(mouse);
-        _mouseSpawner.AddMouse(mouse);
     }
 
     public void Move(Vector2 cursorPosition)

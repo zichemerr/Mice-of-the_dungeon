@@ -2,8 +2,7 @@ using UnityEngine;
 using DG.Tweening;
 using System;
 
-    [Serializable]
-    public class WalkAnimation
+    public class WalkAnimation : MonoBehaviour
     {
         [SerializeField] private float pulseScale = 1.2f;
         [SerializeField] private float pulseDuration = 0.5f;
@@ -27,7 +26,8 @@ using System;
             _tween = _transform.DOScaleY(originalScale.y * pulseScale, pulseDuration)
                 .SetEase(easeType)
                 .SetLoops(pulseLoops, LoopType.Yoyo)
-                .OnComplete(() => _transform.localScale = originalScale);
+                .OnComplete(() => _transform.localScale = originalScale)
+                .SetLink(gameObject);
         }
 
         public void Stop()
@@ -37,6 +37,6 @@ using System;
 
             _tween.Kill();
             _tween = null;
-            _transform.DOScaleY(originalScale.y, 0.5f).onComplete += () => IsPlaying = false;
+            _transform.DOScaleY(originalScale.y, 0.5f).SetLink(gameObject).onComplete += () => IsPlaying = false;
         }
     }

@@ -1,49 +1,69 @@
+﻿using UnityEngine;
+using System;
 using System.Collections.Generic;
-using UnityEngine;
 
-public class MouseSpawner
+public class MouseSpawner : MonoBehaviour
 {
-    private Queue<Mouse> _mouses;
-    private Mouse _prefab;
-    private int _spawnCount;
+    [SerializeField] private List<PointSpawner> _pointsSpawner;
+    [SerializeField] private Mouse _mousePrefab;
+    [SerializeField] private int _poolSize;
+    
+    private MousePool _mousePool;
+    
+    public event Action<Mouse> Spawned;
 
-    public MouseSpawner(Mouse mousePrefab, int spawnCount)
+    public void Init(Transform spawnParent)
     {
-        _mouses = new Queue<Mouse>();
-        _prefab = mousePrefab;
-        _spawnCount = spawnCount;
-    }
-
-    public void Init(Transform parent)
-    {
-        for (int i = 0; i < _spawnCount; i++)
-        {
-            Mouse mouse = Object.Instantiate(_prefab, parent);
-            _mouses.Enqueue(mouse);
-        }
+        _mousePool = new MousePool(_mousePrefab, spawnParent, _poolSize);
+        _mousePool.Init();
     }
     
-    public Mouse GetMouse()
+    private void OnEnable()
     {
-        Mouse mouse = _mouses.Dequeue();
-        mouse.Enable();
-        
-        return mouse;
+        foreach (var pointSpawner in _pointsSpawner)
+            pointSpawner.Entered += OnEntered;
     }
 
-    public Mouse[] GetMouses(int count)
+    private void OnDisable()
+    {
+        _mousePool.Dispose();
+        
+        if (_pointsSpawner == null)
+            return;
+        
+        foreach (var pointSpawner in _pointsSpawner)
+            pointSpawner.Entered -= OnEntered;
+    }
+
+    private void OnEntered(Vector2 position, int spawnCount, PointSpawner pointSpawner)
+    {
+        GetMouses(position, spawnCount);
+        pointSpawner.Entered -= OnEntered;
+
+        //Sttrox: я избавился от статики
+        //Root.Effect.Play(position);
+        //Root.Audio.Play(Root.Sound.Clap, 0.8f);
+    }
+
+    public Mouse[] GetMouses(Vector2 position, int count)
     {
         Mouse[] mouses = new Mouse[count];
 
-        for (int i = 0; i < count; i++)
-            mouses[i] = GetMouse();
+        for (int i = 0; i < mouses.Length; i++)
+            mouses[i] = GetMouse(position);
         
         return mouses;
     }
-
-    public void AddMouse(Mouse mouse)
+    
+    public Mouse GetMouse(Vector2 position)
     {
-        mouse.gameObject.SetActive(false);
-        _mouses.Enqueue(mouse);
+        var mouse = _mousePool.GetMouse();
+        
+        mouse.gameObject.SetActive(true);
+        mouse.Init();
+        mouse.SetPosition(position);
+        Spawned?.Invoke(mouse);
+
+        return mouse;
     }
 }
