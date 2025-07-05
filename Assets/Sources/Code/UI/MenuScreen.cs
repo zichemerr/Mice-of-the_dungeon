@@ -7,9 +7,9 @@ public class MenuScreen : BaseScreen
 {
     [SerializeField] private Button _playButton;
     
-    private Main _main;
+    private IMain _main;
     
-    public void Init(Main main)
+    public void Init(IMain main)
     {
         _main = main;
     }
