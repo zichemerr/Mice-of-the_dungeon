@@ -43,7 +43,7 @@ using TMPro;
 
             if (_walkAnimation.IsPlaying == false)
             {
-                _walkAnimation.Start();
+                _walkAnimation.Play();
             }
 
             if (Vector2.Distance(_rigidbody.position, _target) < 0.1f)

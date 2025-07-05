@@ -15,7 +15,7 @@ using System;
 
         public bool IsPlaying { get; private set; }
 
-        public void Start()
+        public void Play()
         {
             if (_tween != null)
                 return;
