@@ -122,17 +122,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &283349382 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 714697276905355054, guid: 4ffd3d1cd5199314584d4e333378d8c3, type: 3}
-  m_PrefabInstance: {fileID: 9048320638319963033}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1924066001190e64cacd2de1719db1e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,7 +405,7 @@ PrefabInstance:
     - target: {fileID: 8173643674811405932, guid: 217f37a5bcb59ca4bb4533b1f7dcf526, type: 3}
       propertyPath: _screenSwitcher
       value: 
-      objectReference: {fileID: 283349382}
+      objectReference: {fileID: 9048320638319963034}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -580,6 +569,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ffd3d1cd5199314584d4e333378d8c3, type: 3}
+--- !u!114 &9048320638319963034 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2120482461988105084, guid: 4ffd3d1cd5199314584d4e333378d8c3, type: 3}
+  m_PrefabInstance: {fileID: 9048320638319963033}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1924066001190e64cacd2de1719db1e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
