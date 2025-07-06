@@ -4,5 +4,5 @@ using Newtonsoft.Json;
 [Serializable]
 public class SettingsProgress
 {
-    [JsonProperty] public int Level = 1;
+    [JsonProperty] public int LevelNumber = 1;
 }

@@ -6,29 +6,41 @@ public class Game
     private readonly MouseSpawner _mouseSpawner;
     private readonly LevelsConfig _levelsConfig;
     private readonly ScreenSwitcher _screenSwitcher;
-    private readonly SettingsProgress _settings;
+    private readonly SettingsProgress _playerProgress;
+    private readonly IMain _main;
     
     private Level _levelInstance;
-
-    public int CurrentLevel => _settings.Level;
+    
+    public int CurrentLevelNumber
+    {
+        get => _playerProgress.LevelNumber;
+        set => _playerProgress.LevelNumber = value;
+    }
+    
     public int MaxLevels => _levelsConfig.LevelCount;
 
-    public Game(Level.Factory levelFactory, LevelsConfig levelsConfig, ScreenSwitcher screenSwitcher)
+    public Game(Level.Factory levelFactory, LevelsConfig levelsConfig, ScreenSwitcher screenSwitcher, IMain main)
     {
         _levelFactory = levelFactory;
-        _settings = GameSaverLoader.Instance.SettingsProgress;
+        _playerProgress = GameSaverLoader.Instance.SettingsProgress;
         _levelsConfig = levelsConfig;
         _screenSwitcher = screenSwitcher;
+        _main = main;
     }
 
     public void ThisUpdate()
     {
-        
+        if (_screenSwitcher.ScreenIsNull<GameScreen>() == false && Input.GetKeyDown(KeyCode.Escape))
+        {
+            ClearLevel();
+            var menuScreen = _screenSwitcher.ShowScreen<MenuScreen>();
+            menuScreen.Init(_main);
+        }
     }
 
     public void StartGame()
     {
-        int levelIndex = CurrentLevel - 1;
+        int levelIndex = CurrentLevelNumber - 1;
         _levelInstance = _levelFactory.CreateLevelByIndex(levelIndex);
 
         var playerMovement = _levelInstance.PlayerMovement;
@@ -44,14 +56,14 @@ public class Game
     
     public void NextLevel()
     {
-        if (CurrentLevel == MaxLevels)
+        if (CurrentLevelNumber == MaxLevels)
         {
             Debug.Log("Game completed");
             return;
         }
 
         ClearLevel();
-        _settings.Level++;
+        CurrentLevelNumber++;
         StartGame();
     }
 

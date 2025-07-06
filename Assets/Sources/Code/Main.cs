@@ -1,7 +1,12 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Main : MonoBehaviour
+public interface IMain
+{
+    public void StartGame();
+}
+
+public class Main : MonoBehaviour, IMain
 {
     [SerializeField] private ScreenSwitcher _screenSwitcher;
     [SerializeField] private MainSettingsConfig _mainSettingsConfig;
@@ -11,7 +16,7 @@ public class Main : MonoBehaviour
     private void Start()
     {
         Level.Factory levelFactory = new Level.Factory(_mainSettingsConfig.LevelsConfig);
-        _game = new Game(levelFactory, _mainSettingsConfig.LevelsConfig, _screenSwitcher);
+        _game = new Game(levelFactory, _mainSettingsConfig.LevelsConfig, _screenSwitcher, this);
         
         var mainMenu = _screenSwitcher.ShowScreen<MenuScreen>();
         mainMenu.Init(this);
@@ -20,12 +25,6 @@ public class Main : MonoBehaviour
     private void Update()
     {
         _game?.ThisUpdate();
-        
-        if (_screenSwitcher.ScreenIsNull<GameScreen>() == false && Input.GetKeyDown(KeyCode.Escape))
-        {
-            _game.ClearLevel();
-            _screenSwitcher.ShowScreen<MenuScreen>();
-        }
 
 #if (UNITY_EDITOR)
         if (Input.GetKeyDown(KeyCode.R))
