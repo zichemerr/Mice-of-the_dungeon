@@ -1,11 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public interface IMain
-{
-    public void StartGame();
-}
-
 public class Main : MonoBehaviour, IMain
 {
     [SerializeField] private ScreenSwitcher _screenSwitcher;

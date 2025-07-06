@@ -1,23 +1,24 @@
 using UnityEngine;
 using System.Collections;
 using Newtonsoft.Json;
+using UnityEngine.Serialization;
 
 public class GameSaverLoader : SingletonBehaviour<GameSaverLoader>
 {
     private const string SETTINGS_PROGRESS_KEY = "SettingsProgress";
 
-    [SerializeField] private SettingsProgress _defaultSettingsProgress;
+    [FormerlySerializedAs("_defaultSettingsProgress")] [SerializeField] private PlayerProgress defaultPlayerProgress;
 
     private Coroutine _autoSaveCoroutine;
 
-    public SettingsProgress SettingsProgress { get; private set; }
+    public PlayerProgress PlayerProgress { get; private set; }
 
     protected override void Awake()
     {
         base.Awake();
-        var defaultSettingsProgressInJson = JsonConvert.SerializeObject(_defaultSettingsProgress);
+        var defaultSettingsProgressInJson = JsonConvert.SerializeObject(defaultPlayerProgress);
         string settingsProgressInJson = PlayerPrefs.GetString(SETTINGS_PROGRESS_KEY, defaultSettingsProgressInJson);
-        SettingsProgress = JsonConvert.DeserializeObject<SettingsProgress>(settingsProgressInJson);
+        PlayerProgress = JsonConvert.DeserializeObject<PlayerProgress>(settingsProgressInJson);
 
         _autoSaveCoroutine = StartCoroutine(AutoSaveCoroutine());
     }
@@ -46,7 +47,7 @@ public class GameSaverLoader : SingletonBehaviour<GameSaverLoader>
 
     private void MadeAutoSave()
     {
-        var settingsProgressInJson = JsonConvert.SerializeObject(SettingsProgress);
+        var settingsProgressInJson = JsonConvert.SerializeObject(PlayerProgress);
         PlayerPrefs.SetString(SETTINGS_PROGRESS_KEY, settingsProgressInJson);
         Debug.Log("SAVE");
     }
