@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class MousePool
 {
-    private Queue<Mouse> _pool;
-    private Transform _parent;
-    private Mouse _prefab;
-    private int _poolSize;
+    private readonly Queue<Mouse> _pool;
+    private readonly Transform _parent;
+    private readonly Mouse _prefab;
+    private readonly int _poolSize;
 
     public MousePool(Mouse prefab, Transform parent, int poolSize)
     {

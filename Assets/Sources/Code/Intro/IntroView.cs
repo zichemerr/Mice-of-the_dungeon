@@ -32,12 +32,12 @@ public class IntroView : MonoBehaviour
 
     public async UniTask HideText()
     {
-        await _text.DOFade(0, 0.5f).AsyncWaitForCompletion();
+        await _text.DOFade(0, 0.5f).ToUniTask();
     }
 
     public async UniTask HideBackground()
     {
-        await _image.DOFade(0, 0.5f).AsyncWaitForCompletion();
+        await _image.DOFade(0, 0.5f).ToUniTask();
     }
 
     public void WriteSound()

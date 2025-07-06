@@ -10,7 +10,8 @@ public class Main : MonoBehaviour
     
     private void Start()
     {
-        _game = new Game(_mainSettingsConfig.LevelsConfig, _screenSwitcher);
+        Level.Factory levelFactory = new Level.Factory(_mainSettingsConfig.LevelsConfig);
+        _game = new Game(levelFactory, _mainSettingsConfig.LevelsConfig, _screenSwitcher);
         
         var mainMenu = _screenSwitcher.ShowScreen<MenuScreen>();
         mainMenu.Init(this);
@@ -28,7 +29,10 @@ public class Main : MonoBehaviour
 
 #if (UNITY_EDITOR)
         if (Input.GetKeyDown(KeyCode.R))
+        {
+            _game.ClearSaves();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
 
         if (Input.GetKeyDown(KeyCode.G))
             _game.NextLevel();
@@ -38,11 +42,5 @@ public class Main : MonoBehaviour
     public void StartGame()
     {
         _game.StartGame();
-    }
-
-    [ContextMenu(nameof(ClearSave))]
-    private void ClearSave()
-    {
-        _game.ClearSaves();
     }
 }

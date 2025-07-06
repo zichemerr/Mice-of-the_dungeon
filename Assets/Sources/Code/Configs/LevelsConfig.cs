@@ -8,7 +8,7 @@ public class LevelsConfig : ScriptableObject
 
     public int LevelCount => _level.Count;
     
-    public Level GetLevel(int levelNumber)
+    public Level GetLevelPrefabByIndex(int levelNumber)
     {
         return _level[levelNumber];
     }

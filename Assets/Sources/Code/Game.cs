@@ -2,44 +2,38 @@ using UnityEngine;
 
 public class Game
 {
-    private Level _level;
-    private MouseSpawner _mouseSpawner;
-    private LevelsConfig _levelsConfig;
-    private ScreenSwitcher _screenSwitcher;
-    private SettingsProgress _settings;
+    private readonly Level.Factory _levelFactory;
+    private readonly MouseSpawner _mouseSpawner;
+    private readonly LevelsConfig _levelsConfig;
+    private readonly ScreenSwitcher _screenSwitcher;
+    private readonly SettingsProgress _settings;
+    
+    private Level _levelInstance;
 
-    public int CurrentLevel { get; private set; } = 1;
+    public int CurrentLevel => _settings.Level;
     public int MaxLevels => _levelsConfig.LevelCount;
 
-    public Game(LevelsConfig levelsConfig, ScreenSwitcher screenSwitcher)
+    public Game(Level.Factory levelFactory, LevelsConfig levelsConfig, ScreenSwitcher screenSwitcher)
     {
+        _levelFactory = levelFactory;
         _settings = GameSaverLoader.Instance.SettingsProgress;
-        CurrentLevel = _settings.Level;
         _levelsConfig = levelsConfig;
         _screenSwitcher = screenSwitcher;
     }
 
     public void ThisUpdate()
     {
-
+        
     }
 
     public void StartGame()
     {
-        Level prefab = _levelsConfig.GetLevel(CurrentLevel - 1);
-        _level = Object.Instantiate(prefab);
-        
-        _mouseSpawner = _level.MouseSpawner;
-        var playerMovement = _level.PlayerMovement;
-        var playerInput = _level.PlayerInput;
-        
-        playerMovement.Init(_mouseSpawner);
-        playerMovement.MouseEnded += PlayerOnDied;
-        playerInput.Init(playerMovement);
-        
-        _mouseSpawner.Init(_level.MouseParent);
-        _mouseSpawner.GetMouse(_level.PlayerPosition);
+        int levelIndex = CurrentLevel - 1;
+        _levelInstance = _levelFactory.CreateLevelByIndex(levelIndex);
 
+        var playerMovement = _levelInstance.PlayerMovement;
+        playerMovement.MouseEnded += PlayerOnDied;
+        
         _screenSwitcher.ShowScreen<GameScreen>();
     }
     
@@ -57,8 +51,7 @@ public class Game
         }
 
         ClearLevel();
-        CurrentLevel++;
-        _settings.Level = CurrentLevel;
+        _settings.Level++;
         StartGame();
     }
 
@@ -69,10 +62,10 @@ public class Game
     
     public void ClearLevel()
     {
-        if (_level == null)
+        if (_levelInstance == null)
             return;
         
-        _level.Destroy();
-        _level = null;
+        _levelInstance.Destroy();
+        _levelInstance = null;
     }
 }

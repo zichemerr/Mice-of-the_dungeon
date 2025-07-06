@@ -1,7 +1,6 @@
 using UnityEngine.AI;
 using UnityEngine;
 using System;
-using TMPro;
 
     [RequireComponent(typeof(Rigidbody2D))]
     [RequireComponent(typeof(NavMeshAgent))]

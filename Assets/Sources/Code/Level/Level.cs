@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class Level : MonoBehaviour
@@ -18,5 +17,34 @@ public class Level : MonoBehaviour
     public void Destroy()
     {
         Destroy(gameObject);
+    }
+
+    public class Factory
+    {
+        private LevelsConfig _levelsConfig;
+        
+        public Factory(LevelsConfig levelsConfig)
+        {
+            _levelsConfig = levelsConfig;
+        }
+
+        public Level CreateLevelByIndex(int index)
+        {
+            var levelPrefab = _levelsConfig.GetLevelPrefabByIndex(index);
+            var levelInstance = Instantiate(levelPrefab);
+
+            var mouseSpawner = levelInstance.MouseSpawner;
+            
+            var playerMovement = levelInstance.PlayerMovement;
+            playerMovement.Init(mouseSpawner);
+            
+            mouseSpawner.Init(levelInstance.MouseParent);
+            mouseSpawner.GetMouse(levelInstance.PlayerPosition);
+            
+            var playerInput = levelInstance.PlayerInput;
+            playerInput.Init(playerMovement);
+            
+            return levelInstance;
+        }
     }
 }
