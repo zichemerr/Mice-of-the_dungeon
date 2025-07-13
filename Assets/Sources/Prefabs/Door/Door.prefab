@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 6663074224136145553}
   - component: {fileID: 3439142275978964532}
   m_Layer: 0
-  m_Name: Exit
+  m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

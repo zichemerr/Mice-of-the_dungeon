@@ -16,6 +16,11 @@ public class MouseSpawner : MonoBehaviour
     {
         _mousePool = new MousePool(_mousePrefab, spawnParent, _poolSize);
         _mousePool.Init();
+
+        foreach (var pointSpawner in _pointsSpawner)
+        {
+            pointSpawner.Init();
+        }
     }
     
     private void OnEnable()

@@ -5,12 +5,10 @@ public class Box : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D _rigidbody;
     [SerializeField] private SpriteRenderer _spriteRenderer;
+    [SerializeField] private PointSpawner _pointSpawner;
     
-     private PointSpawner _pointSpawner;
-    
-    public void Init(PointSpawner pointSpawner)
+    public void Init()
     {
-        _pointSpawner = pointSpawner;
         Disable();
         _pointSpawner.Entered += OnEntered;
     }
@@ -36,12 +34,5 @@ public class Box : MonoBehaviour
     public void Disable()
     {
         _rigidbody.isKinematic = true;
-    }
-
-    public void SetPositionAndRotation()
-    {
-        transform.position = new Vector2(-5, -1);
-        //transform.position = position;
-        //transform.rotation = rotation;
     }
 }

@@ -23,13 +23,7 @@ public class Main : MonoBehaviour, IMain
 
 #if (UNITY_EDITOR)
         if (Input.GetKeyDown(KeyCode.R))
-        {
-            _game.ClearSaves();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
-
-        if (Input.GetKeyDown(KeyCode.G))
-            _game.NextLevel();
 #endif
     }
 

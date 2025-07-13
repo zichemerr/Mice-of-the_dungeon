@@ -1,24 +1,26 @@
 using System;
 using UnityEngine;
 
-public class DoorController : MonoBehaviour
+public class Door : MonoBehaviour
 {
     [SerializeField] private DoorView _doorView;
     
-    private ImporterController _importer;
+    private MouseAltar _mouseAltar;
     private bool _isOpen;
     
-    public void Init(ImporterController importer)
+    public event Action Entered;
+    
+    public void Init(MouseAltar mouseAltar)
     {
         _doorView.Init();
-        _importer = importer;
-        _importer.Impotred += OnImpotred;
+        _mouseAltar = mouseAltar;
+        _mouseAltar.Impotred += OnImpotred;
         _isOpen = false;
     }
 
     private void OnDisable()
     {
-        _importer.Impotred -= OnImpotred;
+        _mouseAltar.Impotred -= OnImpotred;
     }
 
     private void OnImpotred()
@@ -35,7 +37,7 @@ public class DoorController : MonoBehaviour
         
         if (other.GetComponent<Mouse>())
         {
-            //G.level.NextLevel();
+            Entered?.Invoke();
         }
     }
 }

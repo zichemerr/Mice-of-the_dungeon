@@ -20,14 +20,6 @@ using UnityEngine;
         
         private Tween Play(Transform transform, PointAnimationData data)
         {
-            return transform.DOShakePosition(data.Duration, data.Stren, data.Vibrato,data.Random).SetLoops(-1);
-        }
-
-        public void Kill()
-        {
-            foreach (var tween in _tween)
-            {
-                tween.Kill();
-            }
+            return transform.DOShakePosition(data.Duration, data.Stren, data.Vibrato,data.Random).SetLoops(-1).SetLink(gameObject);
         }
     }

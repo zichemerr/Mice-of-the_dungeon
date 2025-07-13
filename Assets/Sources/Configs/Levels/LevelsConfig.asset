@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f3e89ddcd474d75878ea181e0ec28dd, type: 3}
   m_Name: LevelsConfig
   m_EditorClassIdentifier: 
-  _level:
-  - {fileID: 4594812285357709150, guid: 3346cb325ecf98e4a840f34fb135b437, type: 3}
-  - {fileID: 4594812285357709150, guid: fe5a010999e578b40a90613f051ee8b3, type: 3}
-  - {fileID: 4594812285357709150, guid: e7bc3a163c4f7d543a173e78ab717a8d, type: 3}
+  _levels:
+  - {fileID: 5223314470407610425, guid: d80d450476d4147429bdd86815b03fa2, type: 3}
+  - {fileID: 1785073850164979574, guid: 4687e877d8a7183488705234e75a9aa8, type: 3}

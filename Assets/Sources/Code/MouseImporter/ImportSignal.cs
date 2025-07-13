@@ -1,10 +1,11 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
-    public class ImportSignal : MonoBehaviour
+public class ImportSignal : MonoBehaviour
     {
         [SerializeField] private PulseAnimation _pulse;
         [SerializeField] private MouseSpawner _spawner;
-        [SerializeField] private ImporterController _importer;
+        [SerializeField] private MouseAltar _mouseAltar;
         
         private int _spawned;
         
@@ -23,7 +24,7 @@ using UnityEngine;
             mouse.Destroyed += OnDestroyed;
             _spawned++;
 
-            if (_spawned - 1 == _importer.ImportCount)
+            if (_spawned - 1 == _mouseAltar.MaxMouseCount)
             {
                 _pulse.Play();
             }

@@ -201,7 +201,7 @@ GameObject:
   - component: {fileID: 1833593242092516080}
   - component: {fileID: 5577086578497232667}
   m_Layer: 0
-  m_Name: Importer
+  m_Name: MouseAltar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -278,8 +278,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dd69a3f32db402ab491c6dd31bc3816, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerInput: {fileID: 0}
-  _ghostView: {fileID: 0}
 --- !u!58 &5577086578497232667
 CircleCollider2D:
   m_ObjectHideFlags: 0

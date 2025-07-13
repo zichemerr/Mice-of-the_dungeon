@@ -9,9 +9,8 @@ public class PointSpawner : MonoBehaviour
 
     public event Action<Vector2, int, PointSpawner> Entered;
 
-    public void Init(int spawnCount)
+    public void Init()
     {
-        _spawnCount = spawnCount;
         _pointAnimation.Init();
     }
 
@@ -20,7 +19,6 @@ public class PointSpawner : MonoBehaviour
         if (collision.gameObject.GetComponent<Mouse>())
         {
             Entered?.Invoke(_point.position, _spawnCount, this);
-            _pointAnimation.Kill();
             gameObject.SetActive(false);
         }
     }

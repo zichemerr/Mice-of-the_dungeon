@@ -36,6 +36,14 @@ public class Game
             var menuScreen = _screenSwitcher.ShowScreen<MenuScreen>();
             menuScreen.Init(_main);
         }
+        
+#if (UNITY_EDITOR)
+        if (Input.GetKeyDown(KeyCode.F))
+            ClearSaves();
+
+        if (Input.GetKeyDown(KeyCode.G))
+            OnNextLevel();
+#endif
     }
 
     public void StartGame()
@@ -44,7 +52,10 @@ public class Game
         _levelInstance = _levelFactory.CreateLevelByIndex(levelIndex);
 
         var playerMovement = _levelInstance.PlayerMovement;
+        var door = _levelInstance.Door;
+        
         playerMovement.MouseEnded += PlayerOnDied;
+        door.Entered += OnNextLevel;
         
         _screenSwitcher.ShowScreen<GameScreen>();
     }
@@ -54,7 +65,16 @@ public class Game
         Debug.Log("Defeat");
     }
     
-    public void NextLevel()
+    private void ClearLevel()
+    {
+        if (_levelInstance == null)
+            return;
+        
+        _levelInstance.Destroy();
+        _levelInstance = null;
+    }
+    
+    private void OnNextLevel()
     {
         if (CurrentLevelNumber == MaxLevels)
         {
@@ -66,18 +86,9 @@ public class Game
         CurrentLevelNumber++;
         StartGame();
     }
-
-    public void ClearSaves()
+    
+    private void ClearSaves()
     {
         CurrentLevelNumber = 1;
-    }
-    
-    public void ClearLevel()
-    {
-        if (_levelInstance == null)
-            return;
-        
-        _levelInstance.Destroy();
-        _levelInstance = null;
     }
 }

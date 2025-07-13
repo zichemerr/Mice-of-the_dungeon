@@ -7,12 +7,20 @@ public class Level : MonoBehaviour
     [SerializeField] private PlayerMovement _playerMovement;
     [SerializeField] private PlayerInput _playerInput;
     [SerializeField] private MouseSpawner _mouseSpawner;
+    [SerializeField] private Door _door;
+    [SerializeField] private MouseAltar _mouseAltar;
+    [SerializeField] private BoxesRoot _boxesRoot;
+    [SerializeField] private int _maxMouseCount;
     
     public Vector2 PlayerPosition => _playerPointPosition.position;
     public PlayerMovement PlayerMovement => _playerMovement;
     public PlayerInput PlayerInput => _playerInput;
     public MouseSpawner MouseSpawner => _mouseSpawner;
     public Transform MouseParent => _mouseParent;
+    public Door Door => _door;
+    public MouseAltar MouseAltar => _mouseAltar;
+    public int MaxMouseCount => _maxMouseCount;
+    public BoxesRoot BoxesRoot => _boxesRoot;
     
     public void Destroy()
     {
@@ -43,6 +51,15 @@ public class Level : MonoBehaviour
             
             var playerInput = levelInstance.PlayerInput;
             playerInput.Init(playerMovement);
+            
+            var mouseAltar = levelInstance.MouseAltar;
+            mouseAltar.Init(levelInstance.MaxMouseCount, playerInput);
+            
+            var door = levelInstance.Door;
+            door.Init(mouseAltar);
+            
+            var boxesRoot = levelInstance.BoxesRoot;
+            boxesRoot.Init();
             
             return levelInstance;
         }

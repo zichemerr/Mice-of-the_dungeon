@@ -4,32 +4,30 @@ using System.Collections;
 using System;
 using DG.Tweening;
 
-    public class ImporterController : MonoBehaviour
+    public class MouseAltar : MonoBehaviour
     {
         [SerializeField] private MouseDeathBehaviour _mouseDeath;
         [SerializeField] private ImporterZone _zone;
         [SerializeField] private ImporterView _view;
-        [SerializeField] private int _importCount;
-
+        [SerializeField] private GhostView _ghostView;
+        
         private List<IImportable> _importables;
-
-        private bool _isDestroy;
         private float lastTime;
         private float cooldownTime = 0.2f;
+        private int _maxMouseCount;
+        private bool _isDestroy;
 
         public event Action Impotred;
-        public int ImportCount => _importCount;
+        public int MaxMouseCount => _maxMouseCount;
 
-        public void Init(int imptCount, GhostView ghostView, PlayerInput playerInput)
+        public void Init(int maxMouseCount, PlayerInput playerInput)
         {
-            _importCount = imptCount;
+            _maxMouseCount = maxMouseCount;
             _importables = new List<IImportable>();
-            _mouseDeath.Init(ghostView, playerInput);
+            _mouseDeath.Init(_ghostView, playerInput);
 
             _isDestroy = false;
-            _view.Init(_importCount);
-
-            Debug.Log("Init");
+            _view.Init(_maxMouseCount);
         }
 
         private void OnEnable()
@@ -60,7 +58,7 @@ using DG.Tweening;
                 lastTime = Time.time;
             }
 
-            if (_importables.Count == _importCount)
+            if (_importables.Count == _maxMouseCount)
             {
                 _isDestroy = true;
                 StartCoroutine(DestoryRoutine());
@@ -76,7 +74,7 @@ using DG.Tweening;
 
         private void OnExited(IImportable importable)
         {
-            if (_importables.Count == _importCount)
+            if (_importables.Count == _maxMouseCount)
                 return;
             
             _importables.Remove(importable);
