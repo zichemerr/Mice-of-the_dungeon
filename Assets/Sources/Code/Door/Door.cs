@@ -5,6 +5,7 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
     [SerializeField] private DoorView _doorView;
+    [SerializeField] private Collider2D _collider;
     
     private MouseAltar _mouseAltar;
     private ScreenTansition _screenTansition;
@@ -30,7 +31,7 @@ public class Door : MonoBehaviour
     {
         _isOpen = true;
         _doorView.DrawOpenedDoor();
-        Debug.Log("Opened door");
+        _collider.enabled = true;
     }
 
     private void OnTriggerEnter2D(Collider2D other)

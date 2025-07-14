@@ -343,6 +343,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3645433174908418296}
     m_Modifications:
+    - target: {fileID: 4301291148889831746, guid: 95e77068da90bcc419e978a1950c0b8c, type: 3}
+      propertyPath: _collider
+      value: 
+      objectReference: {fileID: 428535837126149889}
     - target: {fileID: 5916830062397803101, guid: 95e77068da90bcc419e978a1950c0b8c, type: 3}
       propertyPath: m_Name
       value: Exit
@@ -396,6 +400,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95e77068da90bcc419e978a1950c0b8c, type: 3}
+--- !u!61 &428535837126149889 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 3439142275978964532, guid: 95e77068da90bcc419e978a1950c0b8c, type: 3}
+  m_PrefabInstance: {fileID: 3046754139899750709}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1295206271299932279 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4301291148889831746, guid: 95e77068da90bcc419e978a1950c0b8c, type: 3}

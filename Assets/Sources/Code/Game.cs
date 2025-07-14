@@ -59,7 +59,6 @@ public class Game
         playerMovement.MouseEnded += PlayerOnDied;
         door.Entered += OnNextLevel;
         screenTransition.Show().Forget();
-        
         _screenSwitcher.ShowScreen<GameScreen>();
     }
     
