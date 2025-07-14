@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3186087432877884284}
   - component: {fileID: 5440679362338706726}
   - component: {fileID: 6282609241348271258}
+  - component: {fileID: 5849657386572840474}
   m_Layer: 0
   m_Name: LevelAbstact
   m_TagString: Untagged
@@ -65,6 +66,7 @@ MonoBehaviour:
   _door: {fileID: 1295206271299932279}
   _mouseAltar: {fileID: 3161564148777747312}
   _boxesRoot: {fileID: 6282609241348271258}
+  _screenTransition: {fileID: 5849657386572840474}
   _maxMouseCount: 1
 --- !u!114 &8493879588924662983
 MonoBehaviour:
@@ -119,6 +121,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _boxes: []
+--- !u!114 &5849657386572840474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392985196463175212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5002ac9895a4b75b25b7f08ad51cdf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _image: {fileID: 2995115998406952830}
 --- !u!1 &829670291781969653
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,6 +420,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3645433174908418296}
     m_Modifications:
+    - target: {fileID: 218866233344082241, guid: b288b6bbd7a1488479bc6ac60e5831e0, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5051289017083351332, guid: b288b6bbd7a1488479bc6ac60e5831e0, type: 3}
       propertyPath: m_Pivot.x
       value: 0

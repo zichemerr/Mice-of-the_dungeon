@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Level : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Level : MonoBehaviour
     [SerializeField] private Door _door;
     [SerializeField] private MouseAltar _mouseAltar;
     [SerializeField] private BoxesRoot _boxesRoot;
+    [SerializeField] private ScreenTansition _screenTransition;
     [SerializeField] private int _maxMouseCount;
     
     public Vector2 PlayerPosition => _playerPointPosition.position;
@@ -21,6 +23,7 @@ public class Level : MonoBehaviour
     public MouseAltar MouseAltar => _mouseAltar;
     public int MaxMouseCount => _maxMouseCount;
     public BoxesRoot BoxesRoot => _boxesRoot;
+    public ScreenTansition ScreenTransition => _screenTransition;
     
     public void Destroy()
     {
@@ -41,6 +44,9 @@ public class Level : MonoBehaviour
             var levelPrefab = _levelsConfig.GetLevelPrefabByIndex(index);
             var levelInstance = Instantiate(levelPrefab);
 
+            var screenTransition = levelInstance.ScreenTransition;
+            screenTransition.Init();
+            
             var mouseSpawner = levelInstance.MouseSpawner;
             
             var playerMovement = levelInstance.PlayerMovement;
@@ -56,7 +62,7 @@ public class Level : MonoBehaviour
             mouseAltar.Init(levelInstance.MaxMouseCount, playerInput);
             
             var door = levelInstance.Door;
-            door.Init(mouseAltar);
+            door.Init(mouseAltar, screenTransition);
             
             var boxesRoot = levelInstance.BoxesRoot;
             boxesRoot.Init();

@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 public class Game
@@ -45,7 +46,7 @@ public class Game
             OnNextLevel();
 #endif
     }
-
+    
     public void StartGame()
     {
         int levelIndex = CurrentLevelNumber - 1;
@@ -53,9 +54,11 @@ public class Game
 
         var playerMovement = _levelInstance.PlayerMovement;
         var door = _levelInstance.Door;
+        var screenTransition = _levelInstance.ScreenTransition;
         
         playerMovement.MouseEnded += PlayerOnDied;
         door.Entered += OnNextLevel;
+        screenTransition.Show().Forget();
         
         _screenSwitcher.ShowScreen<GameScreen>();
     }
