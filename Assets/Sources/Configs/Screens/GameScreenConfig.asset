@@ -9,8 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9682a6ccd6464c1eac942e782a1e1d83, type: 3}
-  m_Name: MainSettingsConfig
+  m_Script: {fileID: 11500000, guid: 29179e90f7aa4d3eb6d763325615b85d, type: 3}
+  m_Name: GameScreenConfig
   m_EditorClassIdentifier: 
-  _levelsConfig: {fileID: 11400000, guid: d5d08bd36e7c40a419c023cd0336ca57, type: 2}
-  _gameEventScreenConfig: {fileID: 11400000, guid: 206758b0549b3ea4b81a1836a5780e44, type: 2}
+  _ease: 1
+  _duration: 1
+  _victoryText: Victory
+  _defeatText: Defeat

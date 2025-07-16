@@ -1,4 +1,7 @@
-public interface IMain
+namespace Sources.Code
 {
-    public void StartGame();
+    public interface IMain
+    {
+        public void StartGame();
+    }
 }

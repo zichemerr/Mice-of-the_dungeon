@@ -1,34 +1,40 @@
+using Sources.Code.Configs;
+using Sources.Code.Gameplay;
+using Sources.Code.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Main : MonoBehaviour, IMain
+namespace Sources.Code
 {
-    [SerializeField] private ScreenSwitcher _screenSwitcher;
-    [SerializeField] private MainSettingsConfig _mainSettingsConfig;
-    
-    private Game _game;
-    
-    private void Start()
+    public class Main : MonoBehaviour, IMain
     {
-        Level.Factory levelFactory = new Level.Factory(_mainSettingsConfig.LevelsConfig);
-        _game = new Game(levelFactory, _mainSettingsConfig.LevelsConfig, _screenSwitcher, this);
+        [SerializeField] private ScreenSwitcher _screenSwitcher;
+        [SerializeField] private MainSettingsConfig _mainSettingsConfig;
+    
+        private Game _game;
+    
+        private void Start()
+        {
+            Level.Factory levelFactory = new Level.Factory(_mainSettingsConfig.LevelsConfig);
+            _game = new Game(levelFactory, _mainSettingsConfig.LevelsConfig, _mainSettingsConfig.GameEventScreenConfig, _screenSwitcher, this);
         
-        var mainMenu = _screenSwitcher.ShowScreen<MenuScreen>();
-        mainMenu.Init(this);
-    }
+            var mainMenu = _screenSwitcher.ShowScreen<MenuScreen>();
+            mainMenu.Init(this);
+        }
     
-    private void Update()
-    {
-        _game?.ThisUpdate();
+        private void Update()
+        {
+            _game?.ThisUpdate();
 
 #if (UNITY_EDITOR)
-        if (Input.GetKeyDown(KeyCode.R))
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            if (Input.GetKeyDown(KeyCode.R))
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 #endif
-    }
+        }
 
-    public void StartGame()
-    {
-        _game.StartGame();
+        public void StartGame()
+        {
+            _game.StartGame();
+        }
     }
 }

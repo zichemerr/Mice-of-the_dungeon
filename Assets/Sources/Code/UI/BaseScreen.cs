@@ -1,14 +1,17 @@
 using UnityEngine;
 
-public abstract class BaseScreen : MonoBehaviour
+namespace Sources.Code.UI
 {
-    public virtual void Enable()
+    public abstract class BaseScreen : MonoBehaviour
     {
-        gameObject.SetActive(true);
-    }
+        public virtual void Enable()
+        {
+            gameObject.SetActive(true);
+        }
     
-    public virtual void Disable()
-    {
-        gameObject.SetActive(false);
+        public virtual void Disable()
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

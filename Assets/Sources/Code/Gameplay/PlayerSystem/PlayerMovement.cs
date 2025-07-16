@@ -1,0 +1,62 @@
+﻿using System;
+using System.Collections.Generic;
+using Sources.Code.Gameplay.Spawner;
+using UnityEngine;
+
+namespace Sources.Code.Gameplay.PlayerSystem
+{
+    public class PlayerMovement : MonoBehaviour
+    {
+        [SerializeField] private List<Mouse> _movements;
+
+        private MouseSpawner _mouseSpawner;
+
+        public int MouseCount => _movements.Count;
+        public event Action MouseEnded;
+
+        public void Init(MouseSpawner mouseSpawner)
+        {
+            _mouseSpawner = mouseSpawner;
+            _mouseSpawner.Spawned += OnSpawned;
+        }
+
+        private void OnDisable()
+        {
+            _mouseSpawner.Spawned -= OnSpawned;
+
+            foreach (var movement in _movements)
+            {
+                movement.Destroyed -= OnDestroyed;
+            }
+        }
+
+        private void OnSpawned(Mouse mouse)
+        {
+            _movements.Add(mouse);
+            mouse.Destroyed += OnDestroyed;
+        }
+
+        private void OnDestroyed(Mouse mouse)
+        {
+            if (mouse == null)
+                return;
+            
+            _movements.Remove(mouse);
+            
+            if (_movements.Count == 0)
+            {
+                MouseEnded?.Invoke();
+            }
+        }
+
+        public void Move(Vector2 cursorPosition)
+        {
+            Vector2 position = Camera.main.ScreenToWorldPoint(cursorPosition);
+
+            foreach (Mouse movement in _movements)
+            {
+                movement.SetDirection(position);
+            }
+        }
+    }
+}
