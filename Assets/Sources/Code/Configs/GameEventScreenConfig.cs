@@ -8,12 +8,20 @@ namespace Sources.Code.Configs
     {
         [SerializeField] private Ease _ease;
         [SerializeField] private float _duration;
+        
+        [Header("Victory")]
+        [SerializeField] private Color _victoryImageColor;
         [SerializeField] private string _victoryText;
+        
+        [Header("Defeat")]
+        [SerializeField] private Color _defeatImageColor;
         [SerializeField] private string _defeatText;
         
         public float Duration => _duration;
         public Ease Ease => _ease;
         public string VictoryText => _victoryText;
         public string DefeatText => _defeatText;
+        public Color VictoryImageColor => _victoryImageColor;
+        public Color DefeatImageColor => _defeatImageColor;
     }
 }
