@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace Sources.Code.Gameplay.MouseAltar
+namespace Sources.Code.Gameplay.MouseAltars
 {
     public class ImporterView : MonoBehaviour
     {

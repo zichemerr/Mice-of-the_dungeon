@@ -1,11 +1,9 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using Sources.Code.Gameplay.PlayerSystem;
-using UnityEngine;
 
-namespace Sources.Code.Gameplay.MouseAltar
+namespace Sources.Code.Gameplay.MouseAltars
 {
     public class StartContentImport : MouseDeathBehaviour
     {

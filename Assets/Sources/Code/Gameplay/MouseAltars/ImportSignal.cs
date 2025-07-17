@@ -2,7 +2,7 @@ using Sources.Code.Gameplay.PlayerSystem;
 using Sources.Code.Gameplay.Spawner;
 using UnityEngine;
 
-namespace Sources.Code.Gameplay.MouseAltar
+namespace Sources.Code.Gameplay.MouseAltars
 {
     public class ImportSignal : MonoBehaviour
     {

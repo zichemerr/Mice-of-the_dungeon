@@ -73,9 +73,8 @@ namespace Sources.Code.Gameplay
         
             playerMovement.MouseEnded += PlayerOnDied;
             door.Entered += OnNextLevel;
-            //screenTransition.Show().Forget();
             
-            _screenSwitcher.ShowScreen<GameScreen>();
+            _screenSwitcher.ShowScreen<GameScreen>().Init();
         }
     
         private void PlayerOnDied()
@@ -87,7 +86,7 @@ namespace Sources.Code.Gameplay
         private async UniTaskVoid DefeatLevel()
         {
             await _gameEventScreen.ShowDefeat();
-            await UniTask.WaitForSeconds(0.5f);
+            await UniTask.WaitForSeconds(1);
             
             RestartLevel();
         }

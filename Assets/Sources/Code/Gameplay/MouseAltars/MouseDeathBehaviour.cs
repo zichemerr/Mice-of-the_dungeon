@@ -4,7 +4,7 @@ using Cysharp.Threading.Tasks;
 using Sources.Code.Gameplay.PlayerSystem;
 using UnityEngine;
 
-namespace Sources.Code.Gameplay.MouseAltar
+namespace Sources.Code.Gameplay.MouseAltars
 {
     public abstract class MouseDeathBehaviour : MonoBehaviour
     {

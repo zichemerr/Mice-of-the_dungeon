@@ -4,16 +4,16 @@ namespace Sources.Code.Gameplay.PlayerSystem
 {
     public class PlayerInput : MonoBehaviour
     {
-        private PlayerMovement _playerMovement;
+        private PlayerMovement _playerMovementMovement;
         private InputActivator _inputActivator;
         private bool _isActive = true;
 
-        public void Init(PlayerMovement playerMovement)
+        public void Init(PlayerMovement playerMovementMovement)
         {
             _inputActivator = new InputActivator(this, 0.5f);
             _inputActivator.Init(this);
             
-            _playerMovement = playerMovement;
+            _playerMovementMovement = playerMovementMovement;
         }
 
         private Vector2 CursorPosition
@@ -32,7 +32,7 @@ namespace Sources.Code.Gameplay.PlayerSystem
 
             if (Input.GetMouseButton(0))
             {
-                _playerMovement.Move(CursorPosition);
+                _playerMovementMovement.Move(CursorPosition);
             }
         }
 

@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
@@ -7,7 +6,7 @@ using DG.Tweening;
 using Sources.Code.Gameplay.PlayerSystem;
 using UnityEngine;
 
-namespace Sources.Code.Gameplay.MouseAltar
+namespace Sources.Code.Gameplay.MouseAltars
 {
     public class MouseAltar : MonoBehaviour
     {

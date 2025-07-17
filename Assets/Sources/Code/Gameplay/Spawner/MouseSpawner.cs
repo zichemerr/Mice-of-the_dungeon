@@ -48,7 +48,7 @@ namespace Sources.Code.Gameplay.Spawner
             GetMouses(position, spawnCount);
             pointSpawner.Entered -= OnEntered;
 
-            //Sttrox: я избавился от статики
+            //zichemerr: я избавился от статики
             //Root.Effect.Play(position);
             //Root.Audio.Play(Root.Sound.Clap, 0.8f);
         }

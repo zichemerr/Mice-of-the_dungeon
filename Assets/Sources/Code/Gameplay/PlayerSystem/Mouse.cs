@@ -1,5 +1,5 @@
 using System;
-using Sources.Code.Gameplay.MouseAltar;
+using Sources.Code.Gameplay.MouseAltars;
 using UnityEngine;
 using UnityEngine.AI;
 

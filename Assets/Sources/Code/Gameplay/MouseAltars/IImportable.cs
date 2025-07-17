@@ -1,4 +1,4 @@
-﻿namespace Sources.Code.Gameplay.MouseAltar
+﻿namespace Sources.Code.Gameplay.MouseAltars
 {
     public interface IImportable
     {

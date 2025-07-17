@@ -11,11 +11,10 @@ GameObject:
   - component: {fileID: 3645433174908418296}
   - component: {fileID: 2758625056456037868}
   - component: {fileID: 8493879588924662983}
-  - component: {fileID: 3186087432877884284}
   - component: {fileID: 5440679362338706726}
   - component: {fileID: 6282609241348271258}
-  - component: {fileID: 5849657386572840474}
   - component: {fileID: 2842337332358647935}
+  - component: {fileID: 1823066166353949659}
   m_Layer: 0
   m_Name: LevelAbstact
   m_TagString: Untagged
@@ -61,7 +60,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerPointPosition: {fileID: 6335856571670553414}
   _mouseParent: {fileID: 2132683196902389537}
-  _playerMovement: {fileID: 3186087432877884284}
+  _playerMovement: {fileID: 1823066166353949659}
   _playerInput: {fileID: 8493879588924662983}
   _mouseSpawner: {fileID: 5440679362338706726}
   _door: {fileID: 1295206271299932279}
@@ -81,19 +80,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce8248d3e9f83c94186b4c6a15af9476, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3186087432877884284
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 392985196463175212}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66f205357f02c204b907b9cbb7d00b52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _movements: []
 --- !u!114 &5440679362338706726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,19 +108,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _boxes: []
---- !u!114 &5849657386572840474
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 392985196463175212}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5002ac9895a4b75b25b7f08ad51cdf7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _image: {fileID: 2995115998406952830}
 --- !u!114 &2842337332358647935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,6 +123,19 @@ MonoBehaviour:
   _canvasGroup: {fileID: 7421224860099361156}
   _image: {fileID: 2621510139286023040}
   _text: {fileID: 4818986440518914175}
+--- !u!114 &1823066166353949659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392985196463175212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f13760dcf8ea1f747ae16ad5cc736377, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _movements: []
 --- !u!1 &829670291781969653
 GameObject:
   m_ObjectHideFlags: 0

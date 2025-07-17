@@ -2,7 +2,7 @@ using Sources.Code.Configs;
 using Sources.Code.Gameplay.Box;
 using Sources.Code.Gameplay.Door;
 using Sources.Code.Gameplay.GameEvents;
-using Sources.Code.Gameplay.MouseAltar;
+using Sources.Code.Gameplay.MouseAltars;
 using Sources.Code.Gameplay.PlayerSystem;
 using Sources.Code.Gameplay.Spawner;
 using UnityEngine;

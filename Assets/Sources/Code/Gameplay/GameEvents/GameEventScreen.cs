@@ -64,7 +64,6 @@ namespace Sources.Code.Gameplay.GameEvents
             _image.color = SetColor(imageColor, _image.color.a);
             
             await _canvasGroup.DOFade(duration, EnabledEndValue)
-                .SetEase(_ease)
                 .SetLink(gameObject)
                 .ToUniTask(cancellationToken: _cancellationToken);
         }

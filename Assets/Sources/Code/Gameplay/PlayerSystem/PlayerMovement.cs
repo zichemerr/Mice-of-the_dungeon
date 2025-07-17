@@ -42,8 +42,8 @@ namespace Sources.Code.Gameplay.PlayerSystem
                 return;
             
             _movements.Remove(mouse);
-            
-            if (_movements.Count == 0)
+
+            if (MouseCount <= 0)
             {
                 MouseEnded?.Invoke();
             }

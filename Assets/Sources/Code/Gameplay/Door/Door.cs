@@ -10,12 +10,12 @@ namespace Sources.Code.Gameplay.Door
         [SerializeField] private DoorView _doorView;
         [SerializeField] private Collider2D _collider;
     
-        private MouseAltar.MouseAltar _mouseAltar;
+        private MouseAltars.MouseAltar _mouseAltar;
         private bool _isOpen;
     
         public event Action Entered;
     
-        public void Init(MouseAltar.MouseAltar mouseAltar)
+        public void Init(MouseAltars.MouseAltar mouseAltar)
         {
             _doorView.Init();
             _mouseAltar = mouseAltar;
