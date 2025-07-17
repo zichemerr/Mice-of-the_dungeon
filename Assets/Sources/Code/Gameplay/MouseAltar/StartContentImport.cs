@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
+using Cysharp.Threading.Tasks;
 using Sources.Code.Gameplay.PlayerSystem;
 using UnityEngine;
 
@@ -16,18 +18,18 @@ namespace Sources.Code.Gameplay.MouseAltar
             _ghostView = ghostView;
         }
 
-        public override IEnumerator DeathRoutine(List<IImportable> importable)
+        public override async UniTask DeathRoutine(List<IImportable> importable, CancellationToken cancellationToken)
         {
-            yield return new WaitForSeconds(0.5f);
+            await UniTask.WaitForSeconds(0.5f, cancellationToken: cancellationToken);
 
             _ghostView.Enable();
             _playerInput.Disable();
             //AudioSystem.Const.Play(Root.Sound.Piano, 0.4f);
-
-            yield return new WaitForSeconds(0.3f);
-
-            yield return _ghostView.HideDispaly();
-            yield return new WaitForSeconds(2f);
+            
+            await UniTask.WaitForSeconds(0.3f, cancellationToken: cancellationToken);
+            
+            await _ghostView.HideDispaly();
+            await UniTask.WaitForSeconds(1f, cancellationToken: cancellationToken);
 
             _ghostView.Disable();
 
@@ -36,7 +38,7 @@ namespace Sources.Code.Gameplay.MouseAltar
 
             _playerInput.Enable();
 
-            yield return _ghostView.ShowDispaly();
+            await _ghostView.ShowDispaly();
         }
     }
 }

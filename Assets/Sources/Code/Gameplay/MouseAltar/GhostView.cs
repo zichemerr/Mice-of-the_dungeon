@@ -1,3 +1,6 @@
+using System;
+using System.Threading;
+using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,10 +11,24 @@ namespace Sources.Code.Gameplay.MouseAltar
     {
         [SerializeField] private SpriteRenderer _spriteRenderer;
         [SerializeField] private Image _image;
-    
-        private YieldInstruction PlayAniamtion(int endValue, float duration)
+
+        private CancellationTokenSource _cancellationTokenSource;
+        private CancellationToken _cancellationToken;
+
+        private void Start()
         {
-            return _image.DOFade(endValue, duration).WaitForCompletion();
+            _cancellationTokenSource = new CancellationTokenSource();
+            _cancellationToken = _cancellationTokenSource.Token;
+        }
+
+        private void OnDestroy()
+        {
+            _cancellationTokenSource.Cancel();
+        }
+
+        private async UniTask PlayAniamtion(int endValue, float duration)
+        {
+            await _image.DOFade(endValue, duration).ToUniTask(cancellationToken: _cancellationToken);
         }
     
         public void Enable()
@@ -24,14 +41,14 @@ namespace Sources.Code.Gameplay.MouseAltar
             _spriteRenderer.enabled = false;
         }
     
-        public YieldInstruction ShowDispaly(float duration = 0.5f)
+        public async UniTask ShowDispaly(float duration = 0.5f)
         {
-            return PlayAniamtion(0, duration);
+            await PlayAniamtion(0, duration);
         }
     
-        public YieldInstruction HideDispaly(float duration = 0)
+        public async UniTask HideDispaly(float duration = 0)
         {
-            return PlayAniamtion(1, duration);
+            await PlayAniamtion(1, duration);
         }
     }
 }

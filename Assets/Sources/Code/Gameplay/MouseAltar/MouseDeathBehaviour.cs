@@ -1,5 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Threading;
+using Cysharp.Threading.Tasks;
 using Sources.Code.Gameplay.PlayerSystem;
 using UnityEngine;
 
@@ -9,6 +10,6 @@ namespace Sources.Code.Gameplay.MouseAltar
     {
         public abstract void Init(GhostView ghostView, PlayerInput playerInput);
 
-        public abstract IEnumerator DeathRoutine(List<IImportable> importable);
+        public abstract UniTask DeathRoutine(List<IImportable> importable, CancellationToken cancellationToken);
     }
 }

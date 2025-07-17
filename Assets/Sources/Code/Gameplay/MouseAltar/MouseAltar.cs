@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
+using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using Sources.Code.Gameplay.PlayerSystem;
 using UnityEngine;
@@ -13,7 +15,9 @@ namespace Sources.Code.Gameplay.MouseAltar
         [SerializeField] private ImporterZone _zone;
         [SerializeField] private ImporterView _view;
         [SerializeField] private GhostView _ghostView;
-        
+
+        private CancellationTokenSource _cancellationTokenSource;
+        private CancellationToken _cancellationToken;
         private List<IImportable> _importables;
         private float lastTime;
         private float cooldownTime = 0.2f;
@@ -25,6 +29,8 @@ namespace Sources.Code.Gameplay.MouseAltar
 
         public void Init(int maxMouseCount, PlayerInput playerInput)
         {
+            _cancellationTokenSource = new CancellationTokenSource();
+            _cancellationToken = _cancellationTokenSource.Token;
             _maxMouseCount = maxMouseCount;
             _importables = new List<IImportable>();
             _mouseDeath.Init(_ghostView, playerInput);
@@ -64,13 +70,13 @@ namespace Sources.Code.Gameplay.MouseAltar
             if (_importables.Count == _maxMouseCount)
             {
                 _isDestroy = true;
-                StartCoroutine(DestoryRoutine());
+                DestoryRoutine().Forget();
             }
         }
 
-        private IEnumerator DestoryRoutine()
+        private async UniTaskVoid DestoryRoutine()
         {
-            yield return _mouseDeath.DeathRoutine(_importables);
+            await _mouseDeath.DeathRoutine(_importables, _cancellationToken);
             Impotred?.Invoke();
             Debug.Log("Imped");
         }
