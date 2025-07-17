@@ -22,20 +22,26 @@ namespace Sources.Code.Gameplay.GameEvents
         private Ease _ease;
         private float _duration;
         
+        private Color _victoryImageColor;
+        private Color _victoryTextColor;
         private string _victoryText;
-        private Color _victoryColor;
         
+        private Color _defeatImageColor;
+        private Color _defeatTextColor;
         private string _defeatText;
-        private Color _defeatColor;
-    
+        
         public void Init(GameEventScreenConfig config)
         {
             _ease = config.Ease;
             _duration = config.Duration;
-            _defeatText = config.DefeatText;
+            
+            _victoryImageColor = config.VictoryImageColor;
             _victoryText = config.VictoryText;
-            _victoryColor = config.VictoryImageColor;
-            _defeatColor = config.DefeatImageColor;
+            _victoryTextColor = config.VictoryTextColor;
+            
+            _defeatImageColor = config.DefeatImageColor;
+            _defeatText = config.DefeatText;
+            _defeatTextColor = config.DefeatTextColor;
             
             _cancellationTokenSource = new CancellationTokenSource();
             _cancellationToken = _cancellationTokenSource.Token;
@@ -45,11 +51,17 @@ namespace Sources.Code.Gameplay.GameEvents
         {
             _cancellationTokenSource.Cancel();
         }
-    
-        private async UniTaskVoid SetScreen(float duration, string text, Color color)
+
+        private Color SetColor(Color color, float fade)
+        {
+            return new Color(color.r, color.g, color.b, fade);
+        }
+        
+        private async UniTaskVoid SetScreen(float duration, string text, Color imageColor, Color textColor)
         {
             _text.text = text;
-            _image.color = new Color(color.r, color.g, color.b, _image.color.a);
+            _text.color = SetColor(textColor, _text.color.a);
+            _image.color = SetColor(imageColor, _image.color.a);
             
             await _canvasGroup.DOFade(duration, EnabledEndValue)
                 .SetEase(_ease)
@@ -59,12 +71,12 @@ namespace Sources.Code.Gameplay.GameEvents
 
         public void ShowVictory()
         {
-            SetScreen(_duration, _victoryText, _victoryColor).Forget();
+            SetScreen(_duration, _victoryText, _victoryImageColor, _victoryTextColor).Forget();
         }
         
         public void ShowDefeat()
         {
-            SetScreen(_duration, _defeatText, _defeatColor).Forget();
+            SetScreen(_duration, _defeatText, _defeatImageColor, _defeatTextColor).Forget();
         }
     }
 }

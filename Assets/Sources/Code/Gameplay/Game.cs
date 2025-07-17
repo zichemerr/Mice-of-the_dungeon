@@ -1,6 +1,7 @@
 using Sources.Code.Configs;
 using Sources.Code.Gameplay.GameEvents;
 using Sources.Code.Gameplay.GameSaves;
+using Sources.Code.Gameplay.PlayerSystem;
 using Sources.Code.Gameplay.Spawner;
 using Sources.Code.UI;
 using UnityEngine;
@@ -19,6 +20,7 @@ namespace Sources.Code.Gameplay
     
         private Level _levelInstance;
         private GameEventScreen _gameEventScreen;
+        private PlayerInput _playerInput;
     
         public int CurrentLevelNumber
         {
@@ -63,6 +65,8 @@ namespace Sources.Code.Gameplay
 
             var playerMovement = _levelInstance.PlayerMovement;
             var door = _levelInstance.Door;
+            
+            _playerInput = _levelInstance.PlayerInput;
             _gameEventScreen = _levelInstance.GameEventScreen;
             _gameEventScreen.Init(_gameEventScreenConfig);
         
@@ -75,7 +79,7 @@ namespace Sources.Code.Gameplay
     
         private void PlayerOnDied()
         {
-            Debug.Log("Умер");
+            _playerInput.Disable();
             _gameEventScreen.ShowDefeat();
         }
     
@@ -92,6 +96,7 @@ namespace Sources.Code.Gameplay
         {
             if (CurrentLevelNumber == MaxLevels)
             {
+                _playerInput.Disable();
                 _gameEventScreen.ShowVictory();
                 return;
             }

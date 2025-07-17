@@ -67,7 +67,6 @@ MonoBehaviour:
   _door: {fileID: 1295206271299932279}
   _mouseAltar: {fileID: 3161564148777747312}
   _boxesRoot: {fileID: 6282609241348271258}
-  _screenTransition: {fileID: 5849657386572840474}
   _gameEventScreen: {fileID: 2842337332358647935}
   _maxMouseCount: 1
 --- !u!114 &8493879588924662983
@@ -149,6 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _canvasGroup: {fileID: 7421224860099361156}
+  _image: {fileID: 2621510139286023040}
   _text: {fileID: 4818986440518914175}
 --- !u!1 &829670291781969653
 GameObject:
@@ -542,6 +542,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b288b6bbd7a1488479bc6ac60e5831e0, type: 3}
+--- !u!114 &2621510139286023040 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1078649602914512319, guid: b288b6bbd7a1488479bc6ac60e5831e0, type: 3}
+  m_PrefabInstance: {fileID: 3069585278989469247}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2995115998406952830 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 218866233344082241, guid: b288b6bbd7a1488479bc6ac60e5831e0, type: 3}
