@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using Sources.Code.Configs;
 using Sources.Code.Gameplay.GameEvents;
 using Sources.Code.Gameplay.GameSaves;
@@ -80,7 +81,15 @@ namespace Sources.Code.Gameplay
         private void PlayerOnDied()
         {
             _playerInput.Disable();
-            _gameEventScreen.ShowDefeat();
+            DefeatLevel().Forget();
+        }
+
+        private async UniTaskVoid DefeatLevel()
+        {
+            await _gameEventScreen.ShowDefeat();
+            await UniTask.WaitForSeconds(0.5f);
+            
+            RestartLevel();
         }
     
         private void ClearLevel()
@@ -100,9 +109,14 @@ namespace Sources.Code.Gameplay
                 _gameEventScreen.ShowVictory();
                 return;
             }
-
-            ClearLevel();
+            
             CurrentLevelNumber++;
+            RestartLevel();
+        }
+
+        private void RestartLevel()
+        {
+            ClearLevel();
             StartGame();
         }
     

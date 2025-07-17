@@ -57,7 +57,7 @@ namespace Sources.Code.Gameplay.GameEvents
             return new Color(color.r, color.g, color.b, fade);
         }
         
-        private async UniTaskVoid SetScreen(float duration, string text, Color imageColor, Color textColor)
+        private async UniTask SetScreen(float duration, string text, Color imageColor, Color textColor)
         {
             _text.text = text;
             _text.color = SetColor(textColor, _text.color.a);
@@ -74,9 +74,9 @@ namespace Sources.Code.Gameplay.GameEvents
             SetScreen(_duration, _victoryText, _victoryImageColor, _victoryTextColor).Forget();
         }
         
-        public void ShowDefeat()
+        public async UniTask ShowDefeat()
         {
-            SetScreen(_duration, _defeatText, _defeatImageColor, _defeatTextColor).Forget();
+            await SetScreen(_duration, _defeatText, _defeatImageColor, _defeatTextColor);
         }
     }
 }
