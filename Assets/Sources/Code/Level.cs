@@ -4,6 +4,7 @@ using Sources.Code.Gameplay.Door;
 using Sources.Code.Gameplay.GameEvents;
 using Sources.Code.Gameplay.MouseAltars;
 using Sources.Code.Gameplay.PlayerSystem;
+using Sources.Code.Gameplay.Sounds;
 using Sources.Code.Gameplay.Spawner;
 using UnityEngine;
 
@@ -41,9 +42,11 @@ namespace Sources.Code
         public class Factory
         {
             private LevelsConfig _levelsConfig;
+            private AudioSystem _audioSystem;
         
-            public Factory(LevelsConfig levelsConfig)
+            public Factory(AudioSystem audioSystem, LevelsConfig levelsConfig)
             {
+                _audioSystem = audioSystem;
                 _levelsConfig = levelsConfig;
             }
 

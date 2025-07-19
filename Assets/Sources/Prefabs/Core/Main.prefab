@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1032459345044656527}
   - component: {fileID: 8173643674811405932}
+  - component: {fileID: 4307659368778302840}
   m_Layer: 0
   m_Name: Main
   m_TagString: Untagged
@@ -45,4 +46,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _screenSwitcher: {fileID: 0}
+  _audioSystem: {fileID: 4307659368778302840}
   _mainSettingsConfig: {fileID: 11400000, guid: dda62877106e4b443afccc7ecb439784, type: 2}
+--- !u!114 &4307659368778302840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3847140223627059035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c59f22a309edbc49ac3de4eaa0e6213, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSourcePrefab: {fileID: 0}

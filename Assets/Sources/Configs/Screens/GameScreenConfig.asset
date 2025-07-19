@@ -13,10 +13,9 @@ MonoBehaviour:
   m_Name: GameScreenConfig
   m_EditorClassIdentifier: 
   _ease: 0
+  _blackImage: {r: 0, g: 0, b: 0, a: 0}
   _duration: 1
-  _victoryImageColor: {r: 0, g: 0, b: 0, a: 0}
   _victoryTextColor: {r: 1, g: 1, b: 1, a: 0}
   _victoryText: Victory
-  _defeatImageColor: {r: 1, g: 0, b: 0, a: 0}
-  _defeatTextColor: {r: 0, g: 0, b: 0, a: 0}
+  _defeatTextColor: {r: 1, g: 0, b: 0, a: 0}
   _defeatText: Defeat

@@ -3,6 +3,7 @@ using Sources.Code.Configs;
 using Sources.Code.Gameplay.GameEvents;
 using Sources.Code.Gameplay.GameSaves;
 using Sources.Code.Gameplay.PlayerSystem;
+using Sources.Code.Gameplay.Sounds;
 using Sources.Code.Gameplay.Spawner;
 using Sources.Code.UI;
 using UnityEngine;
@@ -18,6 +19,7 @@ namespace Sources.Code.Gameplay
         private readonly ScreenSwitcher _screenSwitcher;
         private readonly PlayerProgress _playerProgress;
         private readonly GameEventScreenConfig _gameEventScreenConfig;
+        private readonly AudioSystem _audioSystem;
     
         private Level _levelInstance;
         private GameEventScreen _gameEventScreen;
@@ -31,7 +33,7 @@ namespace Sources.Code.Gameplay
     
         public int MaxLevels => _levelsConfig.LevelCount;
 
-        public Game(Level.Factory levelFactory, LevelsConfig levelsConfig, GameEventScreenConfig gameEventScreenConfig, ScreenSwitcher screenSwitcher, IMain main)
+        public Game(Level.Factory levelFactory, LevelsConfig levelsConfig, GameEventScreenConfig gameEventScreenConfig, ScreenSwitcher screenSwitcher, IMain main, AudioSystem audioSystem)
         {
             _levelFactory = levelFactory;
             _playerProgress = GameSaverLoader.Instance.PlayerProgress;
@@ -39,6 +41,7 @@ namespace Sources.Code.Gameplay
             _screenSwitcher = screenSwitcher;
             _main = main;
             _gameEventScreenConfig = gameEventScreenConfig;
+            _audioSystem = audioSystem;
         }
 
         public void ThisUpdate()
@@ -81,6 +84,7 @@ namespace Sources.Code.Gameplay
         {
             _playerInput.Disable();
             DefeatLevel().Forget();
+            _audioSystem.PlaySound(_audioSystem.Sounds.Defeat);
         }
 
         private async UniTaskVoid DefeatLevel()
