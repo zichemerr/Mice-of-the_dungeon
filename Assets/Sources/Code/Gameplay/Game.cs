@@ -67,12 +67,12 @@ namespace Sources.Code.Gameplay
             int levelIndex = CurrentLevelNumber - 1;
             _levelInstance = _levelFactory.CreateLevelByIndex(levelIndex);
 
-            var playerMovement = _levelInstance.PlayerMovement;
-            var door = _levelInstance.Door;
-            
             _playerInput = _levelInstance.PlayerInput;
             _gameEventScreen = _levelInstance.GameEventScreen;
             _gameEventScreen.Init(_gameEventScreenConfig);
+            
+            var playerMovement = _levelInstance.PlayerMovement;
+            var door = _levelInstance.Door;
         
             playerMovement.MouseEnded += PlayerOnDied;
             door.Entered += OnNextLevel;

@@ -5,6 +5,7 @@ using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using Sources.Code.Gameplay.PlayerSystem;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Sources.Code.Gameplay.MouseAltars
 {
@@ -13,7 +14,7 @@ namespace Sources.Code.Gameplay.MouseAltars
         [SerializeField] private MouseDeathBehaviour _mouseDeath;
         [SerializeField] private ImporterZone _zone;
         [SerializeField] private ImporterView _view;
-        [SerializeField] private GhostView _ghostView;
+        [FormerlySerializedAs("_ghostView")] [SerializeField] private GhostScreamerView ghostScreamerView;
 
         private CancellationTokenSource _cancellationTokenSource;
         private CancellationToken _cancellationToken;
@@ -32,7 +33,7 @@ namespace Sources.Code.Gameplay.MouseAltars
             _cancellationToken = _cancellationTokenSource.Token;
             _maxMouseCount = maxMouseCount;
             _importables = new List<IImportable>();
-            _mouseDeath.Init(_ghostView, playerInput);
+            _mouseDeath.Init(ghostScreamerView, playerInput);
 
             _isDestroy = false;
             _view.Init(_maxMouseCount);

@@ -188,6 +188,10 @@ PrefabInstance:
       propertyPath: _maxMouseCount
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3161564148777747312, guid: aa0554c402e4f0b46ab4b33ccdb6ed0f, type: 3}
+      propertyPath: ghostScreamerView
+      value: 
+      objectReference: {fileID: 7144728020150223569}
     - target: {fileID: 3645433174908418296, guid: aa0554c402e4f0b46ab4b33ccdb6ed0f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -248,12 +252,21 @@ PrefabInstance:
       propertyPath: _pointsSpawner.Array.data[0]
       value: 
       objectReference: {fileID: 8415715870518944242}
+    - target: {fileID: 5552253739945513258, guid: aa0554c402e4f0b46ab4b33ccdb6ed0f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5903995147139281464, guid: aa0554c402e4f0b46ab4b33ccdb6ed0f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.99
+      objectReference: {fileID: 0}
     - target: {fileID: 8705633171087096797, guid: aa0554c402e4f0b46ab4b33ccdb6ed0f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3535166986369380590, guid: aa0554c402e4f0b46ab4b33ccdb6ed0f, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3645433174908418296, guid: aa0554c402e4f0b46ab4b33ccdb6ed0f, type: 3}
       insertIndex: -1
@@ -271,6 +284,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3645433174908418296, guid: aa0554c402e4f0b46ab4b33ccdb6ed0f, type: 3}
   m_PrefabInstance: {fileID: 7941088631328896469}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7144728020150223569 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 942174051925096196, guid: aa0554c402e4f0b46ab4b33ccdb6ed0f, type: 3}
+  m_PrefabInstance: {fileID: 7941088631328896469}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be62782c7304acab4d6d1c70127c17d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8847358079276428350
 PrefabInstance:
   m_ObjectHideFlags: 0

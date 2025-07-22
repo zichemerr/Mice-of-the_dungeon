@@ -2,6 +2,7 @@ using Sources.Code.Configs;
 using Sources.Code.Gameplay.Box;
 using Sources.Code.Gameplay.Door;
 using Sources.Code.Gameplay.GameEvents;
+using Sources.Code.Gameplay.Ghosts;
 using Sources.Code.Gameplay.MouseAltars;
 using Sources.Code.Gameplay.PlayerSystem;
 using Sources.Code.Gameplay.Sounds;
@@ -21,6 +22,8 @@ namespace Sources.Code
         [SerializeField] private MouseAltar _mouseAltar;
         [SerializeField] private BoxesRoot _boxesRoot;
         [SerializeField] private GameEventScreen _gameEventScreen;
+        [SerializeField] private Ghost _ghost;
+        [SerializeField] private bool _ghostEnabled;
         [SerializeField] private int _maxMouseCount;
     
         public Vector2 PlayerPosition => _playerPointPosition.position;
@@ -33,6 +36,8 @@ namespace Sources.Code
         public int MaxMouseCount => _maxMouseCount;
         public BoxesRoot BoxesRoot => _boxesRoot;
         public GameEventScreen GameEventScreen => _gameEventScreen;
+        public Ghost Ghost => _ghost;
+        public bool GhostEnabled => _ghostEnabled;
     
         public void Destroy()
         {
@@ -42,12 +47,14 @@ namespace Sources.Code
         public class Factory
         {
             private LevelsConfig _levelsConfig;
+            private GhostConfig _ghostConfig;
             private AudioSystem _audioSystem;
         
-            public Factory(AudioSystem audioSystem, LevelsConfig levelsConfig)
+            public Factory(AudioSystem audioSystem, LevelsConfig levelsConfig, GhostConfig ghostConfig)
             {
                 _audioSystem = audioSystem;
                 _levelsConfig = levelsConfig;
+                _ghostConfig = ghostConfig;
             }
 
             public Level CreateLevelByIndex(int index)
@@ -74,7 +81,13 @@ namespace Sources.Code
             
                 var boxesRoot = levelInstance.BoxesRoot;
                 boxesRoot.Init();
-            
+
+                if (levelInstance.GhostEnabled)
+                {
+                    var ghost = levelInstance.Ghost;
+                    ghost.Init(_ghostConfig);
+                }
+                
                 return levelInstance;
             }
         }

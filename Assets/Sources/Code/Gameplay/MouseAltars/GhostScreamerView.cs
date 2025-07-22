@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 namespace Sources.Code.Gameplay.MouseAltars
 {
-    public class GhostView : MonoBehaviour
+    public class GhostScreamerView : MonoBehaviour
     {
         [SerializeField] private SpriteRenderer _spriteRenderer;
         [SerializeField] private Image _image;

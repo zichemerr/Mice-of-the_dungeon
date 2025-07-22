@@ -8,7 +8,7 @@ namespace Sources.Code.Gameplay.MouseAltars
 {
     public abstract class MouseDeathBehaviour : MonoBehaviour
     {
-        public abstract void Init(GhostView ghostView, PlayerInput playerInput);
+        public abstract void Init(GhostScreamerView ghostScreamerView, PlayerInput playerInput);
 
         public abstract UniTask DeathRoutine(List<IImportable> importable, CancellationToken cancellationToken);
     }
