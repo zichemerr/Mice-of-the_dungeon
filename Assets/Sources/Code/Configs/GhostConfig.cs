@@ -6,7 +6,9 @@ namespace Sources.Code.Configs
     public class GhostConfig : ScriptableObject
     {
         [SerializeField] private float _movementDuration;
+        [SerializeField] private float _circleDuration;
         
         public float MovementDuration => _movementDuration;
+        public float CircleDuration => _circleDuration;
     }
 }

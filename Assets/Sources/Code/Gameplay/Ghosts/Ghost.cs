@@ -1,27 +1,34 @@
-using System;
-using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
-using DG.Tweening;
 using Sources.Code.Configs;
+using Sources.Code.Gameplay.MouseAltars;
+using Sources.Code.Gameplay.PlayerSystem;
 using UnityEngine;
 
 namespace Sources.Code.Gameplay.Ghosts
 {
     public class Ghost : MonoBehaviour
     {
+        [SerializeField] private MouseDeath _mouseDeath;
+        [SerializeField] private GhostAttackAnimation _ghostAttackAnimation;
         [SerializeField] private Transform[] _movementPoints;
+        [SerializeField] private Transform _attackPoint;
+        [SerializeField] private float _radius;
         
         private CancellationTokenSource _cancellationTokenSource;
         private CancellationToken _cancellationToken;
         private GhostMovement _movement;
+        private GhostAttacker _attacker;
         
         public void Init(GhostConfig ghostConfig)
         {
             _cancellationTokenSource = new CancellationTokenSource();
             _cancellationToken = _cancellationTokenSource.Token;
                 
-            _movement = new GhostMovement(transform, _movementPoints, ghostConfig, _cancellationToken);
+            _ghostAttackAnimation.Init(_cancellationToken);
+            
+            _attacker = new GhostAttacker(_attackPoint, _ghostAttackAnimation, _radius, ghostConfig.CircleDuration);
+            _movement = new GhostMovement(transform, _movementPoints, ghostConfig, _cancellationToken, _attacker);
             _movement.Init();
         }
 
@@ -29,73 +36,19 @@ namespace Sources.Code.Gameplay.Ghosts
         {
             _cancellationTokenSource.Cancel();
         }
-    }
 
-    public class GhostMovement
-    {
-        private Transform _transform;
-        private ObjQueue<Transform> _queue;
-        private float _duration;
-        private CancellationToken _cancellationToken;
-
-        public GhostMovement(Transform transform, Transform[] transformPoints, GhostConfig ghostConfig,
-            CancellationToken cancellationToken)
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            _transform = transform;
-            _cancellationToken = cancellationToken;
-            _duration = ghostConfig.MovementDuration;
-            _queue = new ObjQueue<Transform>(transformPoints);
-        }
-        
-        public void Init()
-        {
-            Start().Forget();
-        }
-
-        private async UniTaskVoid Start()
-        {
-            while (true)
+            if (other.TryGetComponent(out Mouse mouse))
             {
-                Transform point = _queue.Get();
-                await _transform.DOMove(point.position, _duration)
-                    .ToUniTask(cancellationToken: _cancellationToken);
-            }
-        }
-    }
-    
-    public class GhostAttacker : MonoBehaviour
-    {
-        
-    }
-    
-    public class ObjQueue<T>
-    {
-        private Queue<T> _queue = new Queue<T>();
-        private T[] _array;
-
-        public ObjQueue(T[] array)
-        {
-            _array = array;
-            InitQueue();
-        }
-
-        private void InitQueue()
-        {
-            for (int i = 0; i < _array.Length; i++)
-            {
-                _queue.Enqueue(_array[i]);
+                _mouseDeath.DeathRoutine(mouse).Forget();
             }
         }
 
-        public T Get()
+        private void OnDrawGizmos()
         {
-            if (_queue.Count > 0)
-            {
-                return _queue.Dequeue();
-            }
-
-            InitQueue();
-            return _queue.Dequeue();
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(_attackPoint.position, _radius);
         }
     }
 }

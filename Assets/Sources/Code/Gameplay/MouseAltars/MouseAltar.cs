@@ -55,8 +55,7 @@ namespace Sources.Code.Gameplay.MouseAltars
         {
             if (_isDestroy)
                 return;
-
-            Debug.Log($"OnEntered {_importables.Count}");
+            
             _importables.Add(importable); 
             _view.ShowValue(_importables.Count);
 
@@ -78,7 +77,6 @@ namespace Sources.Code.Gameplay.MouseAltars
         {
             await _mouseDeath.DeathRoutine(_importables, _cancellationToken);
             Impotred?.Invoke();
-            Debug.Log("Imped");
         }
 
         private void OnExited(IImportable importable)

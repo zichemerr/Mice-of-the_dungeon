@@ -18,9 +18,9 @@ namespace Sources.Code.UI
 
             if (_screenCache.TryGetValue(screenType, out var foundScreen))
             {
-                _currentScreen.Disable();
+                _currentScreen?.Disable();
                 _currentScreen = foundScreen;
-                _currentScreen.Enable();
+                _currentScreen?.Enable();
             }
             else
             {

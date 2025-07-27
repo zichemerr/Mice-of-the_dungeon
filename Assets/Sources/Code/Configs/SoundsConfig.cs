@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = nameof(SoundsConfig), menuName = "Configs/" + nameof(SoundsConfig), order = 0)]
 public class SoundsConfig : ScriptableObject

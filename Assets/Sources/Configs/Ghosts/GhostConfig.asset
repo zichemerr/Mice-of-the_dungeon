@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: GhostConfig
   m_EditorClassIdentifier: 
   _movementDuration: 1
+  _circleDuration: 0.2

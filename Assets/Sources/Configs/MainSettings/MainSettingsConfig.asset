@@ -16,3 +16,4 @@ MonoBehaviour:
   _gameEventScreenConfig: {fileID: 11400000, guid: 206758b0549b3ea4b81a1836a5780e44, type: 2}
   _soundsConfig: {fileID: 11400000, guid: 927a2763b94b8724f92d3b112d472c30, type: 2}
   _ghostConfig: {fileID: 11400000, guid: d20be9591adf0a94daac377b74461e73, type: 2}
+  _doorConfig: {fileID: 11400000, guid: 41d4b09b103049c4aa376b2fcaf256c1, type: 2}

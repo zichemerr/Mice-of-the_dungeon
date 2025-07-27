@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1078448766364aa48bb48792e06f212c, type: 3}
   m_Name: DoorConfig
   m_EditorClassIdentifier: 
-  _capretText: 
+  _capretText: Welcome
