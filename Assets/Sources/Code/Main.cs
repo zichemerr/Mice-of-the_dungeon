@@ -18,7 +18,7 @@ namespace Sources.Code
         private void Start()
         {
             _audioSystem.Init(_mainSettingsConfig.SoundsConfig);
-            Level.Factory levelFactory = new Level.Factory(_audioSystem, _mainSettingsConfig.LevelsConfig, _mainSettingsConfig.GhostConfig);
+            Level.Factory levelFactory = new Level.Factory(_audioSystem, _mainSettingsConfig);
             _game = new Game(levelFactory, _mainSettingsConfig.LevelsConfig, _mainSettingsConfig.GameEventScreenConfig, _screenSwitcher, this, _audioSystem);
         
             var mainMenu = _screenSwitcher.ShowScreen<MenuScreen>();

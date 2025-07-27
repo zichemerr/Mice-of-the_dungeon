@@ -545,6 +545,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6663074224136145553, guid: 95e77068da90bcc419e978a1950c0b8c, type: 3}
+      propertyPath: _text
+      value: 
+      objectReference: {fileID: 1017000543650507436}
+    - target: {fileID: 6663074224136145553, guid: 95e77068da90bcc419e978a1950c0b8c, type: 3}
+      propertyPath: _doorText
+      value: Welcome
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -555,6 +563,17 @@ BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 3439142275978964532, guid: 95e77068da90bcc419e978a1950c0b8c, type: 3}
   m_PrefabInstance: {fileID: 3046754139899750709}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1017000543650507436 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2618036297977430937, guid: 95e77068da90bcc419e978a1950c0b8c, type: 3}
+  m_PrefabInstance: {fileID: 3046754139899750709}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1295206271299932279 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4301291148889831746, guid: 95e77068da90bcc419e978a1950c0b8c, type: 3}

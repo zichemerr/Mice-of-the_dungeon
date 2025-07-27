@@ -46,20 +46,18 @@ namespace Sources.Code
 
         public class Factory
         {
-            private LevelsConfig _levelsConfig;
-            private GhostConfig _ghostConfig;
+            private MainSettingsConfig _mainConfig;
             private AudioSystem _audioSystem;
         
-            public Factory(AudioSystem audioSystem, LevelsConfig levelsConfig, GhostConfig ghostConfig)
+            public Factory(AudioSystem audioSystem, MainSettingsConfig mainConfig)
             {
                 _audioSystem = audioSystem;
-                _levelsConfig = levelsConfig;
-                _ghostConfig = ghostConfig;
+                _mainConfig = mainConfig;
             }
 
             public Level CreateLevelByIndex(int index)
             {
-                var levelPrefab = _levelsConfig.GetLevelPrefabByIndex(index);
+                var levelPrefab = _mainConfig.LevelsConfig.GetLevelPrefabByIndex(index);
                 var levelInstance = Instantiate(levelPrefab);
             
                 var mouseSpawner = levelInstance.MouseSpawner;
@@ -77,7 +75,7 @@ namespace Sources.Code
                 mouseAltar.Init(levelInstance.MaxMouseCount, playerInput);
             
                 var door = levelInstance.Door;
-                door.Init(mouseAltar);
+                door.Init(mouseAltar, _mainConfig.DoorConfig);
             
                 var boxesRoot = levelInstance.BoxesRoot;
                 boxesRoot.Init();
@@ -85,7 +83,7 @@ namespace Sources.Code
                 if (levelInstance.GhostEnabled)
                 {
                     var ghost = levelInstance.Ghost;
-                    ghost.Init(_ghostConfig);
+                    ghost.Init(_mainConfig.GhostConfig);
                 }
                 
                 return levelInstance;

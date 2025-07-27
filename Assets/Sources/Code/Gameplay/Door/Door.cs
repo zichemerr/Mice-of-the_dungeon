@@ -15,9 +15,9 @@ namespace Sources.Code.Gameplay.Door
     
         public event Action Entered;
     
-        public void Init(MouseAltars.MouseAltar mouseAltar)
+        public void Init(MouseAltars.MouseAltar mouseAltar, DoorConfig config)
         {
-            _doorView.Init();
+            _doorView.Init(config.CapretText);
             _mouseAltar = mouseAltar;
             _mouseAltar.Impotred += OnImpotred;
             _isOpen = false;

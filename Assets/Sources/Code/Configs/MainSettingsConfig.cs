@@ -9,10 +9,12 @@ namespace Sources.Code.Configs
         [SerializeField] private GameEventScreenConfig _gameEventScreenConfig;
         [SerializeField] private SoundsConfig _soundsConfig;
         [SerializeField] private GhostConfig _ghostConfig;
+        [SerializeField] private DoorConfig _doorConfig;
 
         public LevelsConfig LevelsConfig => _levelsConfig;
         public GameEventScreenConfig GameEventScreenConfig => _gameEventScreenConfig;
         public SoundsConfig SoundsConfig => _soundsConfig;
         public GhostConfig GhostConfig => _ghostConfig;
+        public DoorConfig DoorConfig => _doorConfig;
     }
 }
