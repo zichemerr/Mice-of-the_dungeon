@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29179e90f7aa4d3eb6d763325615b85d, type: 3}
   m_Name: GameScreenConfig
   m_EditorClassIdentifier: 
-  _ease: 0
-  _blackImage: {r: 0, g: 0, b: 0, a: 0}
+  _imageColor: {r: 0, g: 0, b: 0, a: 1}
   _duration: 1
-  _victoryTextColor: {r: 1, g: 1, b: 1, a: 0}
+  _victoryTextColor: {r: 1, g: 1, b: 1, a: 1}
   _victoryText: Victory
-  _defeatTextColor: {r: 1, g: 0, b: 0, a: 0}
+  _defeatTextColor: {r: 1, g: 0, b: 0, a: 1}
   _defeatText: Defeat

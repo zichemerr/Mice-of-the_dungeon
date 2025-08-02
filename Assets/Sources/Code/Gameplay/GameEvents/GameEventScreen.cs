@@ -31,6 +31,7 @@ namespace Sources.Code.Gameplay.GameEvents
         public void Init(GameEventScreenConfig config)
         {
             _duration = config.Duration;
+            _imageColor = config.ImageColor;
             
             _victoryText = config.VictoryText;
             _victoryTextColor = config.VictoryTextColor;
@@ -52,25 +53,25 @@ namespace Sources.Code.Gameplay.GameEvents
             return new Color(color.r, color.g, color.b, fade);
         }
         
-        private async UniTask SetScreen(float duration, string text, Color textColor)
+        private async UniTask SetScreen(float duration, string text, Color imageColor, Color textColor)
         {
             _text.text = text;
             _text.color = SetColor(textColor, _text.color.a);
-            _image.color = SetColor(_imageColor, _image.color.a);
+            _image.color = imageColor;
             
             await _canvasGroup.DOFade(duration, EnabledEndValue)
                 .SetLink(gameObject)
                 .ToUniTask(cancellationToken: _cancellationToken);
         }
 
-        public async UniTask ShowVictory()
+        public void ShowVictory()
         {
-            await SetScreen(_duration, _victoryText, _victoryTextColor);
+            SetScreen(_duration, _victoryText, _imageColor, _victoryTextColor).Forget();
         }
         
         public async UniTask ShowDefeat()
         {
-            await SetScreen(_duration, _defeatText, _defeatTextColor);
+            await SetScreen(_duration, _defeatText, SetColor(_imageColor, _image.color.a), _defeatTextColor);
         }
     }
 }

@@ -17,8 +17,9 @@ namespace Sources.Code.Gameplay.PlayerSystem
         
         private Vector2 _target;
         private bool _isActive;
+        
+        public Vector2 Position => transform.position;
 
-        public SpriteRenderer SpriteRenderer => _spriteRenderer;
         public event Action<Mouse> Destroyed;
 
         public void Init()
@@ -72,14 +73,6 @@ namespace Sources.Code.Gameplay.PlayerSystem
             transform.position = position;
         }
 
-        public void PlayDeadParticle()
-        {
-            if (this == null)
-                return;
-
-            //_particle.Play(Resources.Load<GameObject>("Dead"),transform.position);
-        }
-        
         public void Destroy()
         {
             Destroyed?.Invoke(this);

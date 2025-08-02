@@ -7,6 +7,7 @@ using Sources.Code.Gameplay.MouseAltars;
 using Sources.Code.Gameplay.PlayerSystem;
 using Sources.Code.Gameplay.Sounds;
 using Sources.Code.Gameplay.Spawner;
+using Sources.Code.Particles;
 using UnityEngine;
 
 namespace Sources.Code
@@ -24,6 +25,8 @@ namespace Sources.Code
         [SerializeField] private GameEventScreen _gameEventScreen;
         [SerializeField] private Ghost _ghost;
         [SerializeField] private bool _ghostEnabled;
+        [SerializeField] private Transform _particleParent;
+        [SerializeField] private MouseDeath _mouseDeath;
         [SerializeField] private int _maxMouseCount;
     
         public Vector2 PlayerPosition => _playerPointPosition.position;
@@ -37,6 +40,8 @@ namespace Sources.Code
         public BoxesRoot BoxesRoot => _boxesRoot;
         public GameEventScreen GameEventScreen => _gameEventScreen;
         public Ghost Ghost => _ghost;
+        public Transform ParticleParent => _particleParent;
+        public MouseDeath MouseDeath => _mouseDeath;
         public bool GhostEnabled => _ghostEnabled;
     
         public void Destroy()
@@ -62,6 +67,11 @@ namespace Sources.Code
             
                 var mouseSpawner = levelInstance.MouseSpawner;
             
+                Particle particle = new Particle(_mainConfig.ParticleConfig, levelInstance.ParticleParent); 
+                
+                var mouseDeath = levelInstance.MouseDeath;
+                mouseDeath.Init(particle, _audioSystem);
+                
                 var playerMovement = levelInstance.PlayerMovement;
                 playerMovement.Init(mouseSpawner);
             

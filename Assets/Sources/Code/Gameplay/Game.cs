@@ -109,7 +109,7 @@ namespace Sources.Code.Gameplay
             if (CurrentLevelNumber == MaxLevels)
             {
                 _playerInput.Disable();
-                _gameEventScreen.ShowVictory().Forget();
+                _gameEventScreen.ShowVictory();
                 return;
             }
             

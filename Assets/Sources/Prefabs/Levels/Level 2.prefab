@@ -421,6 +421,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7619261793349115392}
     - target: {fileID: 2758625056456037868, guid: aa0554c402e4f0b46ab4b33ccdb6ed0f, type: 3}
+      propertyPath: _mouseDeath
+      value: 
+      objectReference: {fileID: 5078717979194338093}
+    - target: {fileID: 2758625056456037868, guid: aa0554c402e4f0b46ab4b33ccdb6ed0f, type: 3}
       propertyPath: _maxMouseCount
       value: 3
       objectReference: {fileID: 0}
@@ -548,6 +552,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3be62782c7304acab4d6d1c70127c17d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5078717979194338093 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8716289312752490935, guid: aa0554c402e4f0b46ab4b33ccdb6ed0f, type: 3}
+  m_PrefabInstance: {fileID: 4507331279613719194}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d805fedd901b8b046ae6f72e807df639, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &7619261793349115392 stripped
