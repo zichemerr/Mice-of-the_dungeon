@@ -1,5 +1,6 @@
 using System;
 using Sources.Code.Gameplay.MouseAltars;
+using Sources.Code.Particles;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -15,15 +16,15 @@ namespace Sources.Code.Gameplay.PlayerSystem
         [SerializeField] private NavMeshAgent _agent;
         [SerializeField] private float _speed;
         
+        private Particle _particle;
         private Vector2 _target;
         private bool _isActive;
         
-        public Vector2 Position => transform.position;
-
         public event Action<Mouse> Destroyed;
 
-        public void Init()
+        public void Init(Particle particle)
         {
+            _particle = particle;
             _isActive = true;
             _rigidbody.gravityScale = 0f;
             _rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
@@ -73,6 +74,11 @@ namespace Sources.Code.Gameplay.PlayerSystem
             transform.position = position;
         }
 
+        public void PlayDeathParticle()
+        {
+            _particle.Play(_particle.Config.DeadParticlePrefab, transform.position);
+        }
+        
         public void Destroy()
         {
             Destroyed?.Invoke(this);

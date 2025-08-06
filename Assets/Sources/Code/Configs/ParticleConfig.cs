@@ -6,7 +6,9 @@ namespace Sources.Code.Configs
     public class ParticleConfig : ScriptableObject
     {
         [SerializeField] private ParticleSystem _deadParticlePrefab;
+        [SerializeField] private ParticleSystem _bornParticlePrefab;
 
         public ParticleSystem DeadParticlePrefab => _deadParticlePrefab;
+        public ParticleSystem BornParticlePrefab => _bornParticlePrefab;
     }
 }

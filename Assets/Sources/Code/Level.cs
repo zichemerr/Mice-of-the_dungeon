@@ -70,12 +70,12 @@ namespace Sources.Code
                 Particle particle = new Particle(_mainConfig.ParticleConfig, levelInstance.ParticleParent); 
                 
                 var mouseDeath = levelInstance.MouseDeath;
-                mouseDeath.Init(particle, _audioSystem);
+                mouseDeath.Init(_audioSystem);
                 
                 var playerMovement = levelInstance.PlayerMovement;
                 playerMovement.Init(mouseSpawner);
             
-                mouseSpawner.Init(levelInstance.MouseParent);
+                mouseSpawner.Init(levelInstance.MouseParent, particle, _audioSystem);
                 mouseSpawner.GetMouse(levelInstance.PlayerPosition);
             
                 var playerInput = levelInstance.PlayerInput;

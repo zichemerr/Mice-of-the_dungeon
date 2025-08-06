@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: SoundsConfig
   m_EditorClassIdentifier: 
   _defeat: {fileID: 8300000, guid: b1597f81cecf0aa469244b8f49cb7b3a, type: 3}
+  _death: {fileID: 8300000, guid: 4bc09ae0a6c9efc43ada7f1bdc04ce88, type: 3}
+  _born: {fileID: 8300000, guid: 743c9757833ebcd4ead2a5e80db1ba5a, type: 3}

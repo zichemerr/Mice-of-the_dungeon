@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b80b46688354768a86e890ce1964365, type: 3}
   m_Name: ParticleConfig
   m_EditorClassIdentifier: 
-  _deadParticlePrefab: {fileID: 0}
+  _deadParticlePrefab: {fileID: 4909181168946295745, guid: 09ea9737e6fbdfe44bc1924b4af54e1e, type: 3}
+  _bornParticlePrefab: {fileID: 4909181168946295745, guid: afc897c3089a3d24bb318433806870c1, type: 3}

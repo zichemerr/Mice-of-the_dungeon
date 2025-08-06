@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Sources.Code.Gameplay.PlayerSystem;
+using Sources.Code.Gameplay.Sounds;
+using Sources.Code.Particles;
 using UnityEngine;
 
 namespace Sources.Code.Gameplay.Spawner
@@ -12,13 +14,18 @@ namespace Sources.Code.Gameplay.Spawner
         [SerializeField] private int _poolSize;
     
         private MousePool _mousePool;
+        private Particle _particle;
+        private AudioSystem _audioSystem;
     
         public event Action<Mouse> Spawned;
 
-        public void Init(Transform spawnParent)
+        public void Init(Transform spawnParent, Particle particle, AudioSystem audioSystem)
         {
             _mousePool = new MousePool(_mousePrefab, spawnParent, _poolSize);
             _mousePool.Init();
+            
+            _particle = particle;
+            _audioSystem = audioSystem;
 
             foreach (var pointSpawner in _pointsSpawner)
             {
@@ -47,10 +54,9 @@ namespace Sources.Code.Gameplay.Spawner
         {
             GetMouses(position, spawnCount);
             pointSpawner.Entered -= OnEntered;
-
-            //zichemerr: я избавился от статики
-            //Root.Effect.Play(position);
-            //Root.Audio.Play(Root.Sound.Clap, 0.8f);
+            
+            _particle.Play(_particle.Config.BornParticlePrefab, position);
+            _audioSystem.PlaySound(_audioSystem.Sounds.Born);
         }
 
         public Mouse[] GetMouses(Vector2 position, int count)
@@ -68,7 +74,7 @@ namespace Sources.Code.Gameplay.Spawner
             var mouse = _mousePool.GetMouse();
         
             mouse.gameObject.SetActive(true);
-            mouse.Init();
+            mouse.Init(_particle);
             mouse.SetPosition(position);
             Spawned?.Invoke(mouse);
 

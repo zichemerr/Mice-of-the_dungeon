@@ -5,7 +5,9 @@ public class SoundsConfig : ScriptableObject
 {
     [SerializeField] private AudioClip _defeat;
     [SerializeField] private AudioClip _death;
+    [SerializeField] private AudioClip _born;
     
     public AudioClip Defeat => _defeat;
     public AudioClip Death => _death;
+    public AudioClip Born => _born;
 }

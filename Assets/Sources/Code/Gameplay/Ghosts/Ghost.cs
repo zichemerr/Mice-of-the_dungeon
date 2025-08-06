@@ -27,7 +27,7 @@ namespace Sources.Code.Gameplay.Ghosts
                 
             _ghostAttackAnimation.Init(_cancellationToken);
             
-            _attacker = new GhostAttacker(_attackPoint, _ghostAttackAnimation, _radius, ghostConfig.CircleDuration);
+            _attacker = new GhostAttacker(_mouseDeath, _attackPoint, _ghostAttackAnimation, _radius, ghostConfig.CircleDuration);
             _movement = new GhostMovement(transform, _movementPoints, ghostConfig, _cancellationToken, _attacker);
             _movement.Init();
         }
