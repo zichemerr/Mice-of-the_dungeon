@@ -335,6 +335,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3645433174908418296}
     m_Modifications:
+    - target: {fileID: 2515392389167537076, guid: 48df5b29001b9364b9ec7768515c7cde, type: 3}
+      propertyPath: _spawner
+      value: 
+      objectReference: {fileID: 5440679362338706726}
     - target: {fileID: 3412324828890982872, guid: 48df5b29001b9364b9ec7768515c7cde, type: 3}
       propertyPath: _ghostView
       value: 

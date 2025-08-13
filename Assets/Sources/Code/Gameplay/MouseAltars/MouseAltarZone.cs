@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Sources.Code.Gameplay.MouseAltars
 {
-    public class ImporterZone : MonoBehaviour
+    public class MouseAltarZone : MonoBehaviour
     {
         public event Action<IImportable> Entered;
         public event Action<IImportable> Exited;

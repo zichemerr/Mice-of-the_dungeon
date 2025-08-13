@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Sources.Code.Gameplay.MouseAltars
 {
-    public class ImporterView : MonoBehaviour
+    public class MouseAltarView : MonoBehaviour
     {
         [SerializeField] private TMP_Text _text;
 

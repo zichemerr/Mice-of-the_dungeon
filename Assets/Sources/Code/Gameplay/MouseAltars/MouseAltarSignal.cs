@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Sources.Code.Gameplay.MouseAltars
 {
-    public class ImportSignal : MonoBehaviour
+    public class MouseAltarSignal : MonoBehaviour
     {
         [SerializeField] private PulseAnimation _pulse;
         [SerializeField] private MouseSpawner _spawner;
@@ -30,6 +30,7 @@ namespace Sources.Code.Gameplay.MouseAltars
             if (_spawned - 1 == _mouseAltar.MaxMouseCount)
             {
                 _pulse.Play();
+                Debug.Log("ferf");
             }
         }
 
