@@ -15,7 +15,8 @@ namespace Sources.Code.Gameplay.MouseAltars
         private CancellationTokenSource _cancellationTokenSource;
         private CancellationToken _cancellationToken;
 
-        private void Start()
+        //Meow
+        public void Init()
         {
             _cancellationTokenSource = new CancellationTokenSource();
             _cancellationToken = _cancellationTokenSource.Token;
@@ -23,6 +24,9 @@ namespace Sources.Code.Gameplay.MouseAltars
 
         private void OnDestroy()
         {
+            if (_cancellationTokenSource == null)
+                return;
+            
             _cancellationTokenSource.Cancel();
         }
 

@@ -3,5 +3,6 @@
     public interface IImportable
     {
         public void Destroy();
+        public void PlayDeathParticle();
     }
 }

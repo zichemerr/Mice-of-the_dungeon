@@ -17,15 +17,15 @@ namespace Sources.Code.Gameplay.MouseAltars
             _audioSystem = audioSystem;
         }
         
-        public async UniTask DeathRoutine(Mouse mouse)
+        public async UniTask DeathRoutine(IImportable mouse)
         {
             _audioSystem.PlaySound(_audioSystem.Sounds.Death);
             
             await _mouseDeathView.Hide();
             await UniTask.WaitForSeconds(0.05f);
             
-            mouse.PlayDeathParticle();
             mouse.Destroy();
+            mouse.PlayDeathParticle();
             await _mouseDeathView.Show(0.5f);
         }
 

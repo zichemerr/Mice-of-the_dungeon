@@ -27,7 +27,7 @@ namespace Sources.Code.Gameplay.MouseAltars
             mouse.Destroyed += OnDestroyed;
             _spawned++;
 
-            if (_spawned - 1 == _mouseAltar.MaxMouseCount)
+            if (_spawned == _mouseAltar.MaxMouseCount)
             {
                 _pulse.Play();
                 Debug.Log("ferf");

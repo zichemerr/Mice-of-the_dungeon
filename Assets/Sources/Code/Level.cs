@@ -23,11 +23,17 @@ namespace Sources.Code
         [SerializeField] private MouseAltar _mouseAltar;
         [SerializeField] private BoxesRoot _boxesRoot;
         [SerializeField] private GameEventScreen _gameEventScreen;
-        [SerializeField] private Ghost _ghost;
-        [SerializeField] private bool _ghostEnabled;
         [SerializeField] private Transform _particleParent;
         [SerializeField] private MouseDeath _mouseDeath;
         [SerializeField] private int _maxMouseCount;
+        
+        [Header("DeadMouse")]
+        [SerializeField] private DeathMouse _deathMouse;
+        [SerializeField] private bool _deathMouseEnabled;
+        
+        [Header("DeadGhost")]
+        [SerializeField] private Ghost _ghost;
+        [SerializeField] private bool _ghostEnabled;
     
         public Vector2 PlayerPosition => _playerPointPosition.position;
         public PlayerMovement PlayerMovement => _playerMovement;
@@ -43,6 +49,8 @@ namespace Sources.Code
         public Transform ParticleParent => _particleParent;
         public MouseDeath MouseDeath => _mouseDeath;
         public bool GhostEnabled => _ghostEnabled;
+        public DeathMouse DeathMouse => _deathMouse;
+        public bool DeathMouseEnabled => _deathMouseEnabled;
     
         public void Destroy()
         {
@@ -94,6 +102,12 @@ namespace Sources.Code
                 {
                     var ghost = levelInstance.Ghost;
                     ghost.Init(_mainConfig.GhostConfig);
+                }
+
+                if (levelInstance.DeathMouseEnabled)
+                {
+                    var deadMouse = levelInstance.DeathMouse;
+                    deadMouse.Init(particle);
                 }
                 
                 return levelInstance;
