@@ -14,7 +14,6 @@ namespace Sources.Code.Gameplay.MouseAltars
         [SerializeField] private MouseAltarZone _zone;
         [SerializeField] private MouseAltarView _view;
         [SerializeField] private MouseAltarSignal _signal;
-        [SerializeField] private GhostScreamerView ghostScreamerView;
 
         private CancellationTokenSource _cancellationTokenSource;
         private CancellationToken _cancellationToken;
@@ -27,7 +26,7 @@ namespace Sources.Code.Gameplay.MouseAltars
         public event Action Impotred;
         public int MaxMouseCount => _maxMouseCount;
 
-        public void Init(int maxMouseCount, PlayerInput playerInput)
+        public void Init(GhostScreamerView ghostScreamerView, int maxMouseCount, PlayerInput playerInput)
         {
             _cancellationTokenSource = new CancellationTokenSource();
             _cancellationToken = _cancellationTokenSource.Token;

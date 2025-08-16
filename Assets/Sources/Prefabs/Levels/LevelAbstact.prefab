@@ -72,11 +72,14 @@ MonoBehaviour:
   _mouseAltar: {fileID: 3161564148777747312}
   _boxesRoot: {fileID: 6282609241348271258}
   _gameEventScreen: {fileID: 2842337332358647935}
+  _particleParent: {fileID: 1425355954401990145}
+  _mouseDeath: {fileID: 8716289312752490935}
+  _ghostScreamerView: {fileID: 942174051925096196}
+  _maxMouseCount: 1
+  _deathMouse: {fileID: 0}
+  _deathMouseEnabled: 0
   _ghost: {fileID: 0}
   _ghostEnabled: 0
-  _particleParent: {fileID: 1425355954401990145}
-  _mouseDeath: {fileID: 0}
-  _maxMouseCount: 1
 --- !u!114 &8493879588924662983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -845,6 +848,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 321002e31094ba647ba2c638bfe668ca, type: 3}
+--- !u!114 &942174051925096196 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8070319785112610524, guid: 321002e31094ba647ba2c638bfe668ca, type: 3}
+  m_PrefabInstance: {fileID: 7128300291361100248}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be62782c7304acab4d6d1c70127c17d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5903995147139281464 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3676057796030866400, guid: 321002e31094ba647ba2c638bfe668ca, type: 3}

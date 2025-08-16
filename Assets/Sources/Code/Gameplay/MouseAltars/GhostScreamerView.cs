@@ -1,4 +1,3 @@
-using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
@@ -14,8 +13,7 @@ namespace Sources.Code.Gameplay.MouseAltars
 
         private CancellationTokenSource _cancellationTokenSource;
         private CancellationToken _cancellationToken;
-
-        //Meow
+        
         public void Init()
         {
             _cancellationTokenSource = new CancellationTokenSource();

@@ -25,6 +25,7 @@ namespace Sources.Code
         [SerializeField] private GameEventScreen _gameEventScreen;
         [SerializeField] private Transform _particleParent;
         [SerializeField] private MouseDeath _mouseDeath;
+        [SerializeField] private GhostScreamerView _ghostScreamerView;
         [SerializeField] private int _maxMouseCount;
         
         [Header("DeadMouse")]
@@ -51,6 +52,7 @@ namespace Sources.Code
         public bool GhostEnabled => _ghostEnabled;
         public DeathMouse DeathMouse => _deathMouse;
         public bool DeathMouseEnabled => _deathMouseEnabled;
+        public GhostScreamerView GhostScreamerView => _ghostScreamerView;
     
         public void Destroy()
         {
@@ -88,9 +90,12 @@ namespace Sources.Code
             
                 var playerInput = levelInstance.PlayerInput;
                 playerInput.Init(playerMovement);
+                
+                var ghostViewScreamer = levelInstance.GhostScreamerView;
+                ghostViewScreamer.Init();
             
                 var mouseAltar = levelInstance.MouseAltar;
-                mouseAltar.Init(levelInstance.MaxMouseCount, playerInput);
+                mouseAltar.Init(ghostViewScreamer, levelInstance.MaxMouseCount, playerInput);
             
                 var door = levelInstance.Door;
                 door.Init(mouseAltar, _mainConfig.DoorConfig);

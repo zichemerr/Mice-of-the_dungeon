@@ -303,7 +303,7 @@ MonoBehaviour:
   _walkAnimation: {fileID: 7071935693437509977}
   _rigidbody: {fileID: 9089739268389572966}
   _agent: {fileID: 5841419278528371807}
-  _speed: 5
+  _speed: 3.5
 --- !u!70 &8655259322621422000
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

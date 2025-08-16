@@ -25,7 +25,7 @@ namespace Sources.Code.Gameplay.Ghosts
         public async UniTask Attack()
         {
             await _ghostAttackAnimation.PlayAniamtion(1, _circleDuration);
-            _ghostAttackAnimation.PlayAniamtion(0, _circleDuration);
+            _ghostAttackAnimation.PlayAniamtion(0, _circleDuration).Forget();
             
             var colliders = Physics2D.OverlapCircleAll(_transform.position, _radius);
 
