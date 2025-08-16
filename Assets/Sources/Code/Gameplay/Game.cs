@@ -89,7 +89,6 @@ namespace Sources.Code.Gameplay
 
         private async UniTaskVoid DefeatLevel()
         {
-            _audioSystem.PlaySound(_audioSystem.Sounds.Defeat);
             await _gameEventScreen.ShowDefeat();
             await UniTask.WaitForSeconds(1);
             
@@ -110,6 +109,7 @@ namespace Sources.Code.Gameplay
             if (CurrentLevelNumber == MaxLevels)
             {
                 _playerInput.Disable();
+                _audioSystem.PlaySound(_audioSystem.Sounds.Win);
                 _gameEventScreen.ShowVictory();
                 return;
             }

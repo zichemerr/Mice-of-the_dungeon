@@ -1,4 +1,3 @@
-using Sources.Code.Gameplay.Sounds;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = nameof(SoundsConfig), menuName = "Configs/" + nameof(SoundsConfig), order = 0)]
@@ -27,14 +26,4 @@ public class SoundsConfig : ScriptableObject
     public Sound Win => _win;
     public Sound Scream => _scream;
     public Sound Defeat => _defeat;
-}
-
-[System.Serializable]
-public struct Sound
-{
-    [SerializeField] private AudioClip _audioClip;
-    [SerializeField] private float _volume;
-    
-    public AudioClip AudioClip => _audioClip;
-    public float Volume => _volume * AudioSystem.GlobalVolume;
 }
