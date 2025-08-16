@@ -4,6 +4,7 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using Sources.Code.Gameplay.PlayerSystem;
+using Sources.Code.Gameplay.Sounds;
 using UnityEngine;
 
 namespace Sources.Code.Gameplay.MouseAltars
@@ -17,6 +18,7 @@ namespace Sources.Code.Gameplay.MouseAltars
 
         private CancellationTokenSource _cancellationTokenSource;
         private CancellationToken _cancellationToken;
+        private AudioSystem _audioSystem;
         private List<IImportable> _importables;
         private float lastTime;
         private float cooldownTime = 0.2f;
@@ -26,17 +28,18 @@ namespace Sources.Code.Gameplay.MouseAltars
         public event Action Impotred;
         public int MaxMouseCount => _maxMouseCount;
 
-        public void Init(GhostScreamerView ghostScreamerView, int maxMouseCount, PlayerInput playerInput)
+        public void Init(GhostScreamerView ghostScreamerView, int maxMouseCount, PlayerInput playerInput, AudioSystem audioSystem)
         {
             _cancellationTokenSource = new CancellationTokenSource();
             _cancellationToken = _cancellationTokenSource.Token;
             _maxMouseCount = maxMouseCount;
             _importables = new List<IImportable>();
-            _mouseDeath.Init(ghostScreamerView, playerInput);
+            _mouseDeath.Init(ghostScreamerView, playerInput, audioSystem);
             _signal.Init();
 
             _isDestroy = false;
             _view.Init(_maxMouseCount);
+            _audioSystem = audioSystem;
         }
 
         private void OnEnable()
@@ -61,8 +64,8 @@ namespace Sources.Code.Gameplay.MouseAltars
 
             if (Time.time - lastTime >= cooldownTime)
             {
-                //Root.Audio.Play(Root.Sound.EnterZone, 0.5f);
-                _view.Text.DOShakePosition(0.2f, 2f, 30).onComplete += () => _view.Text.localPosition = Vector2.zero;
+                _audioSystem.PlaySound(_audioSystem.Sounds.Enter);
+                _view.Text.DOShakePosition(0.2f, 5f, 40).onComplete += () => _view.Text.localPosition = Vector2.zero;
                 lastTime = Time.time;
             }
 

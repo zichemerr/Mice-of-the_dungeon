@@ -118,6 +118,10 @@ PrefabInstance:
       propertyPath: _deathMouseEnabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2758625056456037868, guid: aa0554c402e4f0b46ab4b33ccdb6ed0f, type: 3}
+      propertyPath: _ghostScreamerView
+      value: 
+      objectReference: {fileID: 275519101183954810}
     - target: {fileID: 3645433174908418296, guid: aa0554c402e4f0b46ab4b33ccdb6ed0f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -191,7 +195,8 @@ PrefabInstance:
       value: -4.06
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5461835214234404273, guid: aa0554c402e4f0b46ab4b33ccdb6ed0f, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3645433174908418296, guid: aa0554c402e4f0b46ab4b33ccdb6ed0f, type: 3}
       insertIndex: 0
@@ -207,6 +212,17 @@ PrefabInstance:
       addedObject: {fileID: 2793714430731239293}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa0554c402e4f0b46ab4b33ccdb6ed0f, type: 3}
+--- !u!114 &275519101183954810 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1880822598230990651, guid: aa0554c402e4f0b46ab4b33ccdb6ed0f, type: 3}
+  m_PrefabInstance: {fileID: 1857964754009739329}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be62782c7304acab4d6d1c70127c17d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &3125497252557449401 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3645433174908418296, guid: aa0554c402e4f0b46ab4b33ccdb6ed0f, type: 3}

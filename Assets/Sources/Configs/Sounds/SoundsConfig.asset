@@ -12,6 +12,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ea14dc02e2574043a0167e71664db9a, type: 3}
   m_Name: SoundsConfig
   m_EditorClassIdentifier: 
-  _defeat: {fileID: 8300000, guid: b1597f81cecf0aa469244b8f49cb7b3a, type: 3}
-  _death: {fileID: 8300000, guid: 4bc09ae0a6c9efc43ada7f1bdc04ce88, type: 3}
-  _born: {fileID: 8300000, guid: 743c9757833ebcd4ead2a5e80db1ba5a, type: 3}
+  _defeat:
+    _audioClip: {fileID: 8300000, guid: b04f81683339acb4798d89fbce43a40e, type: 3}
+    _volume: 1
+  _death:
+    _audioClip: {fileID: 8300000, guid: 4bc09ae0a6c9efc43ada7f1bdc04ce88, type: 3}
+    _volume: 1
+  _born:
+    _audioClip: {fileID: 8300000, guid: 6023fd99cfcc6754ab386fad8410c311, type: 3}
+    _volume: 1
+  _door:
+    _audioClip: {fileID: 8300000, guid: d733b37aa1988ce4f9d45450d4dbe0a1, type: 3}
+    _volume: 0.6
+  _enter:
+    _audioClip: {fileID: 8300000, guid: c165c131b0f9a814bb2f5e9483a98134, type: 3}
+    _volume: 1
+  _scaryPiano:
+    _audioClip: {fileID: 8300000, guid: 7ee6df7481975504fa70e5629ba635bc, type: 3}
+    _volume: 1
+  _click:
+    _audioClip: {fileID: 8300000, guid: c6be0926b1cdd7640a83a1961dab8a45, type: 3}
+    _volume: 1
+  _write:
+    _audioClip: {fileID: 8300000, guid: fa31ee5bbb383924baaaaa966674c42e, type: 3}
+    _volume: 1
+  _boxKnock:
+    _audioClip: {fileID: 8300000, guid: 7db5c534108657d40abb25ce28180c85, type: 3}
+    _volume: 1
+  _win:
+    _audioClip: {fileID: 8300000, guid: 4f44014dcfd790244b59fdad31f4a607, type: 3}
+    _volume: 1
+  _scream:
+    _audioClip: {fileID: 8300000, guid: 241fff0e4946e9a4ab06574a21d56348, type: 3}
+    _volume: 0.2

@@ -95,10 +95,10 @@ namespace Sources.Code
                 ghostViewScreamer.Init();
             
                 var mouseAltar = levelInstance.MouseAltar;
-                mouseAltar.Init(ghostViewScreamer, levelInstance.MaxMouseCount, playerInput);
+                mouseAltar.Init(ghostViewScreamer, levelInstance.MaxMouseCount, playerInput, _audioSystem);
             
                 var door = levelInstance.Door;
-                door.Init(mouseAltar, _mainConfig.DoorConfig);
+                door.Init(mouseAltar, _mainConfig.DoorConfig, _audioSystem);
             
                 var boxesRoot = levelInstance.BoxesRoot;
                 boxesRoot.Init();

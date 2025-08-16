@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using Sources.Code.Gameplay.PlayerSystem;
+using Sources.Code.Gameplay.Sounds;
 
 namespace Sources.Code.Gameplay.MouseAltars
 {
@@ -9,11 +10,13 @@ namespace Sources.Code.Gameplay.MouseAltars
     {
         private PlayerInput _playerInput;
         private GhostScreamerView _ghostScreamerView;
+        private AudioSystem _audioSystem;
 
-        public override void Init(GhostScreamerView ghostScreamerView, PlayerInput playerInput)
+        public override void Init(GhostScreamerView ghostScreamerView, PlayerInput playerInput, AudioSystem audioSystem)
         {
             _playerInput = playerInput;
             _ghostScreamerView = ghostScreamerView;
+            _audioSystem = audioSystem;
         }
 
         public override async UniTask DeathRoutine(List<IImportable> importable, CancellationToken cancellationToken)
@@ -22,7 +25,7 @@ namespace Sources.Code.Gameplay.MouseAltars
 
             _ghostScreamerView.Enable();
             _playerInput.Disable();
-            //AudioSystem.Const.Play(Root.Sound.Piano, 0.4f);
+            _audioSystem.PlaySound(_audioSystem.Sounds.Scream);
             
             await UniTask.WaitForSeconds(0.3f, cancellationToken: cancellationToken);
             

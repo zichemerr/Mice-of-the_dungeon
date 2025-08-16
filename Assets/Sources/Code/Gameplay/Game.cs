@@ -89,6 +89,7 @@ namespace Sources.Code.Gameplay
 
         private async UniTaskVoid DefeatLevel()
         {
+            _audioSystem.PlaySound(_audioSystem.Sounds.Defeat);
             await _gameEventScreen.ShowDefeat();
             await UniTask.WaitForSeconds(1);
             
